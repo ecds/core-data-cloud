@@ -1,6 +1,8 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  config.hosts << 'coredata.ecds.io'
+  config.hosts << 'core-data.ecds.io'
   config.hosts << 'core-data.ecdsdev.org'
   config.hosts << 'coredata.ecdsdev.org'
   config.hosts << 'localhost'

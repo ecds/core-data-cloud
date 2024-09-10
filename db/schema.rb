@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_240_904_201_118) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_04_201118) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'pgcrypto'
   enable_extension 'plpgsql'
@@ -78,13 +78,13 @@ ActiveRecord::Schema[7.0].define(version: 20_240_904_201_118) do
     t.index ['user_defined'], name: 'index_core_data_connector_media_contents_on_user_defined', using: :gin
   end
 
-  create_table 'core_data_connector_organization_names', force: :cascade do |t|
-    t.bigint 'organization_id'
-    t.string 'name'
-    t.boolean 'primary'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['organization_id'], name: 'index_core_data_connector_organization_names_on_organization_id'
+  create_table "core_data_connector_organization_names", force: :cascade do |t|
+    t.bigint "organization_id"
+    t.string "name"
+    t.boolean "primary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_core_data_connector_organization_names_on_organization_id"
   end
 
   create_table 'core_data_connector_organizations', force: :cascade do |t|
@@ -170,21 +170,22 @@ ActiveRecord::Schema[7.0].define(version: 20_240_904_201_118) do
     t.index ['project_model_id'], name: 'index_cdc_project_model_accesses_on_project_model_id'
   end
 
-  create_table 'core_data_connector_project_model_relationships', force: :cascade do |t|
-    t.bigint 'primary_model_id', null: false
-    t.bigint 'related_model_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'slug'
-    t.boolean 'multiple'
-    t.string 'name'
-    t.boolean 'allow_inverse', default: false, null: false
-    t.string 'inverse_name'
-    t.boolean 'inverse_multiple', default: false
-    t.uuid 'uuid', default: -> { 'gen_random_uuid()' }, null: false
-    t.integer 'order', default: 0, null: false
-    t.index ['primary_model_id'], name: 'index_cdc_project_model_relationships_on_primary_model_id'
-    t.index ['related_model_id'], name: 'index_cdc_project_model_relationships_on_related_model_id'
+  create_table "core_data_connector_project_model_relationships", force: :cascade do |t|
+    t.bigint "primary_model_id", null: false
+    t.bigint "related_model_id", null: false
+    t.string "name"
+    t.boolean "multiple"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.boolean "allow_inverse", default: false, null: false
+    t.string "inverse_name"
+    t.boolean "inverse_multiple", default: false
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.integer "order", default: 0, null: false
+    t.index ["primary_model_id"], name: "index_cdc_project_model_relationships_on_primary_model_id"
+    t.index ["related_model_id"], name: "index_cdc_project_model_relationships_on_related_model_id"
+>>>>>>> cb9b8f7 (CDC #287 - Fixing a bug in source_names migration)
   end
 
   create_table 'core_data_connector_project_model_shares', force: :cascade do |t|
@@ -247,14 +248,14 @@ ActiveRecord::Schema[7.0].define(version: 20_240_904_201_118) do
     t.index ['user_defined'], name: 'index_core_data_connector_relationships_on_user_defined', using: :gin
   end
 
-  create_table 'core_data_connector_source_names', force: :cascade do |t|
-    t.string 'nameable_type'
-    t.bigint 'nameable_id'
-    t.string 'name'
-    t.boolean 'primary', default: false, null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index %w[nameable_type nameable_id], name: 'index_core_data_connector_source_names_on_nameable'
+  create_table "core_data_connector_source_names", force: :cascade do |t|
+    t.string "nameable_type"
+    t.bigint "nameable_id"
+    t.string "name"
+    t.boolean "primary", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nameable_type", "nameable_id"], name: "index_core_data_connector_source_names_on_nameable"
   end
 
   create_table 'core_data_connector_taxonomies', force: :cascade do |t|

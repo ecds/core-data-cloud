@@ -188,7 +188,6 @@ const PlaceForm = (props: Props) => {
         size='tiny'
       />
       <MapDraw
-        apiKey={process.env.REACT_APP_MAP_TILER_KEY}
         data={props.item.place_geometry?.geometry_json}
         geocoding='point'
         mapStyle={baseStyle}

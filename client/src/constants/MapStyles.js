@@ -1,2 +1,2 @@
-export const mapStyle = 'https://raw.githubusercontent.com/go2garret/maps/main/src/assets/json/openStreetMap.json';
-export const satelliteStyle = 'https://raw.githubusercontent.com/go2garret/maps/main/src/assets/json/arcgis_hybrid.json';
+export const mapStyle = 'https://api.maptiler.com/maps/basic-v2/style.json';
+export const satelliteStyle = 'https://api.maptiler.com/maps/hybrid/style.json';

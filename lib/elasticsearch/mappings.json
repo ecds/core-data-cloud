@@ -1,0 +1,77 @@
+{
+  "georgia_coast": {
+    "mappings": {
+      "dynamic": false,
+      "properties": {
+        "name": {
+          "type": "text"
+        },
+        "names": {
+          "type": "text"
+        },
+        "description": {
+          "type": "text"
+        },
+        "identifier": {
+          "type": "text"
+        },
+        "types": {
+          "type": "keyword"
+        },
+        "county": {
+          "type": "keyword"
+        },
+        "location": {
+          "type": "geo_point"
+        },
+        "uuid": {
+          "type": "text"
+        }
+      }
+    },
+    "model_fields": {
+      "name": {
+        "type": "string",
+        "field": "name"
+      },
+      "description": {
+        "type": "user_defined",
+        "field": "159c8717-703e-40c5-a813-425578f9a8a7",
+        "sub_field": "name"
+      },
+      "identifier": {
+        "type": "user_defined",
+        "field": "378d2b43-dcc0-4b64-8ef9-ecd7d743e2fb",
+        "sub_field": "name"
+      },
+      "types": {
+        "type": "related",
+        "related_model_id": 3,
+        "related_type": "array",
+        "field": "name"
+      },
+      "county": {
+        "type": "related",
+        "related_model_id": 2,
+        "related_type": "string",
+        "field": "name"
+      },
+      "location": {
+        "type": "geo_point",
+        "field": ["place_geometry", "geometry"]
+      },
+      "uuid": {
+        "type": "string",
+        "field": "uuid"
+      },
+      "slug": {
+        "type": "slug",
+        "field": "name"
+      },
+      "geojson": {
+        "type": "geojson",
+        "property_fields": ["name", "description", "uuid"]
+      }
+    }
+  }
+}

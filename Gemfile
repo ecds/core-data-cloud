@@ -62,3 +62,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+# ECDS STUFF
+# Elasticserch
+gem 'elasticsearch', '~> 7.0'
+gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.

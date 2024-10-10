@@ -18,8 +18,8 @@ docker build \
        --build-arg REACT_APP_IIIF_MANIFEST_ITEM_LIMIT=$REACT_APP_IIIF_MANIFEST_ITEM_LIMIT \
        --build-arg REACT_APP_MAP_TILER_KEY=$REACT_APP_MAP_TILER_KEY \
        --build-arg SECRET_KEY_BASE=$SECRET_KEY_BASE \
-       --build-arg TYPESENSE_API_KEY=$TYPESENSE_API_KEY \
-       --build-arg TYPESENSE_SEARCH_KEY=$TYPESENSE_SEARCH_KEY \
+       --build-arg ELASTICSEARCH_HOST=$ELASTICSEARCH_HOST \
+       --build-arg ELASTICSEARCH_API_KEY=$ELASTICSEARCH_API_KEY \
        -t core-data-cloud \
        .
 

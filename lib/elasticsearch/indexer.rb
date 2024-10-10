@@ -2,6 +2,7 @@
 
 require 'elasticsearch'
 require 'json'
+require_relative './document'
 
 module ECDSElasticsearch
   # CRUD for Elasticserch index
@@ -34,7 +35,7 @@ module ECDSElasticsearch
     end
 
     def index
-      records = CoreDataConnector::Place.where(project_model_id:)
+      records = CoreDataConnector::Place.where(project_model_id: @project_model_id)
       requests = []
       records.each do |record|
         document = @documenter.to_document(record)
@@ -46,13 +47,14 @@ module ECDSElasticsearch
     def update
       index
       requests = []
-      document_count = client.count(index: @collection)['count']
-      documents = client.search(index: @collection, query: '*', field: 'uuid', size: document_count)
+      document_count = @client.count(index: @collection)['count']
+      documents = @client.search(index: @collection, query: '*', field: 'uuid', size: document_count)
       documents['hits']['hits'].each do |hit|
         CoreDataConnector::Place.find(hit['_id'])
       rescue ActiveRecord::RecordNotFound
         requests.push({ delete: { _index: @collection, _id: hit['_id'] } })
       end
+      @client.bulk(body: requests)
     end
   end
 end

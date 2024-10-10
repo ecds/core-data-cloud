@@ -28,14 +28,14 @@ namespace :ecds_index do
   end
 
   desc 'Update indexed records'
-  task index: :environment do
+  task update: :environment do
     options = Elasticsearch::Options.parse(ARGV) do |opts|
       opts.banner = 'Usage: ecds_index:create -- --collection'
     end
 
     indexer = ECDSElasticsearch::Indexer.new(collection: options[:collection],
                                              project_model_id: options[:project_model_id])
-    indexer.index
+    indexer.update
   end
 
   desc 'Delete index'
@@ -44,7 +44,21 @@ namespace :ecds_index do
       opts.banner = 'Usage: ecds_index:delete -- --collection'
     end
 
-    indexer = ECDSElasticsearch::Indexer.new(collection: options[:collection])
+    indexer = ECDSElasticsearch::Indexer.new(collection: options[:collection],
+                                             project_model_id: options[:project_model_id])
     indexer.delete
+  end
+
+  desc 'Recreate index'
+  task recreate: :environment do
+    options = Elasticsearch::Options.parse(ARGV) do |opts|
+      opts.banner = 'Usage: ecds_index:recreate -- --collection'
+    end
+
+    indexer = ECDSElasticsearch::Indexer.new(collection: options[:collection],
+                                             project_model_id: options[:project_model_id])
+    indexer.delete
+    indexer.create
+    indexer.index
   end
 end

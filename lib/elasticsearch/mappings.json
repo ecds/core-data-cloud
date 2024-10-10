@@ -26,6 +26,9 @@
         },
         "uuid": {
           "type": "text"
+        },
+        "slug": {
+          "type": "text"
         }
       }
     },
@@ -71,6 +74,9 @@
       "geojson": {
         "type": "geojson",
         "property_fields": ["name", "description", "uuid"]
+      },
+      "manifest": {
+        "type": "manifest"
       }
     }
   }

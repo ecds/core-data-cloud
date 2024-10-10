@@ -7,13 +7,13 @@ module ECDSElasticsearch
   # Class to generate document for indexing
   # rubocop:disable Metrics/ClassLength
   class Document
-    attr_reader :client, :collection_name
+    attr_reader :client, :collection
 
-    def initialize(project_model_id:, collection_name:)
+    def initialize(project_model_id:, collection:)
       @project_model_id = project_model_id
-      @collection_name = collection_name
+      @collection = collection
       mappings_file = File.read(File.join(Rails.root, 'lib', 'elasticsearch', 'mappings.json'))
-      @model_mappings = JSON.parse(mappings_file, symbolize_names: true)[collection_name.to_sym][:model_fields]
+      @model_mappings = JSON.parse(mappings_file, symbolize_names: true)[collection.to_sym][:model_fields]
     end
 
     # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
@@ -41,6 +41,8 @@ module ECDSElasticsearch
           document[model_field] = find_point(record.place_geometry.geometry)
         when 'slug'
           document[:slug] = record.send(field[:field]).parameterize
+        when 'manifest'
+          document[:manifest] = CoreDataConnector::Manifest.find_by(manifestable_id: record.id)
         else
           next
         end

@@ -2,7 +2,7 @@
 FROM ruby:3.2.2
 
 RUN ls /etc
-RUN apt update -qq && apt install -y postgresql-client git libvips curl cron vim geos
+RUN apt update -qq && apt install -y postgresql-client git libvips curl cron vim libgeos
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt install nodejs
 RUN npm install --global yarn
 

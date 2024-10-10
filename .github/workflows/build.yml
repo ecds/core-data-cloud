@@ -43,7 +43,7 @@ jobs:
           REACT_APP_IIIF_MANIFEST_ITEM_LIMIT: ${{ secrets.REACT_APP_IIIF_MANIFEST_ITEM_LIMIT }}
           REACT_APP_MAP_TILER_KEY: ${{ secrets.REACT_APP_MAP_TILER_KEY }}
           SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
-          ELASTICSEARCH_HOST: ${{ secrets.TYPESENSE_API_KEY }}
+          ELASTICSEARCH_HOST: ${{ secrets.ELASTICSEARCH_HOST }}
           ELASTICSEARCH_API_KEY: ${{ secrets.ELASTICSEARCH_API_KEY }}
 
         run: |

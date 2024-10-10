@@ -6,6 +6,7 @@ require 'json'
 module ECDSElasticsearch
   # CRUD for Elasticserch index
   class Indexer
+    # rubocop:disable Metrics/MethodLength
     def initialize(collection:, project_model_id:)
       @client = Elasticsearch::Client.new(
         host: ENV['ELASTICSEARCH_HOST'],
@@ -17,12 +18,15 @@ module ECDSElasticsearch
       )
       @collection = collection
       @project_model_id = project_model_id
+      @documenter = ECDSElasticsearch::Document.new(project_model_id:, collection:)
+      @mappings = File.read(File.join(Rails.root, 'lib', 'elasticsearch', 'mappings.json'))
     end
+    # rubocop:enable Metrics/MethodLength
 
     def create
-      document_mappings = JSON.parse(mappings_file, symbolize_names: true)[collection_name.to_sym][:mappings]
+      document_mappings = JSON.parse(@mappings, symbolize_names: true)[@collection.to_sym][:mappings]
 
-      @client.indices.create(index: @collection, body: document_mappings)
+      @client.indices.create(index: @collection, body: { mappings: document_mappings })
     end
 
     def delete
@@ -31,13 +35,24 @@ module ECDSElasticsearch
 
     def index
       records = CoreDataConnector::Place.where(project_model_id:)
-      documenter = ECDSElasticsearch::Document.new(project_model_id:, collection:)
       requests = []
       records.each do |record|
-        document = documenter.to_document(record)
+        document = @documenter.to_document(record)
         requests.push({ index: { _index: @collection, _id: record.id, data: document } })
       end
       @client.bulk(body: requests)
+    end
+
+    def update
+      index
+      requests = []
+      document_count = client.count(index: @collection)['count']
+      documents = client.search(index: @collection, query: '*', field: 'uuid', size: document_count)
+      documents['hits']['hits'].each do |hit|
+        CoreDataConnector::Place.find(hit['_id'])
+      rescue ActiveRecord::RecordNotFound
+        requests.push({ delete: { _index: @collection, _id: hit['_id'] } })
+      end
     end
   end
 end

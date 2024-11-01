@@ -67,3 +67,7 @@ end
 # Elasticserch
 gem 'elasticsearch', '~> 7.0'
 gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
+
+# Geospatial libraries
+gem 'rgeo', '~> 3.0'
+gem 'rgeo-geojson', '~>  2.2'

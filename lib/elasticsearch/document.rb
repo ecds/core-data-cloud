@@ -16,6 +16,17 @@ module ECDSElasticsearch
       @model_mappings = JSON.parse(mappings_file, symbolize_names: true)[collection.to_sym][:model_fields]
     end
 
+    def thumbnail_url(provider, embed_id)
+      case provider
+      when "Vimeo"
+        "https://vumbnail.com/#{embed_id}.jpg"
+      when "YouTube"
+        "https://img.youtube.com/vi/#{embed_id}/hqdefault.jpg"
+      else
+        nil  # Fallback for unsupported providers
+      end
+    end
+
     # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
     def to_document(record)
       document = {}
@@ -31,12 +42,38 @@ module ECDSElasticsearch
             primary_record_id: record.id,
             project_model_relationship_id: field[:related_model_id]
           )
-          related_records = relations.map do |related_record|
-            klass = related_record.related_record_type.constantize
-            klass.find(related_record.related_record.id).send(field[:field])
+          if field[:related_type] == 'string'
+            related_records = relations.map do |related_record|
+              # Converts string to callable class name.
+              klass = related_record.related_record_type.constantize
+              klass.find(related_record.related_record.id).send(field[:field])
+            end
+            related_records = related_records.first 
+            document[model_field] = related_records
           end
-          related_records = related_records.first if field[:related_type] == 'string'
-          document[model_field] = related_records
+          if field[:related_type] == "hash"
+            document[model_field] = relations.map do |related_record|
+              props = {}
+              klass = related_record.related_record_type.constantize
+              related_instance = klass.find(related_record.related_record.id)
+            
+              field[:field].each do |prop|
+                if related_instance.respond_to?(prop)
+                  props[prop] = related_instance.send(prop)
+                else
+                  user_defined_field = UserDefinedFields::UserDefinedField.find_by(uuid: prop)
+                  if user_defined_field
+                    props[user_defined_field.column_name] = related_instance.user_defined[prop]
+                  else
+                    Rails.logger.warn("Property #{prop} not found as a method or user-defined field.")
+                  end
+                end
+              end
+              props[:thumbnail_url] = thumbnail_url(props['provider'], props['embed_id'])
+              props
+            end
+            
+
         when 'geo_point'
           document[model_field] = find_point(record.place_geometry.geometry)
         when 'slug'
@@ -141,7 +178,7 @@ module ECDSElasticsearch
         copy = copy.send(field)
       end
       copy
-    end
+    end   
   end
   # rubocop:enable Metrics/ClassLength
 end

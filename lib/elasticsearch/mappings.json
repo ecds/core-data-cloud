@@ -59,6 +59,12 @@
         "related_type": "string",
         "field": "name"
       },
+      "videos" : {
+        "type" : "related",
+        "related_model_id" : 4,
+        "related_type" : "hash",
+        "field" : ["231c4d65-9303-4177-9455-a82a61488037", "89c9080e-9909-42f7-8835-eb2102047b20", "name"]        
+      },
       "location": {
         "type": "geo_point",
         "field": ["place_geometry", "geometry"]

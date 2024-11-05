@@ -27,6 +27,18 @@ module ECDSElasticsearch
       end
     end
 
+    def embed_url(provider, embed_id)
+      case provider
+      when "Vimeo"
+        "https://player.vimeo.com/video/#{embed_id}"
+      when "YouTube"
+        "https://www.youtube.com/embed/#{embed_id}"
+      else
+        nil  # Fallback for unsupported providers
+      end
+    end
+    
+
     # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
     def to_document(record)
       document = {}
@@ -70,8 +82,10 @@ module ECDSElasticsearch
                 end
               end
               props[:thumbnail_url] = thumbnail_url(props['provider'], props['embed_id'])
+              props[:embed_url] = embed_url(props['provider'], props['embed_id'])
               props
             end
+          end
             
 
         when 'geo_point'

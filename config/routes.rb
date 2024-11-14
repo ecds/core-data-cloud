@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  namespace :ecds do
+    get 'manifest/:id', to: 'combined_manifest#show'
+  end
+  
   mount CoreDataConnector::Engine => '/core_data'
   mount UserDefinedFields::Engine, at: '/user_defined_fields'
 

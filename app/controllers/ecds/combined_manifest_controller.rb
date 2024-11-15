@@ -4,8 +4,8 @@ module Ecds
       # Get the main place record by UUID
       record = CoreDataConnector::Place.find_by(uuid: params[:id])
 
-      related_places_relationship_model_id = 6
-      photograph_relationship_uuid = '0fbeaac4-45a3-4767-b9bc-7674632a8be1'
+      related_places_relationship_model_id = params[:related_model_id].to_i
+      photograph_relationship_uuid = params[:photo_uuid]
 
       #Find the photograph manifest for the main record
       photograph_manifest = record.manifests.find { |manifest| manifest.identifier.ends_with?(photograph_relationship_uuid) }
@@ -22,7 +22,7 @@ module Ecds
 
       related_records.each do |related_record|
         related_photograph_manifest = related_record.manifests.find { |manifest| manifest.identifier.ends_with?(photograph_relationship_uuid) }
-        
+
         next if related_photograph_manifest.nil?
 
         # Append the items from related photograph manifests to the main manifest

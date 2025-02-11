@@ -37,7 +37,8 @@ gem 'resource_api', git: 'https://github.com/performant-software/resource-api.gi
 gem 'jwt_auth', git: 'https://github.com/performant-software/jwt-auth.git', tag: 'v0.1.2'
 
 # Core data
-gem 'core_data_connector', git: 'https://github.com/performant-software/core-data-connector.git', tag: 'v0.1.74'
+# gem 'core_data_connector', git: 'https://github.com/performant-software/core-data-connector.git', tag: 'v0.1.74'
+gem 'core_data_connector', git: 'https://github.com/ecds/core-data-connector.git', branch: 'feature/geonames'
 
 # IIIF
 gem 'triple_eye_effable', git: 'https://github.com/performant-software/triple-eye-effable.git', tag: 'v0.2.1'
@@ -61,3 +62,12 @@ group :development do
   # gem "spring"
 end
 
+# ECDS STUFF
+# Elasticserch
+gem 'elasticsearch', '~> 7.0'
+gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
+
+# Geospatial libraries
+gem 'rgeo', '~> 3.0'
+gem 'rgeo-geojson', '~>  2.2'
+gem 'roo', '~> 2.10.0'

@@ -26,6 +26,8 @@ import type { Place as PlaceType } from '../types/Place';
 import PlaceLayerModal from './PlaceLayerModal';
 import PlaceLayerUtils from '../utils/PlaceLayers';
 import PlaceNameModal from './PlaceNameModal';
+import MapStyleSwitcher from './MapStyleSwitcher';
+import { mapStyle, satelliteStyle } from '../constants/MapStyles';
 import styles from './PlaceForm.module.css';
 import MapSessionUtils from '../utils/MapSession';
 
@@ -42,6 +44,11 @@ const GeocodingTypes = {
 
 const PlaceForm = (props: Props) => {
   const { t } = useTranslation();
+
+  /**
+   * Tracks selected map style.
+   */
+  const [baseStyle, setBaseStyle] = useState<mapStyle | satelliteStyle>(mapStyle);
 
   /**
    * Tracks whether the user has enabled polygon data entry for MapView.
@@ -212,7 +219,7 @@ const PlaceForm = (props: Props) => {
         apiKey={process.env.REACT_APP_MAP_TILER_KEY}
         data={props.item.place_geometry?.geometry_json}
         geocoding={geocoding}
-        mapStyle='https://api.maptiler.com/maps/dataviz/style.json'
+        mapStyle={baseStyle}
         maxPitch={0}
         onChange={onMapChange}
         preserveDrawingBuffer
@@ -256,6 +263,12 @@ const PlaceForm = (props: Props) => {
               />
             )}
             onSelection={onUpload}
+          />
+        </MapControl>
+        <MapControl position='top-right'>
+          <MapStyleSwitcher
+            baseStyle={baseStyle}
+            setBaseStyle={setBaseStyle}
           />
         </MapControl>
         <LayerMenu

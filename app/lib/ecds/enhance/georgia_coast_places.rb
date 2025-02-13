@@ -18,7 +18,7 @@ module Ecds
       end
 
       def enhance
-        @document[:places] = add_places(@document[:tmp_places]) unless @document[:tmp_places].nil?
+        @document[:places] = add_places(@document[:places]) unless @document[:tmp_places].nil?
         @document = add_extras if @document[:types].include? 'Barrier Island'
         @document[:videos] = enhance_videos(@document[:videos])
         @document[:featured_photograph] = find_featured_photograph
@@ -26,9 +26,6 @@ module Ecds
         @document[:short_description] = short_description if @document[:short_description].nil?
         @document[:topos] = collect_topos
         @document[:map_layers] = collect_map_layers
-        @document[:tmp_places] = nil
-        @document[:tmp_topos] = nil
-        @document[:tmp_map_layers] = nil
         @document
       end
 
@@ -78,9 +75,9 @@ module Ecds
       end
 
       def collect_topos
-        return if @document[:tmp_topos].empty?
+        return if @document[:topos].empty?
 
-        topos = @document[:tmp_topos].map { |topo| CoreDataConnector::Place.find_by(uuid: topo) }
+        topos = @document[:topos].map { |topo| CoreDataConnector::Place.find_by(uuid: topo) }
         years = topos.map do |layer|
           layer.place_layers.map(&:name)
         end

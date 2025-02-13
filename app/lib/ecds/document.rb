@@ -17,6 +17,7 @@ require 'json'
 
         # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
         def to_document(record)
+          puts record.name
           document = {}
           @model_mappings.each_key do |model_field|
             field = @model_mappings[model_field]
@@ -42,10 +43,11 @@ require 'json'
               if field[:related_type] == 'string' || field[:related_type] == 'array'
                 related_records = relations.map do |related_record|
                   # Converts string to callable class name.
-                  klass = related_record.related_record_type.constantize
                   if field[:primary]
+                    klass = related_record.related_record_type.constantize
                     klass.find(related_record.related_record.id).send(field[:field])
                   else
+                    klass = related_record.primary_record_type.constantize
                     klass.find(related_record.primary_record.id).send(field[:field])
                   end
                 end

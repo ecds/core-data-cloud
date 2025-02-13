@@ -256,7 +256,7 @@
         "related_type": "string",
         "field": "name"
       },
-      "tmp_places": {
+      "places": {
         "type": "related",
         "primary": true,
         "related_model_id": 6,
@@ -267,17 +267,10 @@
           "159c8717-703e-40c5-a813-425578f9a8a7"
         ]
       },
-      "tmp_topos": {
+      "topos": {
         "type": "related",
         "primary": true,
         "related_model_id": 9,
-        "related_type": "array",
-        "field": "uuid"
-      },
-      "tmp_map_layers": {
-        "type": "related",
-        "primary": true,
-        "related_model_id": 10,
         "related_type": "array",
         "field": "uuid"
       },
@@ -427,18 +420,7 @@
         "field": "558ca431-b8fe-4731-9225-6e754d5fd894",
         "sub_field": "name"
       },
-      "tmp_places": {
-        "type": "related",
-        "primary": false,
-        "related_model_id": 2,
-        "related_type": "hash",
-        "field": [
-          "name",
-          "uuid",
-          "159c8717-703e-40c5-a813-425578f9a8a7"
-        ]
-      },
-      "tmp_map_layers": {
+      "map_layers": {
         "type": "related",
         "primary": false,
         "related_model_id": 15,
@@ -457,6 +439,9 @@
       "properties": {
         "name": {
           "type": "text"
+        },
+        "location": {
+          "type": "geo_point"
         },
         "slug": {
           "type": "text"
@@ -485,6 +470,44 @@
               "type": "text"
             },
             "embed_url": {
+              "type": "text"
+            }
+          }
+        },
+        "places": {
+          "properties": {
+            "name": {
+              "type": "text"
+            },
+            "slug": {
+              "type": "text"
+            },
+            "location": {
+              "type": "geo_point"
+            },
+            "type": {
+              "type": "text"
+            },
+            "description": {
+              "type": "text"
+            },
+            "bbox": {
+              "type": "float"
+            }
+          }
+        },
+        "map_layers": {
+          "properties": {
+            "name": {
+              "type": "text"
+            },
+            "preview": {
+              "type": "text"
+            },
+            "uuid": {
+              "type": "text"
+            },
+            "wms_resource": {
               "type": "text"
             }
           }
@@ -518,6 +541,24 @@
         "related_fields": [
           "796c7bb2-515b-4c94-8148-5389a1f3c660"
         ]
+      },
+      "places": {
+        "type": "related",
+        "primary": false,
+        "related_model_id": 12,
+        "related_type": "hash",
+        "field": [
+          "name",
+          "uuid",
+          "159c8717-703e-40c5-a813-425578f9a8a7"
+        ]
+      },
+      "map_layers": {
+        "type": "related",
+        "primary": false,
+        "related_model_id": 13,
+        "related_type": "array",
+        "field": "uuid"
       }
     },
     "project_model_id": 13

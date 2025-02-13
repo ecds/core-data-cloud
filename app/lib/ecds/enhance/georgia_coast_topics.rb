@@ -15,8 +15,21 @@ module Ecds
       end
 
       def enhance
+        @document[:places] = add_places(@document[:places]) unless @document[:places].nil?
+        @document[:places] = add_points unless @document[:places].nil?
         @document[:videos] = enhance_videos(@document[:videos])
+        @document[:map_layers] = collect_map_layers
         @document
+      end
+
+      private
+
+      def add_points
+        @document[:places].each do |place|
+          place_record = CoreDataConnector::Place.find_by(uuid: place[:uuid])
+          place[:location] = Ecds::Helpers.find_point(place_record.place_geometry.geometry)
+        end
+        @document[:places]
       end
     end
   end

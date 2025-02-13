@@ -56,7 +56,8 @@ module Ecds
 
       def collect_map_layers
         layers = []
-        map_layers = @document[:tmp_map_layers].map { |ml| CoreDataConnector::Place.find_by(uuid: ml) }
+        @document[:map_layers] = [] if @document[:map_layers].nil?
+        map_layers = @document[:map_layers].map { |ml| CoreDataConnector::Place.find_by(uuid: ml) }
         map_layers.each do |map_layer|
           name = map_layer.place_layers.find_by(layer_type: 'raster').name
           wms_resource = map_layer.place_layers.find_by(layer_type: 'raster').url

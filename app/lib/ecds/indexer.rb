@@ -27,7 +27,7 @@ module Ecds
       @enhancer_class = begin
         "Ecds::Enhance::#{collection.camelcase}".constantize
       rescue NameError
-          nil
+        nil
       end
     end
     # rubocop:enable Metrics/MethodLength
@@ -60,7 +60,7 @@ module Ecds
       end
       return if requests.empty?
 
-        requests.in_groups_of(100) { |_group| @client.bulk(body: requests) }
+      requests.in_groups_of(100) { |_group| @client.bulk(body: requests) }
     end
 
     def recreate

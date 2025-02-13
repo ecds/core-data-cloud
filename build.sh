@@ -35,5 +35,5 @@ docker tag core-data-cloud "${AWS_ECR}/core-data-cloud:latest"
 echo "Pushing image"
 docker push "${AWS_ECR}/core-data-cloud:latest"
 
-echo "Force update service"
-aws ecs update-service --cluster ${AWS_ECS_CLUSTER} --service ${AWS_ECS_SERVICE} --force-new-deployment --region ${AWS_REGION}
+# echo "Force update service"
+# aws ecs update-service --cluster ${AWS_ECS_CLUSTER} --service ${AWS_ECS_SERVICE} --force-new-deployment --region ${AWS_REGION}

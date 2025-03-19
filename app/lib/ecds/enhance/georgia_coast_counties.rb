@@ -15,9 +15,9 @@ module Ecds
       end
 
       def enhance
-        @document[:places] = add_places(@document[:tmp_places]) unless @document[:tmp_places].nil?
+        @document[:places] = add_places(@document[:places]) unless @document[:places].nil?
         @document[:map_layers] = collect_map_layers
-        @document[:tmp_places] = nil
+        @document[:places] = nil
         @document[:tmp_map_layers] = nil
         @document
       end

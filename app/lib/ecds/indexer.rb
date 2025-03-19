@@ -29,6 +29,13 @@ module Ecds
       rescue NameError
         nil
       end
+      @records = @model_class.where(project_model_id: @project_model_id)
+      document_count = @client.count(index: @collection)['count']
+      documents = @client.search(index: @collection, body: { fields: ['uuid'], size: document_count, _source: false })
+      @hit_ids = documents['hits']['hits'].map { |h| h['_id'].to_i }
+      @database_records = @records.map(&:id)
+      @requests = []
+      index_requests
     end
     # rubocop:enable Metrics/MethodLength
 
@@ -42,32 +49,23 @@ module Ecds
     end
 
     def index
-      requests = index_requests
-      @client.bulk(body: requests)
+      post
     end
 
     def update
-      requests = index_requests
-      document_count = @client.count(index: @collection)['count']
-      documents = @client.search(index: @collection, body: { fields: ['uuid'], size: document_count, _source: false })
-      documents['hits']['hits'].each do |hit|
-        record = @model_class.find(hit['_id'])
-        document = @documenter.to_document(record)
-        document = enhance(document) unless @enhancer_class.nil?
-        requests.push({ update: { _index: @collection, _id: record.id, data: { doc: document } } })
-      rescue ActiveRecord::RecordNotFound
-        requests.push({ delete: { _index: @collection, _id: hit['_id'] } })
+      @hit_ids.each do |hit|
+        @requests.push({ delete: { _index: @collection, _id: hit } }) unless @database_records.include?(hit)
       end
-      return if requests.empty?
 
-      requests.in_groups_of(100) { |_group| @client.bulk(body: requests) }
+      return if @requests.empty?
+
+      post
     end
 
     def recreate
       delete
       create
-      index
-      update
+      post
     end
 
     def index_record(record_id)
@@ -82,16 +80,21 @@ module Ecds
       end
     end
 
+    def post
+      @requests.in_groups_of(100) { |group| @client.bulk(body: group.compact) }
+    end
+
     private
 
     def index_requests
-      document_count = @client.count(index: @collection)['count']
-      documents = @client.search(index: @collection, body: { fields: ['uuid'], size: document_count, _source: false })
-      hit_ids = documents['hits']['hits'].map { |h| h['_id'] }
-      records = @model_class.where(project_model_id: @project_model_id)
-      records = records.filter { |record| !hit_ids.include? record.id }
-      records.map do |record|
-        { index: { _index: @collection, _id: record.id, data: @documenter.to_document(record) } }
+      @records.each do |record|
+        document = @documenter.to_document(record)
+        document = enhance(document) unless @enhancer_class.nil?
+        if @hit_ids.include?(record.uuid)
+          @requests.push({ update: { _index: @collection, _id: record.id, data: { doc: document } } })
+        else
+          @requests.push({ index: { _index: @collection, _id: record.id, data: document } })
+        end
       end
     end
 

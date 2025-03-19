@@ -25,11 +25,14 @@ module Ecds
       private
 
       def add_points
+        places = []
         @document[:places].each do |place|
           place_record = CoreDataConnector::Place.find_by(uuid: place[:uuid])
-          place[:location] = Ecds::Helpers.find_point(place_record.place_geometry.geometry)
+          place[:location] =  Ecds::Helpers.find_point(place_record.place_geometry.geometry)
+          places.push place
         end
-        @document[:places]
+        puts places
+        places
       end
     end
   end

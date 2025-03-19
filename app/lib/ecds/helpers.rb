@@ -78,6 +78,8 @@ module Ecds
 
     # rubocop:disable Metrics/MethodLength
     def self.to_geojson(record, properties)
+      return if record.place_geometry.nil?
+
       geojson = feature_collection_template
       feature_geometry = RGeo::GeoJSON.encode(record.place_geometry.geometry)
       type = feature_type(record.place_geometry.geometry)

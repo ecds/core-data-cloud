@@ -18,21 +18,25 @@ module Ecds
       end
 
       def enhance
-        @document[:places] = add_places(@document[:places]) unless @document[:tmp_places].nil?
+        @document[:places] = @document.delete(:sub_places) if @document[:types].include?('County')
+        @document[:places] = add_places(@document[:places]) unless @document[:places].nil?
         @document = add_extras if @document[:types].include? 'Barrier Island'
-        @document[:videos] = enhance_videos(@document[:videos])
-        @document[:featured_photograph] = find_featured_photograph
-        @document[:featured_video] = find_featured_video
+        @document[:videos] = videos
+        @document[:panos] = panos
+        @document[:featured_photograph] = featured_photograph
+        @document[:featured_video] = featured_video
         @document[:short_description] = short_description if @document[:short_description].nil?
-        @document[:topos] = collect_topos
+        @document[:topos] = topos
         @document[:map_layers] = collect_map_layers
+        @document[:media_types] = media_types
         @document
       end
 
       private
 
       def add_extras
-        @document[:related_videos] = enhance_videos(collect_related_videos.flatten.uniq.compact)
+        # @document[:videos] += enhance_videos(related_videos.flatten.uniq.compact)
+        related_media
         @document[:manifests].push(
           {
             label: 'combined',
@@ -41,7 +45,7 @@ module Ecds
         )
         other_places = []
         poly = RGeo::GeoJSON.decode(@document[:geojson][:features].find { |f| f[:geometry][:type].downcase.include? 'polygon' }.to_json)
-        related_place_uuids = @document[:tmp_places].map { |p| p[:uuid] }
+        related_place_uuids = @document[:places].map { |p| p[:uuid] }
         CoreDataConnector::Place.where(project_model_id: @record.project_model_id).where.not(uuid: @record.uuid).each do |related_place|
           next if related_place_uuids.include? related_place.uuid
 
@@ -51,31 +55,32 @@ module Ecds
         @document
       end
 
-      def collect_related_videos
-        @document[:places].map do |related_place|
+      def related_media
+        @document[:places].each do |related_place|
           place_record = CoreDataConnector::Place.find_by(uuid: related_place[:uuid])
           related_place_document = @documenter.to_document(place_record)
-          related_place_document[:videos]
+          @document[:videos] += related_place_document[:videos]
+          @document[:panos] += related_place_document[:panos]
         end
+        @document
       end
 
-      def find_featured_photograph
+      def featured_photograph
         return nil if @document[:photographs].empty?
 
         featured_photo = @document[:photographs].find { |p| p[:featured] } || @document[:photographs].first
         medium_record = CoreDataConnector::MediaContent.find_by(uuid: featured_photo[:uuid])
-        resource = medium_record.resource_description
-        extract_image_url(resource)
+        extract_image_url(medium_record.resource_description)
       end
 
-      def find_featured_video
+      def featured_video
         return nil if @document[:videos].empty?
 
         @document[:videos].find { |video| video[:featured] } || @document[:videos].first
       end
 
-      def collect_topos
-        return if @document[:topos].empty?
+      def topos
+        return if @document[:topos].nil? ||  @document[:topos].empty?
 
         topos = @document[:topos].map { |topo| CoreDataConnector::Place.find_by(uuid: topo) }
         years = topos.map do |layer|
@@ -94,15 +99,6 @@ module Ecds
         topo_records
       end
 
-      def extract_image_url(resource)
-        response = HTTParty.get(resource.manifest_url, format: :plain)
-        manifest = JSON.parse(response, symbolize_names: true)
-        canvas = manifest[:items].find { |i| i[:type] == 'Canvas' }
-        page = canvas[:items].find { |p| p[:id].include?(resource.resource_id) }
-        anno = page[:items].find { |a| a[:motivation] == 'painting' }
-        anno[:body][:id]
-      end
-
       def short_description
         return unless @document[:description]
 
@@ -112,6 +108,37 @@ module Ecds
         end
         paragraphs.join(' ')
       end
+
+      def media_types
+        types = %w[Photographs Videos Panos]
+        @record.relationships.map(&:project_model_relationship).map(&:name).uniq.filter { |t| types.include? t }
+      end
+
+      def videos
+        @document[:videos].map do |video|
+          {
+            **video,
+            thumbnail_url: Ecds::Helpers.thumbnail_url(video[:provider], video[:embed_id]),
+            embed_url: Ecds::Helpers.embed_url(video[:provider], video[:embed_id])
+          }
+        end
+      end
+
+      def panos
+        documentor = Ecds::Document.new(project_model_id: 19, collection: 'georgia_coast_panos')
+        attrs = %i[name slug embed_url description thumbnail_url]
+        @document[:panos].map do |pano|
+          pano_record = CoreDataConnector::Item.find_by(uuid: pano)
+          doc = documentor.to_document(pano_record)
+          enhancer = Ecds::Enhance::GeorgiaCoastPanos.new doc
+          result = enhancer.enhance
+          result.each_key do |key|
+            result.delete(key) unless attrs.include?(key)
+          end
+          result
+        end
+      end
     end
+
   end
 end

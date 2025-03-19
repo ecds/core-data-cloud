@@ -17,7 +17,6 @@ require 'json'
 
         # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
         def to_document(record)
-          puts record.name
           document = {}
           @model_mappings.each_key do |model_field|
             field = @model_mappings[model_field]
@@ -27,7 +26,11 @@ require 'json'
             when 'names'
               document[:names] = CoreDataConnector::PlaceName.where(place_id: record.id).map(&:name)
             when 'user_defined'
-              document[model_field] = record.user_defined[field[:field]]
+              document[model_field] = if field[:sub_field]
+                                        record.user_defined[field[:field]][field[:sub_field]]
+                                      else
+                                        record.user_defined[field[:field]]
+                                      end
             when 'related'
               relations = if field[:primary]
                             CoreDataConnector::Relationship.where(
@@ -93,7 +96,7 @@ require 'json'
               #   end
               # end
             when 'geo_point'
-              document[model_field] = Ecds::Helpers.find_point(record.place_geometry.geometry)
+              document[model_field] = Ecds::Helpers.find_point(record.place_geometry.geometry) unless record.place_geometry.nil?
             when 'slug'
               document[:slug] = record.send(field[:field]).parameterize
             when 'manifests'
@@ -104,8 +107,10 @@ require 'json'
                 }
               end
             when 'bbox'
-              bbox = RGeo::Cartesian::BoundingBox.create_from_geometry record.place_geometry.geometry
-              document[:bbox] = [bbox.min_x, bbox.min_y, bbox.max_x, bbox.max_y]
+              if record.place_geometry
+                bbox = RGeo::Cartesian::BoundingBox.create_from_geometry record.place_geometry.geometry
+                document[:bbox] = [bbox.min_x, bbox.min_y, bbox.max_x, bbox.max_y]
+              end
             else
               next
             end

@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - ecds
 
 permissions:
   id-token: write # This is required for requesting the JWT

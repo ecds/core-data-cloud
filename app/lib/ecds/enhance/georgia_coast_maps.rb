@@ -20,23 +20,30 @@ module Ecds
         @document[:manifest] = @document[:preview].first[:manifest_url] unless @document[:preview].empty?
         @document[:thumbnail_url] = thumbnail
         @document[:preview] = nil
-        @document[:wms_resource] = @record.place_layers.map(&:url).first
+        @document[:wms_resources] = @record.place_layers.map(&:url)
         @document[:date] = Date.strptime(@document[:year_str]).year if @document[:year_str]
         @document[:places] = places unless @document[:places].nil?
-        @document[:locations] = @document[:places].map { |p| p[:location] }.compact unless @document[:places].nil?
+        @document[:location] = @document[:places].map { |p| p[:location] }.compact.first unless @document[:places].nil?
         @document
       end
 
-      private
-
-      def thumbnail_url_from_iiif
+      def iiif_thumbnail
         medium_record = CoreDataConnector::MediaContent.find_by(uuid: @document[:preview].first[:uuid])
         return if medium_record.nil?
 
-        thumbnail_url(medium_record.resource_description.content_thumbnail_url)
+        begin
+          response = HTTParty.get(
+            medium_record.resource_description.content_thumbnail_url,
+            follow_redirects: false
+          )
+          response.headers[:location]
+        rescue Net::OpenTimeout, Net::ReadTimeout, Errno::ETIMEDOUT
+          sleep 5
+          retry
+        end
       end
 
-      def thumbnail_url_from_geoserver
+      def geoserver_thumbnail
         # Zoom 17: http://wiki.openstreetmap.org/wiki/Zoom_levels
         scale = 1.193
         factory = RGeo::Geographic.simple_mercator_factory
@@ -54,7 +61,6 @@ module Ecds
           geom_bbox.max_x - x_diff, geom_bbox.max_y - y_diff
         ]
         size = { width: (width / scale.to_f / 2).to_i, height: (height / scale.to_f / 2).to_i }
-        puts size
         if size[:height] > 800 || size[:width] > 800
           new_height = (size[:height].to_f / size[:width]) * 800.0
           size[:height] = new_height.round
@@ -64,10 +70,16 @@ module Ecds
         "https://geoserver.ecds.emory.edu/#{workspace}/wms?service=WMS&version=1.1.0&request=GetMap&layers=#{layer}&styles=&bbox=#{sub_bbox.join(',')}&height=#{size[:height]}&width=#{size[:width]}&srs=EPSG:4326&format=image%2Fpng"
       end
 
-      def thumbnail
-        return thumbnail_url_from_geoserver if @document[:preview].empty?
+      def preview
+        return preview_from_geoserver if @document[:preview].empty?
 
-        thumbnail_url_from_iiif
+        preview_from_iiif
+      end
+
+      def thumbnail
+        return geoserver_thumbnail if @document[:preview].empty?
+
+        iiif_thumbnail
       end
     end
   end

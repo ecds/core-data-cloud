@@ -86,6 +86,9 @@
             "description": {
               "type": "text"
             },
+            "featured_photograph": {
+              "type": "text"
+            },
             "location": {
               "type": "geo_point"
             },
@@ -97,6 +100,16 @@
             },
             "type": {
               "type": "text"
+            },
+            "identifiers": {
+              "properties": {
+                "authority": {
+                  "type": "text"
+                },
+                "identifier": {
+                  "type": "text"
+                }
+              }
             }
           }
         },
@@ -108,7 +121,19 @@
             "name": {
               "type": "text"
             },
-            "source": {
+            "url": {
+              "type": "text"
+            },
+            "thumbnail_url": {
+              "type": "text"
+            },
+            "full_url": {
+              "type": "text"
+            },
+            "info": {
+              "type": "text"
+            },
+            "media_type": {
               "type": "text"
             },
             "uuid": {
@@ -121,6 +146,9 @@
             "description": {
               "type": "text"
             },
+            "featured_photograph": {
+              "type": "text"
+            },
             "location": {
               "type": "geo_point"
             },
@@ -132,31 +160,16 @@
             },
             "type": {
               "type": "text"
-            }
-          }
-        },
-        "related_videos": {
-          "properties": {
-            "embed_id": {
-              "type": "text"
             },
-            "embed_url": {
-              "type": "text"
-            },
-            "featured": {
-              "type": "boolean"
-            },
-            "name": {
-              "type": "text"
-            },
-            "provider": {
-              "type": "text"
-            },
-            "thumbnail_url": {
-              "type": "text"
-            },
-            "uuid": {
-              "type": "text"
+            "identifiers": {
+              "properties": {
+                "authority": {
+                  "type": "text"
+                },
+                "identifier": {
+                  "type": "text"
+                }
+              }
             }
           }
         },
@@ -215,6 +228,9 @@
             "thumbnail_url": {
               "type": "text"
             },
+            "media_type": {
+              "type": "text"
+            },
             "uuid": {
               "type": "text"
             }
@@ -236,8 +252,27 @@
             },
             "thumbnail_url": {
               "type": "text"
+            },
+            "media_type": {
+              "type": "text"
+            },
+            "uuid": {
+              "type": "text"
             }
           }
+        },
+        "identifiers": {
+          "properties": {
+            "authority": {
+              "type": "text"
+            },
+            "identifier": {
+              "type": "text"
+            }
+          }
+        },
+        "date_modified": {
+          "type": "date"
         }
       }
     },
@@ -380,103 +415,6 @@
     },
     "project_model_id": 6
   },
-  "georgia_coast_counties": {
-    "mappings": {
-      "dynamic": false,
-      "properties": {
-        "name": {
-          "type": "text"
-        },
-        "uuid": {
-          "type": "text"
-        },
-        "slug": {
-          "type": "text"
-        },
-        "geojson": {
-          "type": "nested"
-        },
-        "location": {
-          "type": "geo_point"
-        },
-        "description": {
-          "type": "text"
-        },
-        "identifier": {
-          "type": "text"
-        },
-        "places": {
-          "properties": {
-            "name": {
-              "type": "text"
-            },
-            "slug": {
-              "type": "text"
-            },
-            "location": {
-              "type": "geo_point"
-            },
-            "type": {
-              "type": "text"
-            },
-            "description": {
-              "type": "text"
-            },
-            "bbox": {
-              "type": "float"
-            }
-          }
-        }
-      }
-    },
-    "model_fields": {
-      "name": {
-        "type": "string",
-        "field": "name"
-      },
-      "slug": {
-        "type": "slug",
-        "field": "name"
-      },
-      "uuid": {
-        "type": "string",
-        "field": "uuid"
-      },
-      "geojson": {
-        "type": "geojson",
-        "property_fields": [
-          "name",
-          "uuid"
-        ]
-      },
-      "location": {
-        "type": "geo_point",
-        "field": [
-          "place_geometry",
-          "geometry"
-        ]
-      },
-      "description": {
-        "type": "user_defined",
-        "field": "dd823384-c2b9-405c-973e-e75663317970"
-      },
-      "identifier": {
-        "type": "user_defined",
-        "field": "558ca431-b8fe-4731-9225-6e754d5fd894"
-      },
-      "map_layers": {
-        "type": "related",
-        "primary": false,
-        "related_model_id": 15,
-        "related_type": "array",
-        "field": "uuid"
-      },
-      "bbox": {
-        "type": "bbox"
-      }
-    },
-    "project_model_id": 3
-  },
   "georgia_coast_topics": {
     "mappings": {
       "dynamic": false,
@@ -614,6 +552,9 @@
         "bbox": {
           "type": "float"
         },
+        "counties": {
+          "type": "keyword"
+        },
         "name": {
           "type": "keyword"
         },
@@ -629,7 +570,7 @@
         "thumbnail_url": {
           "type": "text"
         },
-        "wms_resource": {
+        "wms_resources": {
           "type": "text"
         },
         "place_names": {

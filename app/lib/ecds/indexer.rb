@@ -8,7 +8,7 @@ module Ecds
   # CRUD for Elasticsearch index
   class Indexer
     # rubocop:disable Metrics/MethodLength
-    def initialize(collection:)
+    def initialize(collection:, collect_all: true)
       @client = Elasticsearch::Client.new(
         host: ENV['ELASTICSEARCH_HOST'],
         api_key: ENV['ELASTICSEARCH_API_KEY'],
@@ -33,9 +33,9 @@ module Ecds
       document_count = @client.count(index: @collection)['count']
       documents = @client.search(index: @collection, body: { fields: ['uuid'], size: document_count, _source: false })
       @hit_ids = documents['hits']['hits'].map { |h| h['_id'].to_i }
-      @database_records = @records.map(&:id)
+      @database_records = @records.map(&:id) if collect_all
       @requests = []
-      index_requests
+      # index_requests unless collect_all
     end
     # rubocop:enable Metrics/MethodLength
 
@@ -49,10 +49,11 @@ module Ecds
     end
 
     def index
-      post
+      index_requests
     end
 
     def update
+      index_requests
       @hit_ids.each do |hit|
         @requests.push({ delete: { _index: @collection, _id: hit } }) unless @database_records.include?(hit)
       end
@@ -63,9 +64,9 @@ module Ecds
     end
 
     def recreate
-      delete
+      delete unless @requests.empty?
       create
-      post
+      index_requests
     end
 
     def index_record(record_id)
@@ -81,20 +82,34 @@ module Ecds
     end
 
     def post
-      @requests.in_groups_of(100) { |group| @client.bulk(body: group.compact) }
+      @client.bulk(body: @requests.compact)
+      @requests = []
     end
 
     private
 
     def index_requests
-      @records.each do |record|
-        document = @documenter.to_document(record)
-        document = enhance(document) unless @enhancer_class.nil?
-        if @hit_ids.include?(record.uuid)
-          @requests.push({ update: { _index: @collection, _id: record.id, data: { doc: document } } })
-        else
-          @requests.push({ index: { _index: @collection, _id: record.id, data: document } })
+      total = @records.count
+      count = 1
+      @records.in_groups_of(50) do |group|
+        next if group.nil?
+
+        @requests = []
+        group.each do |record|
+          next if record.nil?
+
+          puts "#{count} of #{total} - #{record.name}"
+          document = @documenter.to_document(record)
+          document = enhance(document) unless @enhancer_class.nil?
+          if @hit_ids.include?(record.uuid)
+            @requests.push({ update: { _index: @collection, _id: record.id, data: { doc: document } } })
+          else
+            @requests.push({ index: { _index: @collection, _id: record.id, data: document } })
+          end
+          count += 1
         end
+        puts '************* posting ************'
+        post
       end
     end
 

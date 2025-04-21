@@ -18,23 +18,25 @@ module Ecds
       end
 
       def enhance
+        @document[:map_layers] = map_layers
         @document[:places] = @document.delete(:sub_places) if @document[:types].include?('County')
         @document[:places] = add_places(@document[:places]) unless @document[:places].nil?
-        @document = add_extras if @document[:types].include? 'Barrier Island'
+        @document = extras if @document[:types].include? 'Barrier Island'
+        @document[:featured_photograph] = featured_photograph unless @document[:photographs].empty?
+        @document[:photographs] = photographs
         @document[:videos] = videos
         @document[:panos] = panos
-        @document[:featured_photograph] = featured_photograph
         @document[:featured_video] = featured_video
         @document[:short_description] = short_description if @document[:short_description].nil?
         @document[:topos] = topos
-        @document[:map_layers] = collect_map_layers
         @document[:media_types] = media_types
+        @document[:identifiers] = identifiers
+        geojson
+        @document[:date_modified] = date_modified
         @document
       end
 
-      private
-
-      def add_extras
+      def extras
         # @document[:videos] += enhance_videos(related_videos.flatten.uniq.compact)
         related_media
         @document[:manifests].push(
@@ -48,6 +50,7 @@ module Ecds
         related_place_uuids = @document[:places].map { |p| p[:uuid] }
         CoreDataConnector::Place.where(project_model_id: @record.project_model_id).where.not(uuid: @record.uuid).each do |related_place|
           next if related_place_uuids.include? related_place.uuid
+          next if related_place.place_geometry.nil?
 
           other_places.push @documenter.to_document related_place if related_place.place_geometry.geometry.within? poly
         end
@@ -59,6 +62,7 @@ module Ecds
         @document[:places].each do |related_place|
           place_record = CoreDataConnector::Place.find_by(uuid: related_place[:uuid])
           related_place_document = @documenter.to_document(place_record)
+          @document[:photographs] += related_place_document[:photographs]
           @document[:videos] += related_place_document[:videos]
           @document[:panos] += related_place_document[:panos]
         end
@@ -66,11 +70,9 @@ module Ecds
       end
 
       def featured_photograph
-        return nil if @document[:photographs].empty?
-
         featured_photo = @document[:photographs].find { |p| p[:featured] } || @document[:photographs].first
         medium_record = CoreDataConnector::MediaContent.find_by(uuid: featured_photo[:uuid])
-        extract_image_url(medium_record.resource_description)
+        full_url(medium_record).sub('max', '600,')
       end
 
       def featured_video
@@ -79,8 +81,18 @@ module Ecds
         @document[:videos].find { |video| video[:featured] } || @document[:videos].first
       end
 
+      def map_layers
+        map_layer_documenter = Ecds::Document.new(project_model_id: 9, collection: 'georgia_coast_maps')
+        @document[:map_layers].map do |map_layer|
+          map_layer_record = CoreDataConnector::Place.find_by(uuid: map_layer)
+          map_layer_doc = map_layer_documenter.to_document(map_layer_record)
+          map_layer_enhancer = Ecds::Enhance::GeorgiaCoastMaps.new(map_layer_doc)
+          map_layer_enhancer.enhance
+        end
+      end
+
       def topos
-        return if @document[:topos].nil? ||  @document[:topos].empty?
+        return if @document[:topos].nil? || @document[:topos].empty?
 
         topos = @document[:topos].map { |topo| CoreDataConnector::Place.find_by(uuid: topo) }
         years = topos.map do |layer|
@@ -100,18 +112,20 @@ module Ecds
       end
 
       def short_description
-        return unless @document[:description]
+        return "<div>#{@record.name}</div>" unless @document[:description]
 
         html = Nokogiri::HTML.parse @document[:description]
         paragraphs = html.xpath('//p').map do |p|
           ActionView::Base.full_sanitizer.sanitize p.text
         end
-        paragraphs.join(' ')
+        "<div>#{paragraphs.join(' ')}</div>"
       end
 
       def media_types
         types = %w[Photographs Videos Panos]
-        @record.relationships.map(&:project_model_relationship).map(&:name).uniq.filter { |t| types.include? t }
+        primary_records = @record.relationships.map(&:project_model_relationship).map(&:name).uniq.filter { |t| types.include? t }
+        related_records = @record.related_relationships.map(&:project_model_relationship).map(&:inverse_name).uniq.filter { |t| types.include? t }
+        [*primary_records, *related_records].compact.uniq
       end
 
       def videos
@@ -119,14 +133,15 @@ module Ecds
           {
             **video,
             thumbnail_url: Ecds::Helpers.thumbnail_url(video[:provider], video[:embed_id]),
-            embed_url: Ecds::Helpers.embed_url(video[:provider], video[:embed_id])
+            embed_url: Ecds::Helpers.embed_url(video[:provider], video[:embed_id]),
+            media_type: 'video'
           }
         end
       end
 
       def panos
         documentor = Ecds::Document.new(project_model_id: 19, collection: 'georgia_coast_panos')
-        attrs = %i[name slug embed_url description thumbnail_url]
+        attrs = %i[name slug embed_url description thumbnail_url media_type uuid]
         @document[:panos].map do |pano|
           pano_record = CoreDataConnector::Item.find_by(uuid: pano)
           doc = documentor.to_document(pano_record)
@@ -138,7 +153,38 @@ module Ecds
           result
         end
       end
-    end
 
+      def photographs
+        @document[:photographs].map do |photo|
+          photo_record = CoreDataConnector::MediaContent.find_by(uuid: photo[:uuid])
+          thumbnail = thumbnail_url(photo_record)
+          {
+            **photo,
+            thumbnail_url: thumbnail,
+            full_url: full_url(photo_record),
+            media_type: 'photograph',
+            info: thumbnail.gsub(/square.*/, 'info.json')
+          }
+        end
+      end
+
+      def geojson
+        types = @document[:geojson][:features].map do |feature|
+          feature[:geometry][:type]
+        end
+        return if types.include? 'Point'
+
+        @document[:geojson][:features].push(
+          {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+              coordinates: [@document[:location][:lon], @document[:location][:lat]],
+              type: 'Point'
+            }
+          }
+        )
+      end
+    end
   end
 end

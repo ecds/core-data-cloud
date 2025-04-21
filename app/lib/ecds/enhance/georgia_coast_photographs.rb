@@ -16,27 +16,12 @@ module Ecds
       end
 
       def enhance
-        @document[:thumbnail_url] = thumbnail_url(@document[:thumbnail_url])
+        puts @document[:name]
+        @document[:thumbnail_url] = thumbnail_url(CoreDataConnector::MediaContent.find_by(uuid: @document[:uuid]))
         @document[:full_url] = @document[:thumbnail_url].sub('!250,250', 'max')
         @document[:places] = places unless @document[:places].nil?
-        @document[:locations] = @document[:places].map { |p| p[:location] }.compact unless @document[:places].nil?
+        @document[:location] = @document[:places].map { |p| p[:location] }.compact.first unless @document[:places].nil? || @document[:places].empty?
         @document
-      end
-
-      private
-
-      def places
-        @document[:places].map do |place|
-          record = CoreDataConnector::Place.find_by(uuid: place[:uuid])
-          geojson = Ecds::Helpers.to_geojson(record, { name: place[:name] })
-          geom = RGeo::GeoJSON.decode(geojson[:features].first.to_json)
-          location = Ecds::Helpers.find_point(geom.geometry)
-          {
-            name: record.name,
-            geojson:,
-            location:
-          }
-        end
       end
     end
   end

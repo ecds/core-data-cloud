@@ -21,12 +21,14 @@ module Ecds
         @document[:embed_url] = @document[:embed_url].strip
         @document[:thumbnail_url] = thumbnail_url
         @document[:places] = places unless @document[:places].nil?
-        @document[:locations] = @document[:places].map { |p| p[:location] }.compact unless @document[:places].nil?
+        @document[:location] = @document[:places].map { |p| p[:location] }.compact.first unless @document[:places].nil?
+        @document[:media_type] = 'pano'
         @document
       end
 
       def thumbnail_url
-        doc = Nokogiri::HTML.parse(HTTParty.get(@document[:embed_url]))
+        response = HTTParty.get(@document[:embed_url])
+        doc = Nokogiri::HTML.parse(response.body)
         element = doc.xpath('/html/head/link[@as="image"]').first
         url = URI(@document[:embed_url])
         pano_path = url.path.split('/').slice(1..3).join('/')

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'json'
+require 'rgeo'
 require 'rgeo/geo_json'
 require 'httparty'
 
@@ -9,6 +10,8 @@ module Ecds
   # Helpers for indexing place records.
   #
   module Helpers
+    @factory = RGeo::Geographic.spherical_factory
+
     def self.thumbnail_url(provider, embed_id)
       case provider
       when 'Vimeo'
@@ -50,17 +53,39 @@ module Ecds
       }
     end
 
+    def self.polygon_center_point(geometry)
+      @factory.point(geometry.centroid.x, geometry.centroid.y)
+    end
+
     def self.polygon_center(geometry)
-      center = geometry.centroid
+      center = polygon_center_point(geometry)
       { lat: center.y, lon: center.x }
     end
+
+    def self.line_center(geometry)
+      # center = geometry.interpolate_point 0.5
+      center = geometry.point_on_surface
+      { lat: center.y, lon: center.x }
+    end
+
+    def self.collection_center_point(geometry)
+      point = geometry.filter { |feature| feature.class.to_s.include? 'Point' }
+      return @factory.point(point.first.x, point.first.y) unless point.empty?
+
+      polygon = geometry.filter { |feature| feature.class.to_s.include? 'Polygon' }
+      return polygon_center_point(polygon.first) unless polygon.empty?
+
+      nil
+    end
+
 
     def self.collection_center(geometry)
       point = geometry.filter { |feature| feature.class.to_s.include? 'Point' }
       polygon = geometry.filter { |feature| feature.class.to_s.include? 'Polygon' }
+      line = geometry.filter { |feature| feature.class.to_s.include? 'Line' }
       return { lat: point.first.y, lon: point.first.x } unless point.empty?
       return polygon_center(polygon.first) unless polygon.empty?
-
+      return line_center(line.first) unless line.empty?
       nil
     end
 
@@ -76,8 +101,20 @@ module Ecds
       end
     end
 
+    def self.point(geometry)
+      geom_type = feature_type(geometry)
+      case geom_type
+      when :point
+        @factory.point(geometry.x, geometry.y)
+      when :polygon
+        polygon_center_point(geometry)
+      when :collection
+        collection_center_point(geometry)
+      end
+    end
+
     # rubocop:disable Metrics/MethodLength
-    def self.to_geojson(record, properties)
+    def self.geojson(record, properties)
       return if record.place_geometry.nil?
 
       geojson = feature_collection_template
@@ -106,7 +143,7 @@ module Ecds
       property_fields = geojson_field.values.first[:property_fields].map(&:to_sym)
       properties = {}
       property_fields.each { |prop| properties[prop] = document[prop] }
-      to_geojson(record, properties)
+      geojson(record, properties)
     end
   end
 end

@@ -67,6 +67,17 @@ namespace :ecds_index do
     indexer.index_record(options[:record_id])
   end
 
+  desc 'Delete Single Record'
+  task delete_record: :environment do
+    options = Ecds::Options.parse(ARGV) do |opts|
+      opts.banner = 'Usage: ecds_index:recreate -- --collection'
+    end
+
+    indexer = Ecds::Indexer.new(collection: options[:collection])
+
+    indexer.delete_record(options[:record_id])
+  end
+
   desc 'Update All Indices'
   task update_all: :environment do
     mappings = File.read(File.join(Rails.root, 'app', 'lib', 'ecds', 'mappings.json'))

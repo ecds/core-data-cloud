@@ -81,6 +81,10 @@ module Ecds
       end
     end
 
+    def delete_record(record_id)
+      @client.delete(index: @collection, id: record_id)
+    end
+
     def post
       @client.bulk(body: @requests.compact)
       @requests = []

@@ -409,8 +409,8 @@
         "type": "related",
         "primary": true,
         "related_model_id": 10,
-        "related_type": "array",
-        "field": "uuid"
+        "related_type": "hash",
+        "field": ["uuid", "66578ed8-65e6-4b5b-b6b7-20526a5d9f12"]
       }
     },
     "project_model_id": 6
@@ -552,6 +552,9 @@
         "bbox": {
           "type": "float"
         },
+        "bearing": {
+          "type": "float"
+        },
         "counties": {
           "type": "keyword"
         },
@@ -665,6 +668,10 @@
         "type": "user_defined",
         "field": "66578ed8-65e6-4b5b-b6b7-20526a5d9f12",
         "sub_field": "start_date"
+      },
+      "bearing": {
+        "type": "user_defined",
+        "field": "4946ffd9-6ab2-4d55-80fa-27c5f588c437"
       },
       "publisher": {
         "type": "related",

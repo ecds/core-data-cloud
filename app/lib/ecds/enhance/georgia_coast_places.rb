@@ -83,8 +83,9 @@ module Ecds
 
       def map_layers
         map_layer_documenter = Ecds::Document.new(project_model_id: 9, collection: 'georgia_coast_maps')
+        @document[:map_layers].sort_by! { |mapLayer| mapLayer[:date][:start_date] }
         @document[:map_layers].map do |map_layer|
-          map_layer_record = CoreDataConnector::Place.find_by(uuid: map_layer)
+          map_layer_record = CoreDataConnector::Place.find_by(uuid: map_layer[:uuid])
           map_layer_doc = map_layer_documenter.to_document(map_layer_record)
           map_layer_enhancer = Ecds::Enhance::GeorgiaCoastMaps.new(map_layer_doc)
           map_layer_enhancer.enhance

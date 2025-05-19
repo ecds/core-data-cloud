@@ -15,14 +15,14 @@ type Props = EditContainerProps & {
 
 const MediaContentForm = (props: Props) => {
   const { t } = useTranslation();
-  const [iiifUrl, setIiifUrl] = useState<string>();
+  const [iiifUrls, setIiifUrls] = useState<string>([]);
   
   useEffect(() => {
     if (!props.item) return;
     const getIiifUrl = async () => {
       const response = await fetch(props.item.manifest_url)
       const manifest = await response.json()
-      setIiifUrl(manifest.items
+      setIiifUrls(manifest.items
         .flatMap((item) => item.items.flatMap((item) => item.items))
         .flatMap((item) => item.body.id));
     }
@@ -62,7 +62,7 @@ const MediaContentForm = (props: Props) => {
 
       <ul>
         <p>IIIF Full Image Links</p>
-        {iiifUrl.map((url) => {
+        {iiifUrls?.map((url) => {
           return (
             <li>
               <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>

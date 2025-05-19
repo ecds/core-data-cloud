@@ -59,6 +59,15 @@ const MediaContentForm = (props: Props) => {
           src={props.item.content_url}
         />
       </Form.Input>
+      <ul>
+        {iiifUrl.map((url) => {
+          return (
+            <li>
+              <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
+            </li>
+          )
+        })}
+      </ul>
       <p>{props.content_iiif_url}</p>
       <Form.Input
         error={props.isError('name')}

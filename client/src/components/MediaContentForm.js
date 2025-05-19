@@ -18,13 +18,13 @@ const MediaContentForm = (props: Props) => {
   const [iiifUrls, setIiifUrls] = useState<string>([]);
   
   useEffect(() => {
-    if (!props.item) return;
+    if (!props.item || !props.item.manifest_url) return;
     const getIiifUrl = async () => {
       const response = await fetch(props.item.manifest_url)
       const manifest = await response.json()
-      setIiifUrls(manifest.items
-        .flatMap((item) => item.items.flatMap((item) => item.items))
-        .flatMap((item) => item.body.id));
+      setIiifUrls(manifest?.items
+        ?.flatMap((item) => item.items?.flatMap((item) => item.items))
+        ?.flatMap((item) => item.body.id));
     }
     getIiifUrl()
   }, [props]);
@@ -60,8 +60,8 @@ const MediaContentForm = (props: Props) => {
         />
       </Form.Input>
 
+      <p>IIIF Full Image Links</p>
       <ul>
-        <p>IIIF Full Image Links</p>
         {iiifUrls?.map((url) => {
           return (
             <li>

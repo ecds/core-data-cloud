@@ -3,7 +3,7 @@
 import { LazyIIIF } from '@performant-software/semantic-components';
 import type { EditContainerProps } from '@performant-software/shared-components/types';
 import { UserDefinedFieldsForm } from '@performant-software/user-defined-fields';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Form, Message } from 'semantic-ui-react';
 import type { MediaContent as MediaContentType } from '../types/MediaContent';
@@ -15,6 +15,19 @@ type Props = EditContainerProps & {
 
 const MediaContentForm = (props: Props) => {
   const { t } = useTranslation();
+  const [iiifUrl, setIiifUrl] = useState<string>();
+  
+  useEffect(() => {
+    if (!props.item) return;
+    const getIiifUrl = async () => {
+      const response = await fetch(props.item.manifest_url)
+      const manifest = await response.json()
+      setIiifUrl(manifest.items
+        .flatMap((item) => item.items.flatMap((item) => item.items))
+        .flatMap((item) => item.body.id));
+    }
+    getIiifUrl()
+  }, [props]);
 
   return (
     <Form
@@ -46,6 +59,7 @@ const MediaContentForm = (props: Props) => {
           src={props.item.content_url}
         />
       </Form.Input>
+      <p>{props.content_iiif_url}</p>
       <Form.Input
         error={props.isError('name')}
         label={t('MediaContent.labels.name')}

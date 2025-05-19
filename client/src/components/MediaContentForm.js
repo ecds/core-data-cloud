@@ -59,7 +59,9 @@ const MediaContentForm = (props: Props) => {
           src={props.item.content_url}
         />
       </Form.Input>
+
       <ul>
+        <p>IIIF Full Image Links</p>
         {iiifUrl.map((url) => {
           return (
             <li>

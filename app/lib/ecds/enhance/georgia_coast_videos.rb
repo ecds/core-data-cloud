@@ -21,6 +21,8 @@ module Ecds
         @document[:embed_url] = Ecds::Helpers.embed_url(@document[:provider], @document[:embed_id])
         @document[:places] = places unless @document[:places].nil?
         @document[:location] = @document[:places].map { |p| p[:location] }.compact.first unless @document[:places].nil?
+        @document[:media_type] = 'video'
+        @document[:suppress] = @document[:suppress] ? 'yes' : 'no'
         @document
       end
     end

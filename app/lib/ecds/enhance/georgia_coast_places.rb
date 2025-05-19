@@ -140,35 +140,6 @@ module Ecds
         end
       end
 
-      def panos
-        documentor = Ecds::Document.new(project_model_id: 19, collection: 'georgia_coast_panos')
-        attrs = %i[name slug embed_url description thumbnail_url media_type uuid]
-        @document[:panos].map do |pano|
-          pano_record = CoreDataConnector::Item.find_by(uuid: pano)
-          doc = documentor.to_document(pano_record)
-          enhancer = Ecds::Enhance::GeorgiaCoastPanos.new doc
-          result = enhancer.enhance
-          result.each_key do |key|
-            result.delete(key) unless attrs.include?(key)
-          end
-          result
-        end
-      end
-
-      def photographs
-        @document[:photographs].map do |photo|
-          photo_record = CoreDataConnector::MediaContent.find_by(uuid: photo[:uuid])
-          thumbnail = thumbnail_url(photo_record)
-          {
-            **photo,
-            thumbnail_url: thumbnail,
-            full_url: full_url(photo_record),
-            media_type: 'photograph',
-            info: thumbnail.gsub(/square.*/, 'info.json')
-          }
-        end
-      end
-
       def geojson
         types = @document[:geojson][:features].map do |feature|
           feature[:geometry][:type]

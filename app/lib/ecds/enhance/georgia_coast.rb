@@ -17,7 +17,9 @@ module Ecds
           {
             **video,
             thumbnail_url: Ecds::Helpers.thumbnail_url(video[:provider], video[:embed_id]),
-            embed_url: Ecds::Helpers.embed_url(video[:provider], video[:embed_id])
+            embed_url: Ecds::Helpers.embed_url(video[:provider], video[:embed_id]),
+            media_type: 'video',
+            slug: video[:name].parameterize
           }
         end
       end
@@ -70,10 +72,56 @@ module Ecds
         full_url(medium_record)
       end
 
+      def places
+        @document[:places].map do |place|
+          record = CoreDataConnector::Place.find_by(uuid: place[:uuid])
+          geojson = Ecds::Helpers.geojson(record, { name: place[:name] })
+          next if geojson.nil? || geojson[:features].empty?
+          geom = RGeo::GeoJSON.decode(geojson[:features].first.to_json)
+          location = Ecds::Helpers.find_point(geom.geometry)
+          {
+            name: place[:name],
+            uuid: place[:uuid],
+            geojson:,
+            location:
+          }
+        end
+      end
+
+      def photographs
+        @document[:photographs].map do |photo|
+          photo_record = CoreDataConnector::MediaContent.find_by(uuid: photo[:uuid])
+          thumbnail = thumbnail_url(photo_record)
+          {
+            **photo,
+            thumbnail_url: thumbnail,
+            full_url: full_url(photo_record),
+            media_type: 'photograph',
+            info: thumbnail.gsub(/square.*/, 'info.json'),
+            slug: photo_record.name.parameterize
+          }
+        end
+      end
+
+      def panos
+        documentor = Ecds::Document.new(project_model_id: 19, collection: 'georgia_coast_panos')
+        attrs = %i[name slug embed_url description thumbnail_url media_type uuid]
+        @document[:panos].map do |pano|
+          pano_record = CoreDataConnector::Item.find_by(uuid: pano)
+          doc = documentor.to_document(pano_record)
+          enhancer = Ecds::Enhance::GeorgiaCoastPanos.new doc
+          result = enhancer.enhance
+          result.each_key do |key|
+            result.delete(key) unless attrs.include?(key)
+          end
+          result
+        end
+      end
+
       def add_places(places)
         places.map do |place|
+          place_record = CoreDataConnector::Place.find_by(uuid: place[:uuid])
           featured_photograph = find_place_preview(place[:id])
-
 
           if featured_photograph.nil?
             featured_photograph = CoreDataConnector::Relationship.find_by(
@@ -88,7 +136,8 @@ module Ecds
             type: find_type(place),
             description: place[:description]&.strip&.empty? ? nil : place[:description],
             featured_photograph:,
-            identifiers: identifiers(place:)
+            identifiers: identifiers(place:),
+            geojson: JSON.parse(place_record.place_geometry.geometry.to_json)
           }
         end
       end
@@ -149,37 +198,6 @@ module Ecds
         puts 'full_url Sleeping zzzzz'
         sleep 5
         retry
-      end
-
-      # def places
-      #   @document[:places].map do |place|
-      #     record = CoreDataConnector::Place.find_by(uuid: place[:uuid])
-      #     geojson = Ecds::Helpers.to_geojson(record, { name: place[:name] })
-      #     geom = RGeo::GeoJSON.decode(geojson[:features].first.to_json)
-      #     location = Ecds::Helpers.find_point(geom.geometry)
-      #     {
-      #       name: record.name,
-      #       geojson:,
-      #       location:
-      #     }
-      #   end
-      # end
-
-
-      def places
-        @document[:places].map do |place|
-          record = CoreDataConnector::Place.find_by(uuid: place[:uuid])
-          geojson = Ecds::Helpers.geojson(record, { name: place[:name] })
-          next if geojson.nil? || geojson[:features].empty?
-          geom = RGeo::GeoJSON.decode(geojson[:features].first.to_json)
-          location = Ecds::Helpers.find_point(geom.geometry)
-          {
-            name: place[:name],
-            uuid: place[:uuid],
-            geojson:,
-            location:
-          }
-        end
       end
 
       def identifiers(place: nil)

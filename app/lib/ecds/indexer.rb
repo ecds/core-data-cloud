@@ -8,7 +8,7 @@ module Ecds
   # CRUD for Elasticsearch index
   class Indexer
     # rubocop:disable Metrics/MethodLength
-    def initialize(collection:, collect_all: true)
+    def initialize(collection:, collect_all: true, mapping: nil)
       @client = Elasticsearch::Client.new(
         host: ENV['ELASTICSEARCH_HOST'],
         api_key: ENV['ELASTICSEARCH_API_KEY'],
@@ -19,7 +19,8 @@ module Ecds
       )
       @collection = collection
       collections = File.read(File.join(Rails.root, 'app', 'lib', 'ecds', 'mappings.json'))
-      @collection_mappings = JSON.parse(collections, symbolize_names: true)[collection.to_sym]
+      mapping_key = mapping.nil? ? collection.to_sym : mapping.to_sym
+      @collection_mappings = JSON.parse(collections, symbolize_names: true)[mapping_key]
       @project_model_id = @collection_mappings[:project_model_id]
       project_model = CoreDataConnector::ProjectModel.find(@project_model_id)
       @model_class = project_model.model_class.constantize
@@ -31,7 +32,17 @@ module Ecds
       end
       @records = @model_class.where(project_model_id: @project_model_id)
       document_count = @client.count(index: @collection)['count']
-      documents = @client.search(index: @collection, body: { fields: ['uuid'], size: document_count, _source: false })
+      documents = @client.search(
+        index: @collection, body: {
+          query: {
+            simple_query_string: {
+              query: @project_model_id, fields: ['model_id']
+            }
+          },
+          size: document_count,
+          _source: false
+        }
+      )
       @hit_ids = documents['hits']['hits'].map { |h| h['_id'].to_i }
       @database_records = @records.map(&:id) if collect_all
       @requests = []

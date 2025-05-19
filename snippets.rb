@@ -115,6 +115,52 @@ media.each do |medium|
   puts new_name
 end
 
+topics = CoreDataConnector::Taxonomy.where(project_model_id: 13).to_a.to_a
+rels = CoreDataConnector::Relationship.where(project_model_relationship_id: 39).to_a
+parents = topics.reject {|t| rels.map(&:related_record).include? t}
+
+parents.each {|t| topics.delete(t)}
+
+
+response = HTTParty.post(
+  'https://coredata.ecds.io/core_data/media_contents',
+  {
+
+  }
+)
+
+
+require 'uri'
+require 'net/http'
+
+url = URI("https://coredata.ecds.io/core_data/media_contents")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+failed = []
+
+request = Net::HTTP::Post.new(url)
+request['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzQ3NzQzNjIyfQ.AQvOWDMlf2ZV9hJK4JjuOasapFmMEfRSCfcUgqRH29c'
+files = Dir.entries('./')
+files.each do |file|
+  puts file
+  next unless file.end_with? '.tiff'
+
+  form_data = [
+    ['media_content[project_model_id]', '28'],
+    ['media_content[name]', File.basename(file, '.tiff')],
+    ['media_content[content]', File.open(file)]
+  ]
+  request.set_form form_data, 'multipart/form-data'
+  begin
+    response = https.request(request)
+    puts response.read_body
+  rescue
+    failed.push(file)
+  end
+end
+
+
 # gdal_translate -co PHOTOMETRIC=RGB -b 1 -b 1 -b 1 -of GTiff -ot UInt16 ~/Downloads/chatham/Chatham_1953_raster.tif ~/Downloads/dot_maps/ChathamCounty/32617/Chatham1972.tiff
 # gdal_translate -co 'GDAL_PAM_ENABLED=NO' -expand rgba ~/Downloads/dot_maps/BryanCounty/32617/Bryan1972.tiff ~/Downloads/dot_maps/BryanCounty/32617/Bryan1972.tif
 # gdal_translate -co 'GDAL_PAM_ENABLED=NO' -expand rgba ~/Downloads/chatham/Chatham_1953_raster.tif ~/Downloads/dot_maps/ChathamCounty/32617/Chatham1953.tif

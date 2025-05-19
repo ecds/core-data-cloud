@@ -7,50 +7,50 @@ namespace :ecds_index do
   desc 'CRUD for Elasticsearch index.'
   task create: :environment do
     options = Ecds::Options.parse(ARGV) do |opts|
-      opts.banner = 'Usage: ecds_index:create -- --collection'
+      opts.banner = 'Usage: ecds_index:create -- --collection --mapping'
     end
 
-    indexer = Ecds::Indexer.new(collection: options[:collection])
+    indexer = Ecds::Indexer.new(collection: options[:collection], mapping: options[:mapping])
     indexer.create
   end
 
   desc 'Index records'
   task index: :environment do
     options = Ecds::Options.parse(ARGV) do |opts|
-      opts.banner = 'Usage: ecds_index:create -- --collection'
+      opts.banner = 'Usage: ecds_index:create -- --collection --mapping'
     end
 
-    indexer = Ecds::Indexer.new(collection: options[:collection])
+    indexer = Ecds::Indexer.new(collection: options[:collection], mapping: options[:mapping])
     indexer.index
   end
 
   desc 'Update indexed records'
   task update: :environment do
     options = Ecds::Options.parse(ARGV) do |opts|
-      opts.banner = 'Usage: ecds_index:create -- --collection'
+      opts.banner = 'Usage: ecds_index:create -- --collection --mapping'
     end
 
-    indexer = Ecds::Indexer.new(collection: options[:collection])
+    indexer = Ecds::Indexer.new(collection: options[:collection], mapping: options[:mapping])
     indexer.update
   end
 
   desc 'Delete index'
   task delete: :environment do
     options = Ecds::Options.parse(ARGV) do |opts|
-      opts.banner = 'Usage: ecds_index:delete -- --collection'
+      opts.banner = 'Usage: ecds_index:delete -- --collection --mapping'
     end
 
-    indexer = Ecds::Indexer.new(collection: options[:collection])
+    indexer = Ecds::Indexer.new(collection: options[:collection], mapping: options[:mapping])
     indexer.delete
   end
 
   desc 'Recreate index'
   task recreate: :environment do
     options = Ecds::Options.parse(ARGV) do |opts|
-      opts.banner = 'Usage: ecds_index:recreate -- --collection'
+      opts.banner = 'Usage: ecds_index:recreate -- --collection --mapping'
     end
 
-    indexer = Ecds::Indexer.new(collection: options[:collection])
+    indexer = Ecds::Indexer.new(collection: options[:collection], mapping: options[:mapping])
     indexer.delete
     indexer.create
     indexer.index
@@ -59,10 +59,10 @@ namespace :ecds_index do
   desc 'Index/Update Single Record'
   task index_record: :environment do
     options = Ecds::Options.parse(ARGV) do |opts|
-      opts.banner = 'Usage: ecds_index:recreate -- --collection'
+      opts.banner = 'Usage: ecds_index:recreate -- --collection --mapping'
     end
 
-    indexer = Ecds::Indexer.new(collection: options[:collection])
+    indexer = Ecds::Indexer.new(collection: options[:collection], mapping: options[:mapping])
 
     indexer.index_record(options[:record_id])
   end
@@ -70,10 +70,10 @@ namespace :ecds_index do
   desc 'Delete Single Record'
   task delete_record: :environment do
     options = Ecds::Options.parse(ARGV) do |opts|
-      opts.banner = 'Usage: ecds_index:recreate -- --collection'
+      opts.banner = 'Usage: ecds_index:recreate -- --collection --mapping'
     end
 
-    indexer = Ecds::Indexer.new(collection: options[:collection])
+    indexer = Ecds::Indexer.new(collection: options[:collection], mapping: options[:mapping])
 
     indexer.delete_record(options[:record_id])
   end

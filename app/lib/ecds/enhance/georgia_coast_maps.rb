@@ -23,7 +23,8 @@ module Ecds
         @document[:wms_resources] = @record.place_layers.map(&:url)
         @document[:date] = Date.strptime(@document[:year_str]).year if @document[:year_str]
         @document[:places] = places unless @document[:places].nil?
-        @document[:location] = @document[:places].map { |p| p[:location] }.compact.first unless @document[:places].nil?
+        @document[:place_names].push @document.delete(:county)
+        @document[:location] = location
         @document
       end
 
@@ -80,6 +81,12 @@ module Ecds
         return geoserver_thumbnail if @document[:preview].empty?
 
         iiif_thumbnail
+      end
+
+      def location
+        geom = @record.place_geometry.geometry
+        geom = geom.first if geom.class.to_s.include? 'Collection'
+        { lat: geom.centroid.y, lon: geom.centroid.x }
       end
     end
   end

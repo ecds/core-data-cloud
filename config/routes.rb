@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :ecds do
+    get 'media/index'
+  end
   mount CoreDataConnector::Engine => '/core_data'
   mount UserDefinedFields::Engine, at: '/user_defined_fields'
 

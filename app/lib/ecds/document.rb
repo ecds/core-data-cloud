@@ -17,7 +17,7 @@ require 'json'
 
         # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
         def to_document(record)
-          document = {}
+          document = { model_id: @project_model_id, suppress: 'no' }
           @model_mappings.each_key do |model_field|
             field = @model_mappings[model_field]
             case field[:type]

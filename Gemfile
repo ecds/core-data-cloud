@@ -30,14 +30,17 @@ gem 'jwt', '~> 2.4', '>= 2.4.1'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.18'
 
+# Transactional emails
+gem 'postmark-rails', '~> 0.22.1'
+
 # Resource API
-gem 'resource_api', git: 'https://github.com/performant-software/resource-api.git', tag: 'v0.5.12'
+gem 'resource_api', git: 'https://github.com/performant-software/resource-api.git', tag: 'v0.5.13'
 
 # Authentication
 gem 'jwt_auth', git: 'https://github.com/performant-software/jwt-auth.git', tag: 'v0.1.2'
 
 # Core data
-gem 'core_data_connector', git: 'https://github.com/performant-software/core-data-connector.git', tag: 'v0.1.88'
+gem 'core_data_connector', git: 'https://github.com/performant-software/core-data-connector.git', tag: 'v0.1.92'
 
 # IIIF
 gem 'triple_eye_effable', git: 'https://github.com/performant-software/triple-eye-effable.git', tag: 'v0.2.1'
@@ -47,6 +50,9 @@ gem 'user_defined_fields', git: 'https://github.com/performant-software/user-def
 
 # Fuzzy dates
 gem 'fuzzy_dates', git: 'https://github.com/performant-software/fuzzy-dates.git', tag: 'v0.1.0'
+
+# Email filtering
+gem 'mail_safe', '~> 0.3.4', group: [:development, :staging]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

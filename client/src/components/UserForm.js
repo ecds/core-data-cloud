@@ -6,8 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Form } from 'semantic-ui-react';
 import PermissionsService from '../services/Permissions';
 import type { User } from '../types/User';
-import UserPassword from './UserPassword';
-import UserUtils from '../utils/User';
+import UserRoles from '../utils/UserRoles';
 
 type Props = EditContainerProps & {
   item: User
@@ -36,22 +35,26 @@ const UserForm: AbstractComponent<any> = (props: Props) => {
         value={props.item.email}
       />
       { PermissionsService.isAdmin() && (
-        <Form.Checkbox
-          disabled={props.disabled}
-          checked={props.item.admin}
-          error={props.isError('admin')}
-          label={t('UserForm.labels.admin')}
-          onChange={props.onCheckboxInputChange.bind(this, 'admin')}
-        />
-      )}
-      {
-        UserUtils.showPasswordFields(props.item.email) && (
-          <UserPassword
-            {...props}
-            email={props.item.email}
+        <>
+          <Form.Dropdown
+            error={props.isError('role')}
+            label={t('UserForm.labels.role')}
+            onChange={props.onTextInputChange.bind(this, 'role')}
+            options={UserRoles.getRoleOptions()}
+            required={props.isRequired('role')}
+            selection
+            selectOnBlur={false}
+            value={props.item.role}
           />
-        )
-      }
+          <Form.Checkbox
+            checked={props.item.require_password_change}
+            error={props.isError('require_password_change')}
+            label={t('UserForm.labels.requirePasswordChange')}
+            onChange={props.onCheckboxInputChange.bind(this, 'require_password_change')}
+            required={props.isRequired('require_password_change')}
+          />
+        </>
+      )}
     </>
   );
 };

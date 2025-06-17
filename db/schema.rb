@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_04_09_154854) do
+ActiveRecord::Schema[7.0].define(version: 2025_06_09_160515) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_stat_statements"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
   enable_extension "postgis"
@@ -180,11 +179,11 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_09_154854) do
   create_table "core_data_connector_project_model_relationships", force: :cascade do |t|
     t.bigint "primary_model_id", null: false
     t.bigint "related_model_id", null: false
-    t.string "name"
-    t.boolean "multiple"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.boolean "multiple"
+    t.string "name"
     t.boolean "allow_inverse", default: false, null: false
     t.string "inverse_name"
     t.boolean "inverse_multiple", default: false
@@ -225,6 +224,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_09_154854) do
     t.string "faircopy_cloud_url"
     t.integer "faircopy_cloud_project_model_id"
     t.string "map_library_url"
+    t.boolean "archived", default: false, null: false
   end
 
   create_table "core_data_connector_record_merges", force: :cascade do |t|
@@ -282,7 +282,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_09_154854) do
   create_table "core_data_connector_user_projects", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
-    t.string "role", null: false
+    t.string "role", default: "editor", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_core_data_connector_user_projects_on_project_id"
@@ -295,8 +295,11 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_09_154854) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false
     t.uuid "sso_id"
+    t.string "role"
+    t.boolean "require_password_change", default: false, null: false
+    t.datetime "last_sign_in_at", precision: nil
+    t.datetime "last_invited_at", precision: nil
   end
 
   create_table "core_data_connector_web_authorities", force: :cascade do |t|

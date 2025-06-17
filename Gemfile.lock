@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/performant-software/core-data-connector.git
-  revision: f3f30fba077ec2732133befa36a338e9869b2816
-  tag: v0.1.88
+  revision: 499d2f022b2054ee13662cdf706e86449e68857d
+  tag: v0.1.92
   specs:
     core_data_connector (0.1.0)
       activerecord-postgis-adapter (~> 8.0)
@@ -9,6 +9,7 @@ GIT
       fuzzy_dates
       jwt (~> 2.7.1)
       jwt_auth
+      postmark-rails (~> 0.22.1)
       rack-cors (~> 2.0.1)
       rails (>= 6.0.3.2, < 8)
       resource_api
@@ -40,8 +41,8 @@ GIT
 
 GIT
   remote: https://github.com/performant-software/resource-api.git
-  revision: dd731cd55db4c6eaed503c35b2e67ad3b87d7d97
-  tag: v0.5.12
+  revision: c5c4ac16d490cc4f5013c39ee08e9422408d3b74
+  tag: v0.5.13
   specs:
     resource_api (0.1.0)
       pagy (~> 5.10)
@@ -1828,6 +1829,8 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mail_safe (0.3.4)
+      actionmailer (>= 3.0.0)
     marcel (1.0.2)
     method_source (1.0.0)
     mime-types (3.5.2)
@@ -1857,13 +1860,18 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
-    oj (3.16.10)
+    oj (3.16.11)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     ostruct (0.6.1)
     pagy (5.10.1)
       activesupport
     pg (1.5.3)
+    postmark (1.25.1)
+      json
+    postmark-rails (0.22.1)
+      actionmailer (>= 3.0.0)
+      postmark (>= 1.21.3, < 2.0)
     puma (5.6.7)
       nio4r (~> 2.0)
     pundit (2.3.1)
@@ -1951,8 +1959,10 @@ DEPENDENCIES
   fuzzy_dates!
   jwt (~> 2.4, >= 2.4.1)
   jwt_auth!
+  mail_safe (~> 0.3.4)
   pagy (~> 5.10)
   pg (~> 1.5.3)
+  postmark-rails (~> 0.22.1)
   puma (~> 5.0)
   rack-cors (~> 2.0.1)
   rails (~> 7.0.7)

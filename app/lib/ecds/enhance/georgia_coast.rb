@@ -92,8 +92,7 @@ module Ecds
         @document[:photographs].map do |photo|
           photo_record = CoreDataConnector::MediaContent.find_by(uuid: photo[:uuid])
           image = Ecds::Image.new(
-            download_url: photo_record.resource_description.content_download_url,
-            prefix: 'georgia_coast_atlas'
+            download_url: photo_record.resource_description.content_download_url
           )
           image.migrate
           {

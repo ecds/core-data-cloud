@@ -13,15 +13,23 @@ module Ecds
         super
         @documenter = Ecds::Document.new(project_model_id: 1, collection: 'georgia_coast_photographs')
         @document = document
+        @record = CoreDataConnector::MediaContent.find_by(uuid: @document[:uuid])
       end
 
       def enhance
-        puts @document[:name]
-        @document[:thumbnail_url] = thumbnail_url(CoreDataConnector::MediaContent.find_by(uuid: @document[:uuid]))
-        @document[:full_url] = @document[:thumbnail_url].sub('!250,250', 'max')
+        versions
         @document[:places] = places unless @document[:places].nil?
         @document[:location] = @document[:places].map { |p| p[:location] }.compact.first unless @document[:places].nil? || @document[:places].empty?
         @document
+      end
+
+      def versions
+        image = Ecds::Image.new(
+          download_url: @record.resource_description.content_download_url,
+          prefix: 'georgia_coast_atlas'
+        )
+        image.migrate
+        @document.merge!(image.versions)
       end
     end
   end

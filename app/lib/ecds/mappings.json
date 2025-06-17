@@ -1155,10 +1155,6 @@
         "type": "string",
         "field": "manifest_url"
       },
-      "thumbnail_url": {
-        "type": "string",
-        "field": "content_thumbnail_url"
-      },
       "place_names": {
         "type": "related",
         "primary": false,
@@ -1575,5 +1571,62 @@
       }
     },
     "project_model_id": 13
+  },
+  "owa_places": {
+    "project_model_id": 26,
+    "mappings": {
+      "dynamic": false,
+      "properties": {
+        "name": {
+          "type": "text"
+        },
+        "has_wp": {
+          "type": "boolean"
+        },
+        "link": {
+          "type": "text"
+        },
+        "slug": {
+          "type": "keyword"
+        },
+        "suppress": {
+          "type": "text"
+        },
+        "type": {
+          "type": "keyword"
+        },
+        "uuid": {
+          "type": "text"
+        },
+        "wordpress_id": {
+          "type": "float"
+        }
+      }
+    },
+    "model_fields": {
+      "name": {
+        "type": "string",
+        "field": "name"
+      },
+      "wordpress_id": {
+        "type": "user_defined",
+        "field": "07a3ef61-2f03-4a63-acf3-f5e722ed0ab5"
+      },
+      "uuid": {
+        "type": "string",
+        "field": "uuid"
+      },
+      "slug": {
+        "type": "slug",
+        "field": "name"
+      },
+      "types": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 38,
+        "related_type": "array",
+        "field": "name"
+      }
+    }
   }
 }

@@ -70,3 +70,4 @@ gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
 gem 'rgeo', '~> 3.0'
 gem 'rgeo-geojson', '~>  2.2'
 gem 'roo', '~> 2.10.0'
+gem 'aws-sdk'

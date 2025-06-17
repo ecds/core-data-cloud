@@ -173,3 +173,19 @@ end
 #     gdalwarp -s_srs EPSG:32617 -t_srs EPSG:3857 -r average -co 'TILED=YES' -co 'BLOCKXSIZE=256' -co 'BLOCKYSIZE=256' -co 'COMPRESS=JPEG' "$FILE" "./BryanCounty/3857/${$(basename $FILE .tif)}.tiff";
 #     gdaladdo --config GDAL_TIFF_OVR_BLOCKSIZE 256 -r average "./BryanCounty/3857/${$(basename $FILE .tif)}.tiff" 2 4 8 16 32;
 #   done
+
+
+
+file = File.read('./buildings.geojson')
+neighborhoods = CoreDataConnector::Place.where(project_model_id: 26)
+geo_data = JSON.parse(file, symbolize_names: true)
+geo_data[:features].each_with_index do |feature, idx|
+  next unless feature[:properties][:neighborhood].nil?
+  puts "#{idx + 1} of #{geo_data[:features].count}"
+  geom = RGeo::GeoJSON.decode feature[:geometry].to_json
+  feature[:properties][:neighborhood] = nil
+  if geom.valid?    
+    hood = neighborhoods.find {|n| n.place_geometry.geometry.valid? &&  geom.within?(n.place_geometry.geometry)}
+    feature[:properties][:neighborhood] = hood.name unless hood.nil?
+  end
+end; nil

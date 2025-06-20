@@ -12,10 +12,16 @@ module Ecds
   #
   class Image
     def initialize(download_url:)
-      response = HTTParty.get(download_url, follow_redirects: false)
-      uri = URI response.headers[:location]
-      @key = uri.path
-      @key.slice!(0) if @key.starts_with?('/')
+      begin
+        response = HTTParty.get(download_url, follow_redirects: false)
+        uri = URI response.headers[:location]
+      rescue Net::OpenTimeout, Net::ReadTimeout, Errno::ETIMEDOUT
+        sleep 5
+        retry
+      end
+      @key = uri.path.split('/')[3]
+      # @key = uri.path
+      # @key.slice!(0) if @key.starts_with?('/')
       @destination_key = "images/#{@key}"
     end
 

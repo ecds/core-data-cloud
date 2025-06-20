@@ -16,6 +16,12 @@ RUN bundle install
 
 COPY . .
 
+ENV GENERATE_SOURCEMAP=false
+ENV DISABLE_ESLINT_PLUGIN=true
+ENV NODE_OPTIONS="--max-old-space-size=16384"
+ENV RAILS_MAX_THREADS=5
+ENV RAILS_ENV=development
+
 # Build and deploy React front-end
 RUN yarn config set network-timeout 600000 -g
 RUN yarn build && yarn deploy

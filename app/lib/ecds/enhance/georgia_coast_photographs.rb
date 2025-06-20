@@ -25,7 +25,7 @@ module Ecds
 
       def versions
         image = Ecds::Image.new(
-          download_url: @record.resource_description.content_download_url
+          download_url: @record.resource_description.content_iiif_url
         )
         image.migrate
         @document.merge!(image.versions)

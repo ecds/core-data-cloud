@@ -279,6 +279,57 @@
         },
         "date_modified": {
           "type": "date"
+        },
+        "works": {
+          "title": {
+            "type": "text"
+          },
+          "link": {
+            "type": "text"
+          },
+          "author": {
+            "type": "keyword"
+          },
+          "publisher": {
+            "type": "text"
+          },
+          "city": {
+            "type": "text"
+          },
+          "pages": {
+            "type": "text"
+          },
+          "year_str": {
+            "type": "text"
+          },
+          "year": {
+            "type": "short"
+          },
+          "volume": {
+            "type": "text"
+          },
+          "issue": {
+            "type": "text"
+          },
+          "name": {
+            "type": "keyword"
+          },
+          "uuid": {
+            "type": "text"
+          },
+          "citation": {
+            "type": "text"
+          }
+        },
+        "people": {
+          "properties": {
+            "full_name": {
+              "type": "text"
+            },
+            "bio": {
+              "type": "text"
+            }
+          }
         }
       }
     },
@@ -330,10 +381,24 @@
         "related_type": "hash",
         "field": ["name", "uuid", "159c8717-703e-40c5-a813-425578f9a8a7", "id"]
       },
+      "people": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 48,
+        "related_type": "hash",
+        "field": ["full_name", "biography"]
+      },
       "topos": {
         "type": "related",
         "primary": true,
         "related_model_id": 9,
+        "related_type": "array",
+        "field": "uuid"
+      },
+      "works": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 51,
         "related_type": "array",
         "field": "uuid"
       },

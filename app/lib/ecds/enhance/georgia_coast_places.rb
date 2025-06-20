@@ -31,6 +31,7 @@ module Ecds
         @document[:topos] = topos
         @document[:media_types] = media_types
         @document[:identifiers] = identifiers
+        @document[:works] = works
         geojson
         @document[:date_modified] = date_modified
         @document
@@ -89,6 +90,16 @@ module Ecds
           map_layer_doc = map_layer_documenter.to_document(map_layer_record)
           map_layer_enhancer = Ecds::Enhance::GeorgiaCoastMaps.new(map_layer_doc)
           map_layer_enhancer.enhance
+        end
+      end
+
+      def works
+        work_documenter = Ecds::Document.new(project_model_id: 9, collection: 'georgia_coast_works')
+        @document[:works].map do |work|
+          work_record = CoreDataConnector::Work.find_by(uuid: work)
+          work_doc = work_documenter.to_document(work_record)
+          work_enhancer = Ecds::Enhance::GeorgiaCoastWorks.new(work_doc)
+          work_enhancer.enhance
         end
       end
 

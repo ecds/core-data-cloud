@@ -32,16 +32,12 @@ module Ecds
         medium_record = CoreDataConnector::MediaContent.find_by(uuid: @document[:preview].first[:uuid])
         return if medium_record.nil?
 
-        begin
-          response = HTTParty.get(
-            medium_record.resource_description.content_thumbnail_url,
-            follow_redirects: false
-          )
-          response.headers[:location]
-        rescue Net::OpenTimeout, Net::ReadTimeout, Errno::ETIMEDOUT
-          sleep 5
-          retry
-        end
+        image = Ecds::Image.new(
+          download_url: medium_record.resource_description.content_iiif_url
+        )
+
+        image.migrate
+        image.versions[:thumbnail_url]
       end
 
       def geoserver_thumbnail

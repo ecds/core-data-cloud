@@ -29,7 +29,23 @@ jobs:
           AWS_ECR: ${{ secrets.AWS_ECR }}
           AWS_ECS_CLUSTER: ${{ secrets.AWS_ECS_CLUSTER }}
           AWS_ECS_SERVICE: ${{ secrets.AWS_ECS_SERVICE }}
-          ENV: ${{ secrets.ENV }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
+          DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+          DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+          DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          HOSTNAME: ${{ secrets.HOSTNAME}}
+          IIIF_CLOUD_API_KEY: ${{ secrets.IIIF_CLOUD_API_KEY }}
+          IIIF_CLOUD_PROJECT_ID: ${{ secrets.IIIF_CLOUD_PROJECT_ID }}
+          IIIF_CLOUD_URL: ${{ secrets.IIIF_CLOUD_URL }}
+          REACT_APP_HOSTNAME: ${{ secrets.HOSTNAME}}
+          REACT_APP_IIIF_MANIFEST_ITEM_LIMIT: ${{ secrets.REACT_APP_IIIF_MANIFEST_ITEM_LIMIT }}
+          REACT_APP_MAP_TILER_KEY: ${{ secrets.REACT_APP_MAP_TILER_KEY }}
+          SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+          ELASTICSEARCH_HOST: ${{ secrets.ELASTICSEARCH_HOST }}
+          ELASTICSEARCH_API_KEY: ${{ secrets.ELASTICSEARCH_API_KEY }}
+          GEONAMES_USER: ${{ secrets.GEONAMES_USER }}
 
         run: |
           chmod +x build.sh

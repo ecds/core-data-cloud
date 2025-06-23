@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+export $(cat .env | xargs)
+
 if [ -f /app/tmp/pids/server.pid ]; then
   rm /app/tmp/pids/server.pid
 fi

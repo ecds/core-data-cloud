@@ -12,8 +12,8 @@ user_defined = {
   occupants: 'ac630b24-61ed-4b4d-9523-19ad9dee58ea'
 }
 
-file = File.read('./omeka.json')
-data = JSON.parse(file, symbolize_names: true)
+# file = File.read('./omeka.json')
+# data = JSON.parse(file, symbolize_names: true)
 
 geo_data[:features].each_with_index do |feature, idx|
   identifier = feature[:properties][:Identifier]

@@ -23,6 +23,7 @@ module Ecds
         @document[:panos] = panos unless @document[:panos].nil?
         @document[:videos] = enhance_videos(@document[:videos])
         @document[:map_layers] = collect_map_layers
+        @document[:works] = works
         @document
       end
 

@@ -281,44 +281,46 @@
           "type": "date"
         },
         "works": {
-          "title": {
-            "type": "text"
-          },
-          "link": {
-            "type": "text"
-          },
-          "author": {
-            "type": "keyword"
-          },
-          "publisher": {
-            "type": "text"
-          },
-          "city": {
-            "type": "text"
-          },
-          "pages": {
-            "type": "text"
-          },
-          "year_str": {
-            "type": "text"
-          },
-          "year": {
-            "type": "short"
-          },
-          "volume": {
-            "type": "text"
-          },
-          "issue": {
-            "type": "text"
-          },
-          "name": {
-            "type": "keyword"
-          },
-          "uuid": {
-            "type": "text"
-          },
-          "citation": {
-            "type": "text"
+          "properties": {
+            "title": {
+              "type": "text"
+            },
+            "link": {
+              "type": "text"
+            },
+            "author": {
+              "type": "keyword"
+            },
+            "publisher": {
+              "type": "text"
+            },
+            "city": {
+              "type": "text"
+            },
+            "pages": {
+              "type": "text"
+            },
+            "year_str": {
+              "type": "text"
+            },
+            "year": {
+              "type": "short"
+            },
+            "volume": {
+              "type": "text"
+            },
+            "issue": {
+              "type": "text"
+            },
+            "name": {
+              "type": "keyword"
+            },
+            "uuid": {
+              "type": "text"
+            },
+            "citation": {
+              "type": "text"
+            }
           }
         },
         "people": {
@@ -604,6 +606,60 @@
               "type": "keyword"
             }
           }
+        },
+        "works": {
+          "properties": {
+
+            "title": {
+              "type": "text"
+            },
+            "link": {
+              "type": "text"
+            },
+            "author": {
+              "type": "keyword"
+            },
+            "publisher": {
+              "type": "text"
+            },
+            "city": {
+              "type": "text"
+            },
+            "pages": {
+              "type": "text"
+            },
+            "year_str": {
+              "type": "text"
+            },
+            "year": {
+              "type": "short"
+            },
+            "volume": {
+              "type": "text"
+            },
+            "issue": {
+              "type": "text"
+            },
+            "name": {
+              "type": "keyword"
+            },
+            "uuid": {
+              "type": "text"
+            },
+            "citation": {
+              "type": "text"
+            }
+          }
+        },
+        "people": {
+          "properties": {
+            "full_name": {
+              "type": "text"
+            },
+            "bio": {
+              "type": "text"
+            }
+          }
         }
       }
     },
@@ -671,6 +727,20 @@
         "related_model_id": 42,
         "related_type": "hash",
         "field": ["name", "uuid"]
+      },
+      "people": {
+        "type": "related",
+        "primary": false,
+        "related_model_id": 53,
+        "related_type": "hash",
+        "field": ["full_name", "biography"]
+      },
+      "works": {
+        "type": "related",
+        "primary": false,
+        "related_model_id": 20,
+        "related_type": "array",
+        "field": "uuid"
       }
     },
     "project_model_id": 13

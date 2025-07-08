@@ -93,16 +93,6 @@ module Ecds
         end
       end
 
-      def works
-        work_documenter = Ecds::Document.new(project_model_id: 9, collection: 'georgia_coast_works')
-        @document[:works].map do |work|
-          work_record = CoreDataConnector::Work.find_by(uuid: work)
-          work_doc = work_documenter.to_document(work_record)
-          work_enhancer = Ecds::Enhance::GeorgiaCoastWorks.new(work_doc)
-          work_enhancer.enhance
-        end
-      end
-
       def topos
         return if @document[:topos].nil? || @document[:topos].empty?
 

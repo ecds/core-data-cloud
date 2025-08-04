@@ -22,8 +22,8 @@ docker build \
        --build-arg ELASTICSEARCH_API_KEY=$ELASTICSEARCH_API_KEY \
        --build-arg GEONAMES_USER=$GEONAMES_USER \
        --build-arg AWS_REGION=$AWS_REGION \
-       --build-arg AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
-       --build-arg AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+       --build-arg CD_AWS_ACCESS_KEY_ID=$CD_AWS_ACCESS_KEY_ID \
+       --build-arg CD_AWS_SECRET_ACCESS_KEY=$CD_AWS_SECRET_ACCESS_KEY \
        -t core-data-cloud \
        .
 

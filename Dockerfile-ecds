@@ -1,5 +1,5 @@
-# Use the Ruby 3.2.2 image from Docker Hub as the base image (https://hub.docker.com/_/ruby)
-FROM ruby:3.2.2
+# Use the Ruby 3.4.4 image from Docker Hub as the base image (https://hub.docker.com/_/ruby)
+FROM ruby:3.4.4
 
 RUN ls /etc
 RUN apt update -qq && apt install -y postgresql-client git libvips curl cron vim libgeos-dev
@@ -53,7 +53,7 @@ ENV RAILS_ENV=development
 ENV REACT_APP_HOSTNAME=$HOSTNAME
 ENV REACT_APP_IIIF_MANIFEST_ITEM_LIMIT=$REACT_APP_IIIF_MANIFEST_ITEM_LIMIT
 ENV REACT_APP_IIIF_MANIFEST_ITEM_LIMIT=$REACT_APP_IIIF_MANIFEST_ITEM_LIMIT
-ENV REACT_APP_MAP_TILER_KEY=$REACT_APP_MAP_TILER_KEY
+ENV VITE_MAP_TILER_KEY=$REACT_APP_MAP_TILER_KEY
 ENV SECRET_KEY_BASE=$SECRET_KEY_BASE
 ENV ELASTICSEARCH_API_KEY=$ELASTICSEARCH_API_KEY
 ENV ELASTICSEARCH_HOST=$ELASTICSEARCH_HOST

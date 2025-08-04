@@ -41,6 +41,8 @@ module Ecds
       end
 
       def geoserver_thumbnail
+        return nil if @record.place_geometry.nil?
+
         # Zoom 17: http://wiki.openstreetmap.org/wiki/Zoom_levels
         scale = 1.193
         factory = RGeo::Geographic.simple_mercator_factory
@@ -80,6 +82,8 @@ module Ecds
       end
 
       def location
+        return { lat: 0, lon: 0 } if @record.place_geometry.nil?
+
         geom = @record.place_geometry.geometry
         geom = geom.first if geom.class.to_s.include? 'Collection'
         { lat: geom.centroid.y, lon: geom.centroid.x }

@@ -26,7 +26,7 @@ require 'json'
             when 'names'
               document[:names] = CoreDataConnector::PlaceName.where(place_id: record.id).map(&:name)
             when 'user_defined'
-              document[model_field] = if field[:sub_field]
+              document[model_field] = if field[:sub_field] && record.user_defined[field[:field]]
                                         record.user_defined[field[:field]][field[:sub_field]]
                                       else
                                         record.user_defined[field[:field]]

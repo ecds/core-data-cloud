@@ -86,5 +86,13 @@ namespace :ecds_index do
       indexer = Ecds::Indexer.new(collection: collection.to_s)
       indexer.update
     end
+    CoreDataConnector::MediaContent.all.reverse.each do |medium|
+      response = HTTParty.get(medium.resource_description.content_iiif_url, follow_redirects: false)
+      next unless response.code == 302
+      [medium.resource_description.content_download_url, medium.resource_description.content_iiif_url].each do |download_url|    
+        image = Ecds::Image.new(download_url: download_url)
+        image.migrate
+      end
+    end
   end
 end

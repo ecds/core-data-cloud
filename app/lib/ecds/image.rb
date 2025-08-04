@@ -19,10 +19,13 @@ module Ecds
         sleep 5
         retry
       end
-      @key = uri.path.split('/')[3]
-      # @key = uri.path
-      # @key.slice!(0) if @key.starts_with?('/')
+      @key = uri.path.include?('iiif') ? uri.path.split('/')[3] : uri.path.split('/').last
       @destination_key = "images/#{@key}"
+      @source_bucket = Aws::S3::Bucket.new('ecds-cantaloupe')
+      @destination_bucket = Aws::S3::Bucket.new('ecds-iiif')
+      @trigger_bucket = Aws::S3::Bucket.new('readux-s3-ingest')
+      @source_object = @source_bucket.object(@key)
+      @destination_object = Aws::S3::Object.new(@destination_bucket.name, @destination_key)
     end
 
     def versions
@@ -33,16 +36,16 @@ module Ecds
       }
     end
 
-    def migrate
-      source_bucket = Aws::S3::Bucket.new('ecds-cantaloupe')
-      destination_bucket = Aws::S3::Bucket.new('ecds-iiif')
-      trigger_bucket = Aws::S3::Bucket.new('readux-s3-ingest')
-      source_object = source_bucket.object(@key)
-      destination_object = Aws::S3::Object.new(destination_bucket.name, @destination_key)
-      return if destination_object.exists? && destination_object.last_modified > source_object.last_modified
+    def migrated?
+      @destination_object.exists? && @destination_object.last_modified > @source_object.last_modified
+    end
 
-      source_object.copy_to(bucket: destination_bucket.name, key: "incoming/#{@key}")
-      upload_trigger_file(filename: "#{DateTime.now.to_i}.txt", bucket: trigger_bucket)
+    def migrate
+      return if migrated?
+      puts "key: #{@key}"
+
+      @source_object.copy_to(bucket: @destination_bucket.name, key: "incoming/#{@key}")
+      upload_trigger_file(filename: "#{DateTime.now.to_i}.txt", bucket: @trigger_bucket)
     end
 
     private

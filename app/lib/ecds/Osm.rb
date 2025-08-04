@@ -2,21 +2,32 @@ module Ecds
   class Osm < CoreDataConnector::Authority::Base
     include CoreDataConnector::Http::Requestable
 
-    BASE_URL = 'https://overpass-api.de/api/interpreter'
+    BASE_URL = 'https://nominatim.openstreetmap.org'
+    HEADERS = { 'Referer': ENV['HOSTNAME']}
 
-    def find(id, type: 'way')
-      # puts options[:type]
-      # type = options[:type] || 'way'
-      puts type
-      body = "[out:json];#{type}(#{id});out geom;"
-      puts body
-      send_request(BASE_URL, method: :post, body:) do |response|
-        JSON.parse response, symbolize_names: true
+    def find(id)
+      options = {
+        method: :get,
+        headers: HEADERS,
+        params: {
+          osm_ids: id,
+          format: 'json',
+          polygon_geojson: 1
+        }
+      }
+      send_request("#{BASE_URL}/lookup.php", options) do |response|
+        JSON.parse(response, symbolize_names: true)
       end
     end
 
-    def search(_, _ = {})
-      puts 'not implemented'
+    def search(query, _ = {})
+      params = {
+        q: query.gsub(' ', '+'),
+        format: 'json'
+      }
+      send_request("#{BASE_URL}/search", method: :get, params:, headers: HEADERS) do |body|
+        JSON.parse(body)
+      end
     end
 
     def geojson_feature(geometries)
@@ -42,7 +53,7 @@ module Ecds
     end
 
     def way(osm_data)
-      geometries = osm_data[:elements].map { |e| e[:geometry] }
+      geometries = osm_data[:elements].map { |e| e }
       return if geometries.empty?
 
       geojson_features(geometries)

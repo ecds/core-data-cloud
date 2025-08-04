@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
@@ -9,6 +11,8 @@ Rails.application.configure do
   config.cache_classes = false
 
   config.hosts << 'coredata.ecds.io'
+  # Make code changes take effect immediately without server restart.
+  config.enable_reloading = true
 
   # Do not eager load code on boot.
   config.eager_load = false

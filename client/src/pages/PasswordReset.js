@@ -1,7 +1,7 @@
 import { SimpleEditPage, Toaster } from '@performant-software/semantic-components';
-import React, { type AbstractComponent, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router';
 import { MessageHeader } from 'semantic-ui-react';
 import ItemHeader from '../components/ItemHeader';
 import PermissionsService from '../services/Permissions';
@@ -66,7 +66,7 @@ const PasswordResetForm = (props) => {
   );
 };
 
-const PasswordReset: AbstractComponent<any> = withReactRouterEditPage(PasswordResetForm, {
+const PasswordReset = withReactRouterEditPage(PasswordResetForm, {
   afterSave: (navigate) => (
     SessionService
       .reset()

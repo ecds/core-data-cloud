@@ -1,9 +1,8 @@
 // @flow
 
-import { withEditPage } from '@performant-software/shared-components';
-import { type EditPageConfig } from '@performant-software/shared-components/types';
+import { withEditPage, type EditPageConfig } from '@performant-software/shared-components';
 import React, { useCallback, type AbstractComponent } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router';
 import _ from 'underscore';
 
 const ERROR_USER_DEFINED = 'user_defined';

@@ -18,8 +18,8 @@ import React, {
 import { useTranslation } from 'react-i18next';
 import { FaUnlockAlt } from 'react-icons/fa';
 import { FaShareFromSquare } from 'react-icons/fa6';
-import { useLocation } from 'react-router-dom';
-import uuid from 'react-uuid';
+import { useLocation } from 'react-router';
+import { v4 as uuid } from 'uuid';
 import {
   Form,
   Header,
@@ -161,7 +161,7 @@ const ProjectModelForm = (props: Props) => {
               label={t('ProjectModel.labels.name')}
               required={props.isRequired('name')}
               onChange={props.onTextInputChange.bind(this, 'name')}
-              value={props.item.name}
+              value={props.item.name || ''}
             />
             <Form.Input
               error={props.isError('order')}
@@ -169,7 +169,7 @@ const ProjectModelForm = (props: Props) => {
               required={props.isRequired('order')}
               onChange={props.onTextInputChange.bind(this, 'order')}
               type='number'
-              value={props.item.order}
+              value={props.item.order || 0}
             />
             <Form.Checkbox
               checked={props.item.allow_identifiers}

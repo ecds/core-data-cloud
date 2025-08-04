@@ -24,6 +24,15 @@ class Permissions {
   }
 
   /**
+   * An admin user can manage jobs.
+   *
+   * @returns {boolean}
+   */
+  canCreateJobs(): boolean {
+    return this.isAdmin();
+  }
+
+  /**
    * An admin user or a member user can create a new project.
    *
    * @returns {boolean}
@@ -179,7 +188,7 @@ class Permissions {
 
     // The user cannot be invited more than once in 24 hours
     const timeInHours = DateTimeUtils.getDurationInHours(userProject?.user?.last_invited_at);
-    const interval = parseInt(process.env.REACT_APP_POSTMARK_INTERVAL, 10);
+    const interval = parseInt(import.meta.env.VITE_POSTMARK_INTERVAL, 10);
 
     return timeInHours > interval;
   }

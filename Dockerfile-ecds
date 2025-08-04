@@ -27,13 +27,10 @@ ARG SECRET_KEY_BASE
 ARG AUTHENTICATION_EXPIRATION
 ARG GEONAMES_USER
 
-# Add Rails gems
-COPY Gemfile Gemfile
-COPY Gemfile.lock Gemfile.lock
-
-RUN bundle install
-
 COPY . .
+
+# Add Rails gems
+RUN bundle install
 
 ENV AUTHENTICATION_EXPIRATION=$AUTHENTICATION_EXPIRATION
 ENV GENERATE_SOURCEMAP=false

@@ -14,7 +14,7 @@ import { FaMapPin } from 'react-icons/fa';
 import { UserDefinedFieldsForm } from '@performant-software/user-defined-fields';
 import cx from 'classnames';
 import React, {
-  useCallback, useEffect, useMemo, useState
+  useCallback, useEffect, useMemo, useRef, useState
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -26,7 +26,7 @@ import type { Place as PlaceType } from '../types/Place';
 import PlaceLayerModal from './PlaceLayerModal';
 import PlaceLayerUtils from '../utils/PlaceLayers';
 import PlaceNameModal from './PlaceNameModal';
-import MapStyleSwitcher from './MapStyleSwitcher';
+import { BearingInput, MapStyleSwitcher } from './ECDSExtras';
 import { mapStyle, satelliteStyle } from '../constants/MapStyles';
 import styles from './PlaceForm.module.css';
 import MapSessionUtils from '../utils/MapSession';
@@ -54,14 +54,14 @@ const PlaceForm = (props: Props) => {
    * Tracks whether the user has enabled polygon data entry for MapView.
    */
   const [geocoding, setGeocoding] = useState(MapSessionUtils.restoreSession('mapView', localStorage).geocoding);
-
+  
   /**
    * Updates localStorage to persist geocoding setting across pages.
-   */
-  useEffect(() => {
-    MapSessionUtils.setSession('mapView', localStorage, { geocoding });
+  */
+ useEffect(() => {
+   MapSessionUtils.setSession('mapView', localStorage, { geocoding });
   }, [geocoding]);
-
+  
   /**
    * Memo-izes the names of the passed place layers.
    */
@@ -116,7 +116,9 @@ const PlaceForm = (props: Props) => {
    *
    * @type {function(*): *}
    */
-  const onMapChange = useCallback((data) => props.onSetState({ place_geometry: { geometry_json: data } }), []);
+  const onMapChange = useCallback((data) => {
+    props.onSetState({ place_geometry: { geometry_json: data } })
+  }, []);
 
   /**
    * Sets the uploaded file as the GeoJSON object.
@@ -227,6 +229,7 @@ const PlaceForm = (props: Props) => {
           boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
           WebkitBoxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px'
         }}
+        on
       >
         <MapControl
           position='bottom-left'
@@ -270,6 +273,9 @@ const PlaceForm = (props: Props) => {
             baseStyle={baseStyle}
             setBaseStyle={setBaseStyle}
           />
+        </MapControl>
+        <MapControl position="bottom-right">
+          <BearingInput />
         </MapControl>
         <LayerMenu
           names={layerNames}

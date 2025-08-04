@@ -18,6 +18,7 @@ const MediaContentForm = (props: Props) => {
   const [iiifUrls, setIiifUrls] = useState<string>([]);
   
   useEffect(() => {
+    console.log("🚀 ~ MediaContentForm ~ props.item.content_url:", props.item.content_url)
     if (!props.item || !props.item.manifest_url) return;
     const getIiifUrl = async () => {
       const response = await fetch(props.item.manifest_url)

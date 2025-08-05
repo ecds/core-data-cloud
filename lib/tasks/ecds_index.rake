@@ -82,7 +82,7 @@ namespace :ecds_index do
   task update_all: :environment do
     return if File.exist?('index_updating')
 
-    File.open('index_updating')
+    File.open('index_updating', 'w') {}
     begin
       mappings = File.read(File.join(Rails.root, 'app', 'lib', 'ecds', 'mappings.json'))
       collections = JSON.parse(mappings, symbolize_names: true)

@@ -21,7 +21,11 @@ module Ecds
         @document[:map_layers] = map_layers
         @document[:places] = @document.delete(:sub_places) if @document[:types].include?('County')
         @document[:places] = add_places(@document[:places]) unless @document[:places].nil?
-        @document = extras if @document[:types].include? 'Barrier Island'
+        if @document[:types].include? 'Barrier Island'
+          related_media
+          @document[:manifests] = [*@document[:manifests], combined_manifest]
+          @document[:other_places] = other_places
+        end
         @document[:featured_photograph] = featured_photograph unless @document[:photographs].empty?
         @document[:photographs] = photographs
         @document[:videos] = videos
@@ -37,15 +41,14 @@ module Ecds
         @document
       end
 
-      def extras
-        # @document[:videos] += enhance_videos(related_videos.flatten.uniq.compact)
-        related_media
-        @document[:manifests].push(
-          {
-            label: 'combined',
-            identifier: "#{ENV['HOSTNAME']}/ecds/manifest/#{@document[:uuid]}/6/0fbeaac4-45a3-4767-b9bc-7674632a8be1"
-          }
-        )
+      def combined_manifest
+        {
+          label: 'combined',
+          identifier: "#{ENV['HOSTNAME']}/ecds/manifest/#{@document[:uuid]}/6/0fbeaac4-45a3-4767-b9bc-7674632a8be1"
+        }
+      end
+
+      def other_places
         other_places = []
         poly = RGeo::GeoJSON.decode(@document[:geojson][:features].find { |f| f[:geometry][:type].downcase.include? 'polygon' }.to_json)
         related_place_uuids = @document[:places].map { |p| p[:uuid] }
@@ -55,8 +58,7 @@ module Ecds
 
           other_places.push @documenter.to_document related_place if related_place.place_geometry.geometry.within? poly
         end
-        @document[:other_places] = add_places(other_places) unless other_places.count.zero?
-        @document
+        add_places(other_places) unless other_places.count.zero?
       end
 
       def related_media

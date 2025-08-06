@@ -1680,7 +1680,8 @@
         "field": ["uuid", "66578ed8-65e6-4b5b-b6b7-20526a5d9f12"]
       }
     },
-    "project_model_id": 25
+    "project_model_id": 25,
+    "collection_index": "georgia_coast_places"
   },
   "georgia_coast_topic_tree": {
     "mappings": {

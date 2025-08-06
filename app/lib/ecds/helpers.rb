@@ -132,7 +132,7 @@ module Ecds
         geojson[:features].push(feature)
       end
 
-      geojson
+      geojson.deep_symbolize_keys
     end
     # rubocop:enable Metrics/MethodLength
 

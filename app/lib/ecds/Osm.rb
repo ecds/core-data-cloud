@@ -66,11 +66,7 @@ module Ecds
       features = []
       ways = relations.map { |r| r[:members].filter { |member| member[:type] == 'way' } }.flatten
       ways.map { |m| m[:geometry] }.map { |g| g }.each do |geometries|
-        # geometries.each do |geometry|
-          puts geometries.count
-          puts geometries
         features.push(geojson_features(geometries))
-        # end
       end
 
       features

@@ -21,6 +21,7 @@ module Ecds
       collections = File.read(File.join(Rails.root, 'app', 'lib', 'ecds', 'mappings.json'))
       mapping_key = mapping.nil? ? collection.to_sym : mapping.to_sym
       @collection_mappings = JSON.parse(collections, symbolize_names: true)[mapping_key]
+      @collection_index = @collection_mappings.key?(:collection_index) ? @collection_mappings[:collection_index] : @collection
       @project_model_id = @collection_mappings[:project_model_id]
       project_model = CoreDataConnector::ProjectModel.find(@project_model_id)
       @model_class = project_model.model_class.constantize
@@ -31,9 +32,9 @@ module Ecds
         nil
       end
       @records = @model_class.where(project_model_id: @project_model_id)
-      document_count = @client.count(index: @collection)['count']
+      document_count = @client.count(index: @collection_index)['count']
       documents = @client.search(
-        index: @collection, body: {
+        index: @collection_index, body: {
           query: {
             simple_query_string: {
               query: @project_model_id, fields: ['model_id']
@@ -52,11 +53,11 @@ module Ecds
 
     def create
       document_mappings = @collection_mappings[:mappings]
-      @client.indices.create(index: @collection, body: { mappings: document_mappings })
+      @client.indices.create(index: @collection_index, body: { mappings: document_mappings })
     end
 
     def delete
-      @client.indices.delete(index: @collection)
+      @client.indices.delete(index: @collection_index)
     end
 
     def index
@@ -66,7 +67,7 @@ module Ecds
     def update
       index_requests
       @hit_ids.each do |hit|
-        @requests.push({ delete: { _index: @collection, _id: hit } }) unless @database_records.include?(hit)
+        @requests.push({ delete: { _index: @collection_index, _id: hit } }) unless @database_records.include?(hit)
       end
 
       return if @requests.empty?
@@ -85,15 +86,15 @@ module Ecds
       document = @documenter.to_document(record)
       document = enhance(document) unless @enhancer_class.nil?
       begin
-        @client.get(index: @collection, id: record.id)
-        @client.update(index: @collection, id: record.id, body: { doc: document })
+        @client.get(index: @collection_index, id: record.id)
+        @client.update(index: @collection_index, id: record.id, body: { doc: document })
       rescue Elasticsearch::Transport::Transport::Errors::NotFound
-        @client.index(index: @collection, body: document)
+        @client.index(index: @collection_index, body: document)
       end
     end
 
     def delete_record(record_id)
-      @client.delete(index: @collection, id: record_id)
+      @client.delete(index: @collection_index, id: record_id)
     end
 
     def post
@@ -117,9 +118,9 @@ module Ecds
           document = @documenter.to_document(record)
           document = enhance(document) unless @enhancer_class.nil?
           if @hit_ids.include?(record.uuid)
-            @requests.push({ update: { _index: @collection, _id: record.id, data: { doc: document } } })
+            @requests.push({ update: { _index: @collection_index, _id: record.id, data: { doc: document } } })
           else
-            @requests.push({ index: { _index: @collection, _id: record.id, data: document } })
+            @requests.push({ index: { _index: @collection_index, _id: record.id, data: document } })
           end
           count += 1
         end

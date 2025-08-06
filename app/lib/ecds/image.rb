@@ -42,7 +42,6 @@ module Ecds
 
     def migrate
       return if migrated?
-      puts "key: #{@key}"
 
       @source_object.copy_to(bucket: @destination_bucket.name, key: "incoming/#{@key}")
       upload_trigger_file(filename: "#{DateTime.now.to_i}.txt", bucket: @trigger_bucket)

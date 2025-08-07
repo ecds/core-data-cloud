@@ -1156,12 +1156,22 @@
         },
         "media_type": {
           "type": "text"
+        },
+        "category": {
+          "type": "keyword"
         }
       }
     },
     "model_fields": {
       "name": {
         "type": "string",
+        "field": "name"
+      },
+      "category": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 55,
+        "related_type": "string",
         "field": "name"
       },
       "embed_id": {

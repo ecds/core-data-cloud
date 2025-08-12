@@ -18,7 +18,7 @@ module Ecds
       end
 
       def enhance
-        @document[:map_layers] = map_layers
+        @document[:map_layers] = map_layers unless @document[:map_layers].nil?
         @document[:places] = @document.delete(:sub_places) if @document[:types].include?('County')
         @document[:places] = add_places(@document[:places]) unless @document[:places].nil?
         if @document[:types].include? 'Barrier Island'
@@ -86,7 +86,11 @@ module Ecds
 
       def map_layers
         map_layer_documenter = Ecds::Document.new(project_model_id: 9, collection: 'georgia_coast_maps')
-        @document[:map_layers].sort_by! { |mapLayer| mapLayer[:date][:start_date] }
+        unless @document[:map_layers].first[:start_date].nil?
+          @document[:map_layers].sort_by! { |map_layer| map_layer[:date][:start_date] } 
+        end
+
+        @document[:map_layers].sort_by! { |map_layer| map_layer[:date][:start_date] } 
         @document[:map_layers].map do |map_layer|
           map_layer_record = CoreDataConnector::Place.find_by(uuid: map_layer[:uuid])
           map_layer_doc = map_layer_documenter.to_document(map_layer_record)

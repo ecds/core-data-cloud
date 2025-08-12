@@ -41,7 +41,7 @@ module Ecds
       end
 
       def geoserver_thumbnail
-        return nil if @record.place_geometry.nil?
+        return nil if @record.place_geometry.nil? || !@record.place_layers.first.url.include?('geoserver')
 
         # Zoom 17: http://wiki.openstreetmap.org/wiki/Zoom_levels
         scale = 1.193
@@ -72,13 +72,17 @@ module Ecds
       def preview
         return preview_from_geoserver if @document[:preview].empty?
 
-        preview_from_iiif
+        return preview_from_iiif unless @document[:preview].empty?
+
+        return 'https://iiif.ecds.io/iiif/3/map_placeholder.tiff/full/max/0/color.jpg'
       end
 
       def thumbnail
-        return geoserver_thumbnail if @document[:preview].empty?
+        return geoserver_thumbnail if @record.place_layers.first.url.include('geoserver')
 
-        iiif_thumbnail
+        return iiif_thumbnail unless @document[:preview].empty?
+
+        'https://iiif.ecds.io/iiif/3/map_placeholder.tiff/full/max/0/color.jpg'
       end
 
       def location

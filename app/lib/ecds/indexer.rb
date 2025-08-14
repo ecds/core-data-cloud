@@ -35,17 +35,12 @@ module Ecds
       document_count = @client.count(index: @collection_index)['count']
       documents = @client.search(
         index: @collection_index, body: {
-          query: {
-            simple_query_string: {
-              query: @project_model_id, fields: ['model_id']
-            }
-          },
           size: document_count,
           _source: false
         }
       )
-      @hit_ids = documents['hits']['hits'].map { |h| h['_id'].to_i }
-      @database_records = @records.map(&:id) if collect_all
+      @hit_ids = documents['hits']['hits'].map { |h| h['_id'].to_s }
+      @database_records = @records.map { |r| r.id.to_s } if collect_all
       @requests = []
       # index_requests unless collect_all
     end
@@ -65,7 +60,9 @@ module Ecds
     end
 
     def update
+      puts "#{Time.now.to_datetime} UPDATING #{@collection}"
       index_requests
+
       @hit_ids.each do |hit|
         @requests.push({ delete: { _index: @collection_index, _id: hit } }) unless @database_records.include?(hit)
       end
@@ -105,7 +102,7 @@ module Ecds
     private
 
     def index_requests
-      total = @records.count
+      # total = @records.count
       count = 1
       @records.in_groups_of(50) do |group|
         next if group.nil?
@@ -114,17 +111,22 @@ module Ecds
         group.each do |record|
           next if record.nil?
 
-          puts "#{count} of #{total} - #{record.name}"
+          # puts "#{count} of #{total} - #{record.name}"
           document = @documenter.to_document(record)
-          document = enhance(document) unless @enhancer_class.nil?
-          if @hit_ids.include?(record.uuid)
-            @requests.push({ update: { _index: @collection_index, _id: record.id, data: { doc: document } } })
-          else
-            @requests.push({ index: { _index: @collection_index, _id: record.id, data: document } })
+          begin
+            document = enhance(document) unless @enhancer_class.nil?
+            if @hit_ids.include?(record.uuid)
+              @requests.push({ update: { _index: @collection_index, _id: record.id, data: { doc: document } } })
+            else
+              @requests.push({ index: { _index: @collection_index, _id: record.id, data: document } })
+            end
+            count += 1
+          rescue StandardError => e
+            puts "#{Time.now.to_datetime} ERROR #{@collection}: #{record.name}"
+            puts "#{Time.now.to_datetime} ERROR #{e}"
           end
-          count += 1
         end
-        puts '************* posting ************'
+        # puts '************* posting ************'
         post
       end
     end

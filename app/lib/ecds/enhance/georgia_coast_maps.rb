@@ -70,15 +70,15 @@ module Ecds
       end
 
       def preview
-        return preview_from_geoserver if @document[:preview].empty?
+        return preview_from_geoserver if @record.place_layers.first.url.include?('geoserver')
 
         return preview_from_iiif unless @document[:preview].empty?
 
-        return 'https://iiif.ecds.io/iiif/3/map_placeholder.tiff/full/max/0/color.jpg'
+        'https://iiif.ecds.io/iiif/3/map_placeholder.tiff/full/max/0/color.jpg'
       end
 
       def thumbnail
-        return geoserver_thumbnail if @record.place_layers.first.url.include('geoserver')
+        return geoserver_thumbnail if @record.place_layers.first.url.include?('geoserver')
 
         return iiif_thumbnail unless @document[:preview].empty?
 

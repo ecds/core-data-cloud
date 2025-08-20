@@ -64,7 +64,10 @@ module Ecds
       index_requests
 
       @hit_ids.each do |hit|
-        @requests.push({ delete: { _index: @collection_index, _id: hit } }) unless @database_records.include?(hit)
+        next unless @database_records.include?(hit)
+        next if @collection.include?('counties')
+
+        @requests.push({ delete: { _index: @collection_index, _id: hit } })
       end
 
       return if @requests.empty?

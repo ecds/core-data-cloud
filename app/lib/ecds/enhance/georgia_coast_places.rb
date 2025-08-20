@@ -81,7 +81,7 @@ module Ecds
       def featured_video
         return nil if @document[:videos].empty?
 
-        @document[:videos].find { |video| video[:featured] } || @document[:videos].first
+        @document[:videos].find { |video| video[:featured] } || nil
       end
 
       def map_layers

@@ -24,6 +24,7 @@ module Ecds
         @document[:types] = ['County']
         if @document[:places].empty?
           @document[:places] = other_places
+          @document[:other_places] = []
         else
           @document[:places] = add_places(@document[:places])
           @document[:other_places] = other_places

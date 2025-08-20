@@ -63,6 +63,8 @@ module Ecds
       puts "#{Time.now.to_datetime} UPDATING #{@collection}"
       index_requests
 
+      return if @project_model_id == 25
+
       @hit_ids.each do |hit|
         next unless @database_records.include?(hit)
         next if @collection.include?('counties')

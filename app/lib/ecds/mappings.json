@@ -457,6 +457,392 @@
     },
     "project_model_id": 6
   },
+  "georgia_coast_counties": {
+    "mappings": {
+      "dynamic": "false",
+      "properties": {
+        "suppress": {
+          "type": "text"
+        },
+        "bbox": {
+          "type": "float"
+        },
+        "description": {
+          "type": "text"
+        },
+        "featured_photograph": {
+          "type": "text"
+        },
+        "geojson": {
+          "type": "nested"
+        },
+        "identifier": {
+          "type": "text"
+        },
+        "location": {
+          "type": "geo_point"
+        },
+        "manifests": {
+          "properties": {
+            "identifier": {
+              "type": "text"
+            },
+            "label": {
+              "type": "text"
+            }
+          }
+        },
+        "map_layers": {
+          "properties": {
+            "name": {
+              "type": "text"
+            },
+            "preview": {
+              "type": "text"
+            },
+            "uuid": {
+              "type": "text"
+            },
+            "wms_resource": {
+              "type": "text"
+            }
+          }
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "names": {
+          "type": "text"
+        },
+        "related_places": {
+          "properties": {
+            "description": {
+              "type": "text"
+            },
+            "featured_photograph": {
+              "type": "text"
+            },
+            "location": {
+              "type": "geo_point"
+            },
+            "name": {
+              "type": "text"
+            },
+            "slug": {
+              "type": "keyword"
+            },
+            "type": {
+              "type": "text"
+            },
+            "identifiers": {
+              "properties": {
+                "authority": {
+                  "type": "text"
+                },
+                "identifier": {
+                  "type": "text"
+                }
+              }
+            }
+          }
+        },
+        "photographs": {
+          "properties": {
+            "featured": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "text"
+            },
+            "url": {
+              "type": "text"
+            },
+            "thumbnail_url": {
+              "type": "text"
+            },
+            "full_url": {
+              "type": "text"
+            },
+            "info": {
+              "type": "text"
+            },
+            "media_type": {
+              "type": "text"
+            },
+            "uuid": {
+              "type": "text"
+            }
+          }
+        },
+        "places": {
+          "properties": {
+            "description": {
+              "type": "text"
+            },
+            "featured_photograph": {
+              "type": "text"
+            },
+            "location": {
+              "type": "geo_point"
+            },
+            "name": {
+              "type": "text"
+            },
+            "slug": {
+              "type": "keyword"
+            },
+            "type": {
+              "type": "text"
+            },
+            "identifiers": {
+              "properties": {
+                "authority": {
+                  "type": "text"
+                },
+                "identifier": {
+                  "type": "text"
+                }
+              }
+            }
+          }
+        },
+        "short_description": {
+          "type": "text"
+        },
+        "slug": {
+          "type": "keyword"
+        },
+        "topos": {
+          "properties": {
+            "layers": {
+              "properties": {
+                "name": {
+                  "type": "text"
+                },
+                "url": {
+                  "type": "text"
+                },
+                "uuid": {
+                  "type": "text"
+                }
+              }
+            },
+            "year": {
+              "type": "text"
+            }
+          }
+        },
+        "types": {
+          "type": "keyword"
+        },
+        "media_types": {
+          "type": "keyword"
+        },
+        "uuid": {
+          "type": "text"
+        },
+        "videos": {
+          "properties": {
+            "embed_id": {
+              "type": "text"
+            },
+            "embed_url": {
+              "type": "text"
+            },
+            "featured": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "text"
+            },
+            "provider": {
+              "type": "text"
+            },
+            "thumbnail_url": {
+              "type": "text"
+            },
+            "media_type": {
+              "type": "text"
+            },
+            "uuid": {
+              "type": "text"
+            }
+          }
+        },
+        "panos": {
+          "properties": {
+            "name": {
+              "type": "text"
+            },
+            "slug": {
+              "type": "keyword"
+            },
+            "embed_url": {
+              "type": "text"
+            },
+            "description": {
+              "type": "text"
+            },
+            "thumbnail_url": {
+              "type": "text"
+            },
+            "media_type": {
+              "type": "text"
+            },
+            "uuid": {
+              "type": "text"
+            }
+          }
+        },
+        "identifiers": {
+          "properties": {
+            "authority": {
+              "type": "text"
+            },
+            "identifier": {
+              "type": "text"
+            }
+          }
+        },
+        "date_modified": {
+          "type": "date"
+        },
+        "other_places": {
+          "properties": {
+            "description": {
+              "type": "text"
+            },
+            "featured_photograph": {
+              "type": "text"
+            },
+            "location": {
+              "type": "geo_point"
+            },
+            "name": {
+              "type": "text"
+            },
+            "slug": {
+              "type": "keyword"
+            },
+            "type": {
+              "type": "text"
+            },
+            "identifiers": {
+              "properties": {
+                "authority": {
+                  "type": "text"
+                },
+                "identifier": {
+                  "type": "text"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "model_fields": {
+      "name": {
+        "type": "string",
+        "field": "name"
+      },
+      "names": {
+        "type": "names"
+      },
+      "description": {
+        "type": "user_defined",
+        "field": "8477e1b8-d7ea-4749-9ce6-153ea50cfa93"
+      },
+      "short_description": {
+        "type": "user_defined",
+        "field": "375d2125-c29e-415a-9d1c-dd1f71133853"
+      },
+      "identifier": {
+        "type": "user_defined",
+        "field": "1dba6063-a7ea-4381-8e3d-a83d575aa955"
+      },
+      "types": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 30,
+        "related_type": "array",
+        "field": "name"
+      },
+      "panos": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 37,
+        "related_type": "array",
+        "field": "uuid"
+      },
+      "places": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 36,
+        "related_type": "hash",
+        "field": ["name", "uuid", "159c8717-703e-40c5-a813-425578f9a8a7", "id"]
+      },
+      "topos": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 34,
+        "related_type": "array",
+        "field": "uuid"
+      },
+      "videos": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 35,
+        "related_type": "hash",
+        "field": [
+          "231c4d65-9303-4177-9455-a82a61488037",
+          "89c9080e-9909-42f7-8835-eb2102047b20",
+          "name",
+          "uuid"
+        ],
+        "related_fields": ["796c7bb2-515b-4c94-8148-5389a1f3c660"]
+      },
+      "photographs": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 33,
+        "related_type": "hash",
+        "field": ["name", "uuid"],
+        "related_fields": ["b5130e6d-2783-4f3e-b8c1-219ae5b64ee2"]
+      },
+      "location": {
+        "type": "geo_point",
+        "field": ["place_geometry", "geometry"]
+      },
+      "uuid": {
+        "type": "string",
+        "field": "uuid"
+      },
+      "slug": {
+        "type": "slug",
+        "field": "name"
+      },
+      "geojson": {
+        "type": "geojson",
+        "property_fields": ["name", "description", "uuid"]
+      },
+      "manifests": {
+        "type": "manifests"
+      },
+      "bbox": {
+        "type": "bbox"
+      },
+      "map_layers": {
+        "type": "related",
+        "primary": true,
+        "related_model_id": 32,
+        "related_type": "hash",
+        "field": ["uuid", "66578ed8-65e6-4b5b-b6b7-20526a5d9f12"]
+      }
+    },
+    "project_model_id": 25,
+    "collection_index": "georgia_coast_places"
+  },
   "georgia_coast_topics": {
     "mappings": {
       "dynamic": false,
@@ -609,7 +995,6 @@
         },
         "works": {
           "properties": {
-
             "title": {
               "type": "text"
             },
@@ -1338,392 +1723,6 @@
         "field": "name"
       }
     }
-  },
-  "georgia_coast_counties": {
-    "mappings": {
-      "dynamic": "false",
-      "properties": {
-        "suppress": {
-          "type": "text"
-        },
-        "bbox": {
-          "type": "float"
-        },
-        "description": {
-          "type": "text"
-        },
-        "featured_photograph": {
-          "type": "text"
-        },
-        "geojson": {
-          "type": "nested"
-        },
-        "identifier": {
-          "type": "text"
-        },
-        "location": {
-          "type": "geo_point"
-        },
-        "manifests": {
-          "properties": {
-            "identifier": {
-              "type": "text"
-            },
-            "label": {
-              "type": "text"
-            }
-          }
-        },
-        "map_layers": {
-          "properties": {
-            "name": {
-              "type": "text"
-            },
-            "preview": {
-              "type": "text"
-            },
-            "uuid": {
-              "type": "text"
-            },
-            "wms_resource": {
-              "type": "text"
-            }
-          }
-        },
-        "name": {
-          "type": "keyword"
-        },
-        "names": {
-          "type": "text"
-        },
-        "related_places": {
-          "properties": {
-            "description": {
-              "type": "text"
-            },
-            "featured_photograph": {
-              "type": "text"
-            },
-            "location": {
-              "type": "geo_point"
-            },
-            "name": {
-              "type": "text"
-            },
-            "slug": {
-              "type": "keyword"
-            },
-            "type": {
-              "type": "text"
-            },
-            "identifiers": {
-              "properties": {
-                "authority": {
-                  "type": "text"
-                },
-                "identifier": {
-                  "type": "text"
-                }
-              }
-            }
-          }
-        },
-        "photographs": {
-          "properties": {
-            "featured": {
-              "type": "boolean"
-            },
-            "name": {
-              "type": "text"
-            },
-            "url": {
-              "type": "text"
-            },
-            "thumbnail_url": {
-              "type": "text"
-            },
-            "full_url": {
-              "type": "text"
-            },
-            "info": {
-              "type": "text"
-            },
-            "media_type": {
-              "type": "text"
-            },
-            "uuid": {
-              "type": "text"
-            }
-          }
-        },
-        "places": {
-          "properties": {
-            "description": {
-              "type": "text"
-            },
-            "featured_photograph": {
-              "type": "text"
-            },
-            "location": {
-              "type": "geo_point"
-            },
-            "name": {
-              "type": "text"
-            },
-            "slug": {
-              "type": "keyword"
-            },
-            "type": {
-              "type": "text"
-            },
-            "identifiers": {
-              "properties": {
-                "authority": {
-                  "type": "text"
-                },
-                "identifier": {
-                  "type": "text"
-                }
-              }
-            }
-          }
-        },
-        "short_description": {
-          "type": "text"
-        },
-        "slug": {
-          "type": "keyword"
-        },
-        "topos": {
-          "properties": {
-            "layers": {
-              "properties": {
-                "name": {
-                  "type": "text"
-                },
-                "url": {
-                  "type": "text"
-                },
-                "uuid": {
-                  "type": "text"
-                }
-              }
-            },
-            "year": {
-              "type": "text"
-            }
-          }
-        },
-        "types": {
-          "type": "keyword"
-        },
-        "media_types": {
-          "type": "keyword"
-        },
-        "uuid": {
-          "type": "text"
-        },
-        "videos": {
-          "properties": {
-            "embed_id": {
-              "type": "text"
-            },
-            "embed_url": {
-              "type": "text"
-            },
-            "featured": {
-              "type": "boolean"
-            },
-            "name": {
-              "type": "text"
-            },
-            "provider": {
-              "type": "text"
-            },
-            "thumbnail_url": {
-              "type": "text"
-            },
-            "media_type": {
-              "type": "text"
-            },
-            "uuid": {
-              "type": "text"
-            }
-          }
-        },
-        "panos": {
-          "properties": {
-            "name": {
-              "type": "text"
-            },
-            "slug": {
-              "type": "keyword"
-            },
-            "embed_url": {
-              "type": "text"
-            },
-            "description": {
-              "type": "text"
-            },
-            "thumbnail_url": {
-              "type": "text"
-            },
-            "media_type": {
-              "type": "text"
-            },
-            "uuid": {
-              "type": "text"
-            }
-          }
-        },
-        "identifiers": {
-          "properties": {
-            "authority": {
-              "type": "text"
-            },
-            "identifier": {
-              "type": "text"
-            }
-          }
-        },
-        "date_modified": {
-          "type": "date"
-        },
-        "other_places": {
-          "properties": {
-            "description": {
-              "type": "text"
-            },
-            "featured_photograph": {
-              "type": "text"
-            },
-            "location": {
-              "type": "geo_point"
-            },
-            "name": {
-              "type": "text"
-            },
-            "slug": {
-              "type": "keyword"
-            },
-            "type": {
-              "type": "text"
-            },
-            "identifiers": {
-              "properties": {
-                "authority": {
-                  "type": "text"
-                },
-                "identifier": {
-                  "type": "text"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "model_fields": {
-      "name": {
-        "type": "string",
-        "field": "name"
-      },
-      "names": {
-        "type": "names"
-      },
-      "description": {
-        "type": "user_defined",
-        "field": "8477e1b8-d7ea-4749-9ce6-153ea50cfa93"
-      },
-      "short_description": {
-        "type": "user_defined",
-        "field": "375d2125-c29e-415a-9d1c-dd1f71133853"
-      },
-      "identifier": {
-        "type": "user_defined",
-        "field": "1dba6063-a7ea-4381-8e3d-a83d575aa955"
-      },
-      "types": {
-        "type": "related",
-        "primary": true,
-        "related_model_id": 30,
-        "related_type": "array",
-        "field": "name"
-      },
-      "panos": {
-        "type": "related",
-        "primary": true,
-        "related_model_id": 37,
-        "related_type": "array",
-        "field": "uuid"
-      },
-      "places": {
-        "type": "related",
-        "primary": true,
-        "related_model_id": 36,
-        "related_type": "hash",
-        "field": ["name", "uuid", "159c8717-703e-40c5-a813-425578f9a8a7", "id"]
-      },
-      "topos": {
-        "type": "related",
-        "primary": true,
-        "related_model_id": 34,
-        "related_type": "array",
-        "field": "uuid"
-      },
-      "videos": {
-        "type": "related",
-        "primary": true,
-        "related_model_id": 35,
-        "related_type": "hash",
-        "field": [
-          "231c4d65-9303-4177-9455-a82a61488037",
-          "89c9080e-9909-42f7-8835-eb2102047b20",
-          "name",
-          "uuid"
-        ],
-        "related_fields": ["796c7bb2-515b-4c94-8148-5389a1f3c660"]
-      },
-      "photographs": {
-        "type": "related",
-        "primary": true,
-        "related_model_id": 33,
-        "related_type": "hash",
-        "field": ["name", "uuid"],
-        "related_fields": ["b5130e6d-2783-4f3e-b8c1-219ae5b64ee2"]
-      },
-      "location": {
-        "type": "geo_point",
-        "field": ["place_geometry", "geometry"]
-      },
-      "uuid": {
-        "type": "string",
-        "field": "uuid"
-      },
-      "slug": {
-        "type": "slug",
-        "field": "name"
-      },
-      "geojson": {
-        "type": "geojson",
-        "property_fields": ["name", "description", "uuid"]
-      },
-      "manifests": {
-        "type": "manifests"
-      },
-      "bbox": {
-        "type": "bbox"
-      },
-      "map_layers": {
-        "type": "related",
-        "primary": true,
-        "related_model_id": 32,
-        "related_type": "hash",
-        "field": ["uuid", "66578ed8-65e6-4b5b-b6b7-20526a5d9f12"]
-      }
-    },
-    "project_model_id": 25,
-    "collection_index": "georgia_coast_places"
   },
   "georgia_coast_topic_tree": {
     "mappings": {

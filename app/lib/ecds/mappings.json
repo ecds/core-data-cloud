@@ -1588,6 +1588,38 @@
         },
         "date_modified": {
           "type": "date"
+        },
+        "other_places": {
+          "properties": {
+            "description": {
+              "type": "text"
+            },
+            "featured_photograph": {
+              "type": "text"
+            },
+            "location": {
+              "type": "geo_point"
+            },
+            "name": {
+              "type": "text"
+            },
+            "slug": {
+              "type": "keyword"
+            },
+            "type": {
+              "type": "text"
+            },
+            "identifiers": {
+              "properties": {
+                "authority": {
+                  "type": "text"
+                },
+                "identifier": {
+                  "type": "text"
+                }
+              }
+            }
+          }
         }
       }
     },

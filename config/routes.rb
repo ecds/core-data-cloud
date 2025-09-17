@@ -5,7 +5,7 @@ require 'sidekiq/web'
 Sidekiq::Web.use Rack::Session::Cookie, secret: Rails.application.credentials.secret_key_base, same_site: :lax, max_age: 86400
 
 # Add Basic Authentication for Security
-Sidekiq::Web.use Rack::Auth::Basic  do |email, password|
+Sidekiq::Web.use Rack::Auth::Basic do |email, password|
   user = CoreDataConnector::User.find_by(email:,)
   policy = CoreDataConnector::UserPolicy.new(user, user)
 
@@ -15,6 +15,7 @@ end
 Rails.application.routes.draw do
   mount CoreDataConnector::Engine, at: '/core_data'
   mount Sidekiq::Web, at: '/sidekiq'
+  mount TripleEyeEffable::Engine, at: '/triple_eye_effable'
   mount UserDefinedFields::Engine, at: '/user_defined_fields'
   
   # Default route for static front-end

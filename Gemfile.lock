@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/performant-software/core-data-connector.git
-  revision: fca5bb3e5952c7f61e90361182783668a5cf8caf
-  tag: v0.1.96
+  revision: e16f738ed177b6a90943d523849839cd109c1dbb
+  tag: v0.1.103
   specs:
     core_data_connector (0.1.0)
       activerecord-postgis-adapter (~> 11.0)
@@ -22,8 +22,8 @@ GIT
 
 GIT
   remote: https://github.com/performant-software/fuzzy-dates.git
-  revision: c83271acb4837325d026a63229f89059984648f5
-  tag: v0.1.1
+  revision: 1572b9c3370922aace98e9e2db139a30c55fda48
+  tag: v0.1.2
   specs:
     fuzzy_dates (0.1.0)
       rails (>= 6.0.3.2, < 9)
@@ -40,8 +40,8 @@ GIT
 
 GIT
   remote: https://github.com/performant-software/resource-api.git
-  revision: ab5afbdfedfd4e89309d748b46167652562a22bf
-  tag: v0.5.14
+  revision: 2307a221fec5a06949dc039537d4b24cbcf8b649
+  tag: v0.5.15
   specs:
     resource_api (0.1.0)
       pagy (~> 5.10)
@@ -50,8 +50,8 @@ GIT
 
 GIT
   remote: https://github.com/performant-software/triple-eye-effable.git
-  revision: b0399727e0c5eaa3afc31b127069f5b53a867811
-  tag: v0.2.5
+  revision: 2fc8e3705f57e0b165e6c144523ab1aad723f3f8
+  tag: v0.2.7
   specs:
     triple_eye_effable (0.1.0)
       httparty (~> 0.20.0)
@@ -1890,7 +1890,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0729)
+    mime-types-data (3.2025.0826)
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
@@ -2020,8 +2020,8 @@ GEM
     typesense (0.15.0)
       oj (~> 3.11)
       typhoeus (~> 1.4)
-    typhoeus (1.4.1)
-      ethon (>= 0.9.0)
+    typhoeus (1.5.0)
+      ethon (>= 0.9.0, < 0.16.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uri (1.0.3)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_29_013404) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_07_014212) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -117,6 +117,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_29_013404) do
     t.datetime "updated_at", null: false
     t.jsonb "user_defined", default: {}
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.integer "z_media_content_id"
+    t.uuid "import_id"
+    t.string "import_url"
+    t.boolean "import_url_processed", default: false, null: false
     t.index ["project_model_id"], name: "index_core_data_connector_media_contents_on_project_model_id"
     t.index ["user_defined"], name: "index_core_data_connector_media_contents_on_user_defined", using: :gin
   end
@@ -267,6 +271,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_29_013404) do
     t.boolean "archived", default: false, null: false
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.boolean "use_storage_key", default: true, null: false
+    t.jsonb "reconciliation_credentials", default: {}
   end
 
   create_table "core_data_connector_record_merges", force: :cascade do |t|

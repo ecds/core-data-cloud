@@ -455,7 +455,8 @@
         "field": ["uuid", "66578ed8-65e6-4b5b-b6b7-20526a5d9f12"]
       }
     },
-    "project_model_id": 6
+    "project_model_id": 6,
+    "skip_cleanup": false
   },
   "georgia_coast_counties": {
     "mappings": {
@@ -841,6 +842,7 @@
       }
     },
     "project_model_id": 25,
+    "skip_cleanup": true,
     "collection_index": "georgia_coast_places"
   },
   "georgia_coast_topics": {
@@ -1128,7 +1130,8 @@
         "field": "uuid"
       }
     },
-    "project_model_id": 13
+    "project_model_id": 13,
+    "skip_cleanup": false
   },
   "georgia_coast_maps": {
     "mappings": {
@@ -1275,7 +1278,8 @@
         "field": "name"
       }
     },
-    "project_model_id": 9
+    "project_model_id": 9,
+    "skip_cleanup": false
   },
   "georgia_coast_works": {
     "mappings": {
@@ -1372,10 +1376,12 @@
         "field": "uuid"
       }
     },
-    "project_model_id": 17
+    "project_model_id": 17,
+    "skip_cleanup": false
   },
   "georgia_coast_panos": {
     "project_model_id": 19,
+    "skip_cleanup": false,
     "mappings": {
       "dynamic": false,
       "properties": {
@@ -1480,6 +1486,7 @@
   },
   "georgia_coast_videos": {
     "project_model_id": 5,
+    "skip_cleanup": false,
     "suppression_field": "6fbc9cfc-97e3-4de0-84bf-e877adaa2822",
     "mappings": {
       "dynamic": false,
@@ -1612,6 +1619,7 @@
   },
   "georgia_coast_photographs": {
     "project_model_id": 1,
+    "skip_cleanup": false,
     "mappings": {
       "dynamic": false,
       "properties": {
@@ -1747,10 +1755,12 @@
         "field": "name"
       }
     },
-    "project_model_id": 13
+    "project_model_id": 13,
+    "skip_cleanup": false
   },
   "owa_places": {
     "project_model_id": 26,
+    "skip_cleanup": false,
     "mappings": {
       "dynamic": false,
       "properties": {

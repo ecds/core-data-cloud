@@ -35,7 +35,7 @@ module Ecds
       document_count = @client.count(index: @collection_index)['count']
       documents = @client.search(
         index: @collection_index, body: {
-          size: document_count,
+          size: [document_count, @records.count].max,
           _source: false
         }
       )
@@ -64,23 +64,17 @@ module Ecds
       index_requests
 
       return if @project_model_id == 25
+      return if @collection.include?('counties')
+
+      @database_records.concat CoreDataConnector::Place.where(project_model_id: 25).map(&:id).map(&:to_s)
+
+      @hit_ids.reject! { |hit| @database_records.include? hit }
 
       @hit_ids.each do |hit|
-        next unless @database_records.include?(hit)
-        next if @collection.include?('counties')
-
         @requests.push({ delete: { _index: @collection_index, _id: hit } })
       end
 
-      return if @requests.empty?
-
-      post
-    end
-
-    def recreate
-      delete unless @requests.empty?
-      create
-      index_requests
+      post unless @requests.empty?
     end
 
     def index_record(record_id)

@@ -95,26 +95,62 @@ module Ecds
             download_url: photo_record.resource_description.content_iiif_url
           )
           image.migrate
+          publisher = CoreDataConnector::Relationship.find_by(
+            project_model_relationship_id: 24,
+            primary_record: photo_record
+          )
           {
             **photo,
             **image.versions,
             media_type: 'photograph',
-            slug: photo_record.name.parameterize
+            slug: photo_record.name.parameterize,
+            publisher: publisher.present? ? publisher.name : nil
+          }
+        end
+      end
+
+      def videos
+        @document[:videos].map do |video|
+          video_record = CoreDataConnector::Item.find_by(uuid: video[:uuid])
+          publisher = CoreDataConnector::Relationship.find_by(
+            project_model_relationship_id: 27,
+            primary_record: video_record
+          )
+          {
+            **video,
+            thumbnail_url: Ecds::Helpers.thumbnail_url(video[:provider], video[:embed_id]),
+            embed_url: Ecds::Helpers.embed_url(video[:provider], video[:embed_id]),
+            media_type: 'video',
+            publisher: publisher.present? ? publisher.name : nil
           }
         end
       end
 
       def panos
         documentor = Ecds::Document.new(project_model_id: 19, collection: 'georgia_coast_panos')
-        attrs = %i[name slug embed_url description thumbnail_url media_type uuid]
+        attrs = %i[name slug embed_url description thumbnail_url media_type uuid publisher]
         @document[:panos].map do |pano|
           pano_record = CoreDataConnector::Item.find_by(uuid: pano)
           doc = documentor.to_document(pano_record)
           enhancer = Ecds::Enhance::GeorgiaCoastPanos.new doc
           result = enhancer.enhance
-          result.each_key do |key|
-            result.delete(key) unless attrs.include?(key)
-          end
+          result.each_key { |key| result.delete(key) unless attrs.include?(key) }
+          result
+        end
+      end
+
+      def map_layers
+        return if @document[:map_layers].empty?
+
+        map_layer_documenter = Ecds::Document.new(project_model_id: 9, collection: 'georgia_coast_maps')
+        @document[:map_layers].sort_by! { |map_layer| map_layer[:date][:start_date] } unless @document[:map_layers].all?
+        attrs = %i[name preview uuid wms_resources publisher bbox bearing date]
+        @document[:map_layers].map do |map_layer|
+          map_layer_record = CoreDataConnector::Place.find_by(uuid: map_layer[:uuid])
+          map_layer_doc = map_layer_documenter.to_document(map_layer_record)
+          map_layer_enhancer = Ecds::Enhance::GeorgiaCoastMaps.new(map_layer_doc)
+          result = map_layer_enhancer.enhance
+          result.each_key { |key| result.delete(key) unless attrs.include?(key) }
           result
         end
       end

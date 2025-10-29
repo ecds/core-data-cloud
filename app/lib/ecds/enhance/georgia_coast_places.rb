@@ -38,6 +38,7 @@ module Ecds
         @document[:works] = works
         geojson
         @document[:date_modified] = date_modified
+        @document[:slug] = slug
         @document
       end
 
@@ -84,20 +85,6 @@ module Ecds
         @document[:videos].find { |video| video[:featured] } || nil
       end
 
-      def map_layers
-        return if @document[:map_layers].empty?
-
-        map_layer_documenter = Ecds::Document.new(project_model_id: 9, collection: 'georgia_coast_maps')
-        @document[:map_layers].sort_by! { |map_layer| map_layer[:date][:start_date] } unless @document[:map_layers].all?
-
-        @document[:map_layers].map do |map_layer|
-          map_layer_record = CoreDataConnector::Place.find_by(uuid: map_layer[:uuid])
-          map_layer_doc = map_layer_documenter.to_document(map_layer_record)
-          map_layer_enhancer = Ecds::Enhance::GeorgiaCoastMaps.new(map_layer_doc)
-          map_layer_enhancer.enhance
-        end
-      end
-
       def topos
         return if @document[:topos].nil? || @document[:topos].empty?
 
@@ -135,17 +122,6 @@ module Ecds
         [*primary_records, *related_records].compact.uniq
       end
 
-      def videos
-        @document[:videos].map do |video|
-          {
-            **video,
-            thumbnail_url: Ecds::Helpers.thumbnail_url(video[:provider], video[:embed_id]),
-            embed_url: Ecds::Helpers.embed_url(video[:provider], video[:embed_id]),
-            media_type: 'video'
-          }
-        end
-      end
-
       def geojson
         types = @document[:geojson][:features].map do |feature|
           feature[:geometry][:type]
@@ -162,6 +138,13 @@ module Ecds
             }
           }
         )
+      end
+
+      def slug
+        place_names = CoreDataConnector::PlaceName.where(name: @record.name).filter { |pn| pn.place.project_model_id == 6 }
+        return "#{@record.name} #{doc[:county]}".parameterize  if place_names.count > 1
+
+        @doc[:slug]
       end
     end
   end

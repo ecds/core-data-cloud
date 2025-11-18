@@ -8,11 +8,14 @@ require 'json'
       class Document
         attr_reader :client, :collection
 
-        def initialize(project_model_id:, collection:)
+        def initialize(project_model_id:, collection: nil, mappings: nil)
           @project_model_id = project_model_id
-          @collection = collection
-          mappings_file = File.read(File.join(Rails.root, 'app', 'lib', 'ecds', 'mappings.json'))
-          @model_mappings = JSON.parse(mappings_file, symbolize_names: true)[collection.to_sym][:model_fields]
+          if collection
+            @collection = collection
+            mappings_file = File.read(File.join(Rails.root, 'app', 'lib', 'ecds', 'mappings.json'))
+            @model_mappings = JSON.parse(mappings_file, symbolize_names: true)[collection.to_sym][:model_fields]
+          end
+          @model_mappings = mappings if mappings
         end
 
         # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength

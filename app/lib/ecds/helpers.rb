@@ -113,13 +113,15 @@ module Ecds
       end
     end
 
-    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     def self.geojson(record, properties)
       return if record.place_geometry.nil?
 
       geojson = feature_collection_template
       feature_geometry = RGeo::GeoJSON.encode(record.place_geometry.geometry)
+
       type = feature_type(record.place_geometry.geometry)
+
       case type
       when :collection
         feature_geometry['geometries'].each do |geometry|
@@ -132,9 +134,16 @@ module Ecds
         geojson[:features].push(feature)
       end
 
-      geojson.deep_symbolize_keys
+      geojson = geojson.deep_symbolize_keys
+
+      geojson[:features].each do |f|
+        f[:properties][:id] = "#{f[:geometry][:type].downcase}-#{f[:properties][:uuid]}"
+        f[:id] = record.id
+      end
+
+      geojson
     end
-    # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
     def self.check_for_geojson(record, document, model_mappings)
       geojson_field = model_mappings.select { |_key, value| value[:type] == 'geojson' }
@@ -144,6 +153,84 @@ module Ecds
       properties = {}
       property_fields.each { |prop| properties[prop] = document[prop] }
       geojson(record, properties)
+    end
+
+    # Combine line segments by connecting endpoints, creating separate lines for gaps
+    def self.connect_segments(segments)
+      return [] if segments.empty?
+
+      lines = []
+      remaining = segments.dup
+
+      until remaining.empty?
+        current_line = remaining.shift.dup
+
+        # Keep trying to extend the current line
+        changed = true
+        while changed && !remaining.empty?
+          changed = false
+          last_point = current_line.last
+
+          # Find a segment that starts where we ended
+          next_segment = remaining.find { |seg| seg.first == last_point }
+
+          if next_segment
+            # Remove the first point (duplicate) and append the rest
+            current_line.concat(next_segment[1..])
+            remaining.delete(next_segment)
+            changed = true
+          else
+            # Check if any segment ends where we ended (reverse connection)
+            next_segment = remaining.find { |seg| seg.last == last_point }
+
+            if next_segment
+              # Reverse the segment and append (excluding duplicate point)
+              current_line.concat(next_segment.reverse[1..])
+              remaining.delete(next_segment)
+              changed = true
+            end
+          end
+        end
+
+        lines << current_line
+      end
+
+      lines
+    end
+
+    def self.combine_line_segments(features)
+      # Extract all coordinate arrays from MultiLineString geometries
+      all_coords = []
+      features.each do |feature|
+        next unless feature[:geometry][:type].include? 'Line'
+
+        # Extract the first (and typically only) LineString from each MultiLineString
+        feature[:geometry][:coordinates].each do |linestring|
+          all_coords << linestring
+        end
+      end
+      combined_lines = connect_segments(all_coords)
+      if combined_lines.length == 1
+        # Single continuous line
+        {
+          type: 'Feature',
+          properties: features.first[:properties],
+          geometry: {
+            type: 'LineString',
+            coordinates: combined_lines.first
+          }
+        }
+      else
+        # Multiple lines (gaps found)
+        {
+          type: 'Feature',
+          properties: features.first[:properties],
+          geometry: {
+            type: 'MultiLineString',
+            coordinates: combined_lines
+          }
+        }
+      end
     end
   end
 end

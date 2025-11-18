@@ -22,13 +22,7 @@ module Ecds
         @document[:photographs] = photographs
         @document[:map_layers] = map_layers
         @document[:types] = ['County']
-        if @document[:places].empty?
-          @document[:places] = other_places
-          @document[:other_places] = []
-        else
-          @document[:places] = add_places(@document[:places])
-          @document[:other_places] = other_places
-        end
+        @document[:places] = add_places
         @document[:manifests] = [*@document[:manifests], combined_manifest]
         @document[:videos] = videos
         @document[:panos] = panos
@@ -40,18 +34,6 @@ module Ecds
         geojson
         @document[:date_modified] = date_modified
         @document
-      end
-
-      def other_places
-        related_place_uuids = @document[:places].map { |p| p[:uuid] }
-
-        related_places = CoreDataConnector::Relationship.where(project_model_relationship_id: 31, related_record: @record).map(&:primary_record)
-
-        other_places = related_places.map do |place|
-          @documenter.to_document place unless related_place_uuids.include? place.uuid
-        end
-
-        add_places(other_places.compact) unless other_places.count.zero?
       end
     end
   end

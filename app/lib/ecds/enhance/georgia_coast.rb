@@ -155,8 +155,8 @@ module Ecds
         end
       end
 
-      def add_places(places)
-        places.map do |place|
+      def add_places()
+        @document[:places].map do |place|
           place_record = CoreDataConnector::Place.find_by(uuid: place[:uuid])
           featured_photograph = find_place_preview(place[:id])
 

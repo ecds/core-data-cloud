@@ -40,6 +40,9 @@
             },
             "uuid": {
               "type": "text"
+            },
+            "publisher": {
+              "type": "text"
             }
           }
         },
@@ -67,14 +70,26 @@
             "name": {
               "type": "text"
             },
-            "preview": {
+            "thumbnail_url": {
               "type": "text"
             },
             "uuid": {
               "type": "text"
             },
-            "wms_resource": {
+            "wms_resources": {
               "type": "text"
+            },
+            "publisher": {
+              "type": "text"
+            },
+            "bbox": {
+              "type": "float"
+            },
+            "bearing": {
+              "type": "float"
+            },
+            "date": {
+              "type": "short"
             }
           }
         },
@@ -143,6 +158,9 @@
               "type": "text"
             },
             "uuid": {
+              "type": "text"
+            },
+            "publisher": {
               "type": "text"
             }
           }
@@ -239,6 +257,9 @@
             },
             "uuid": {
               "type": "text"
+            },
+            "publisher": {
+              "type": "publisher"
             }
           }
         },
@@ -263,6 +284,9 @@
               "type": "text"
             },
             "uuid": {
+              "type": "text"
+            },
+            "publisher": {
               "type": "text"
             }
           }
@@ -498,13 +522,16 @@
             "name": {
               "type": "text"
             },
-            "preview": {
+            "thumbnail_url": {
               "type": "text"
             },
             "uuid": {
               "type": "text"
             },
-            "wms_resource": {
+            "wms_resources": {
+              "type": "text"
+            },
+            "publisher": {
               "type": "text"
             }
           }
@@ -571,6 +598,9 @@
               "type": "text"
             },
             "uuid": {
+              "type": "text"
+            },
+            "publisher": {
               "type": "text"
             }
           }
@@ -667,6 +697,9 @@
             },
             "uuid": {
               "type": "text"
+            },
+            "publisher": {
+              "type": "text"
             }
           }
         },
@@ -691,6 +724,9 @@
               "type": "text"
             },
             "uuid": {
+              "type": "text"
+            },
+            "publisher": {
               "type": "text"
             }
           }
@@ -898,6 +934,9 @@
             },
             "slug": {
               "type": "text"
+            },
+            "publisher": {
+              "type": "text"
             }
           }
         },
@@ -928,13 +967,16 @@
             "name": {
               "type": "text"
             },
-            "preview": {
+            "thumbnail_url": {
               "type": "text"
             },
             "uuid": {
               "type": "text"
             },
-            "wms_resource": {
+            "wms_resources": {
+              "type": "text"
+            },
+            "publisher": {
               "type": "text"
             }
           }
@@ -960,6 +1002,9 @@
               "type": "text"
             },
             "uuid": {
+              "type": "text"
+            },
+            "publisher": {
               "type": "text"
             }
           }
@@ -992,6 +1037,9 @@
             },
             "slug": {
               "type": "keyword"
+            },
+            "publisher": {
+              "type": "text"
             }
           }
         },

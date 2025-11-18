@@ -20,11 +20,10 @@ module Ecds
       def enhance
         @document[:map_layers] = map_layers unless @document[:map_layers].nil?
         @document[:places] = @document.delete(:sub_places) if @document[:types].include?('County')
-        @document[:places] = add_places(@document[:places]) unless @document[:places].nil?
+        @document[:places] = add_places unless @document[:places].nil?
         if @document[:types].include? 'Barrier Island'
           related_media
           @document[:manifests] = [*@document[:manifests], combined_manifest]
-          @document[:other_places] = other_places
         end
         @document[:featured_photograph] = featured_photograph unless @document[:photographs].empty?
         @document[:photographs] = photographs
@@ -49,26 +48,13 @@ module Ecds
         }
       end
 
-      def other_places
-        other_places = []
-        poly = RGeo::GeoJSON.decode(@document[:geojson][:features].find { |f| f[:geometry][:type].downcase.include? 'polygon' }.to_json)
-        related_place_uuids = @document[:places].map { |p| p[:uuid] }
-        CoreDataConnector::Place.where(project_model_id: @record.project_model_id).where.not(uuid: @record.uuid).each do |related_place|
-          next if related_place_uuids.include? related_place.uuid
-          next if related_place.place_geometry.nil?
-
-          other_places.push @documenter.to_document related_place if related_place.place_geometry.geometry.within? poly
-        end
-        add_places(other_places) unless other_places.count.zero?
-      end
-
       def related_media
         @document[:places].each do |related_place|
           place_record = CoreDataConnector::Place.find_by(uuid: related_place[:uuid])
           related_place_document = @documenter.to_document(place_record)
-          @document[:photographs] += related_place_document[:photographs]
-          @document[:videos] += related_place_document[:videos]
-          @document[:panos] += related_place_document[:panos]
+          @document[:photographs] += related_place_document[:photographs] unless related_place_document[:photographs].nil?
+          @document[:videos] += related_place_document[:videos] unless related_place_document[:videos].nil?
+          @document[:panos] += related_place_document[:panos] unless related_place_document[:panos].nil?
         end
         @document
       end
@@ -142,9 +128,9 @@ module Ecds
 
       def slug
         place_names = CoreDataConnector::PlaceName.where(name: @record.name).filter { |pn| pn.place.project_model_id == 6 }
-        return "#{@record.name} #{doc[:county]}".parameterize  if place_names.count > 1
+        return "#{@record.name} #{@document[:county]}".parameterize  if place_names.count > 1
 
-        @doc[:slug]
+        @document[:slug]
       end
     end
   end

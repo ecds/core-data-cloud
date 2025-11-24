@@ -35,6 +35,7 @@ module Ecds
         @document[:media_types] = media_types
         @document[:identifiers] = identifiers
         @document[:works] = works
+        @document[:population] = population
         geojson
         @document[:date_modified] = date_modified
         @document[:slug] = slug
@@ -131,6 +132,27 @@ module Ecds
         return "#{@record.name} #{@document[:county]}".parameterize  if place_names.count > 1
 
         @document[:slug]
+      end
+
+      def population
+        return unless @document[:types].include? 'Populated Place'
+
+        osm_rels = CoreDataConnector::Relationship.where(
+          project_model_relationship_id: 57,
+          related_record: @record
+        )
+
+        return if osm_rels.empty?
+
+        props = osm_rels.map(&:primary_record).map do |osm|
+          JSON.parse(osm.user_defined['8f35ead2-fa02-4273-8c21-90fea494f362'], symbolize_names: true)
+        end
+
+        populations = props.filter { |prop| prop.keys.include? :population }.map { |p| p[:population] }
+
+        return if populations.empty?
+
+        populations.map(&:to_i).max
       end
     end
   end

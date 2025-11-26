@@ -129,7 +129,17 @@ module Ecds
 
       def slug
         place_names = CoreDataConnector::PlaceName.where(name: @record.name).filter { |pn| pn.place.project_model_id == 6 }
-        return "#{@record.name} #{@document[:county]}".parameterize  if place_names.count > 1
+        if place_names.count > 1
+          county = CoreDataConnector::PlaceName.where(name: @document[:county]).map(&:place).find {|p| p.project_model_id == 25}
+          place_names = CoreDataConnector::Relationship.where(
+            project_model_relationship_id: 31,
+            related_record: county
+          ).map(&:primary_record).map(&:name)
+          place_name_count = place_names.select { |p| p == @record.name }.count
+          return "#{@record.name.parameterize}-#{@record.id}" if place_name_count > 1
+
+          return "#{@record.name} #{@document[:county]}".parameterize
+        end
 
         @document[:slug]
       end

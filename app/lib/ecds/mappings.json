@@ -1251,6 +1251,9 @@
         },
         "manifest": {
           "type": "text"
+        },
+        "description": {
+          "type": "text"
         }
       }
     },
@@ -1310,6 +1313,10 @@
       "bearing": {
         "type": "user_defined",
         "field": "4946ffd9-6ab2-4d55-80fa-27c5f588c437"
+      },
+      "description": {
+        "type": "user_defined",
+        "field": "ff582dbb-397b-4e04-9198-803a5898b16d"
       },
       "publisher": {
         "type": "related",

@@ -31,8 +31,20 @@ class MediaContent extends FormDataTransform {
       'project_model_id',
       'name',
       'user_defined',
-      'content'
+      'content',
+      'content_warning'
     ];
+  }
+
+  /**
+   * Returns the valid parameters for the create_manifests endpoint.
+   *
+   * @param params
+   *
+   * @returns {*}
+   */
+  toManifestable(params: { [key: string]: any }) {
+    return _.pick(params, 'project_model_relationship_id');
   }
 
   /**

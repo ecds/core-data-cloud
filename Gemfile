@@ -64,3 +64,20 @@ group :development, :test do
   # Environment variable management
   gem 'dotenv-rails', '~> 3.1.8'
 end
+
+group :development do
+  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
+  # gem "spring"
+end
+
+# ECDS STUFF
+# Elasticserch
+gem 'elasticsearch', '~> 7.0'
+gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
+
+# Geospatial libraries
+gem 'rgeo', '~> 3.0'
+gem 'rgeo-geojson', '~>  2.2'
+gem 'roo', '~> 2.10.0'
+gem 'aws-sdk'
+gem 'concurrent-ruby', '1.3.4'

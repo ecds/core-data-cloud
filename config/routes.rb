@@ -17,9 +17,13 @@ Rails.application.routes.draw do
   mount Sidekiq::Web, at: '/sidekiq'
   mount TripleEyeEffable::Engine, at: '/triple_eye_effable'
   mount UserDefinedFields::Engine, at: '/user_defined_fields'
-
+  
   # Default route for static front-end
   get '*path', to: "application#fallback_index_html", constraints: -> (request) do
     !request.xhr? && request.format.html?
+  end
+  
+  namespace :ecds do
+    get 'media/index'
   end
 end

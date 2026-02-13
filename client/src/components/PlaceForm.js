@@ -28,6 +28,8 @@ import type { Place as PlaceType } from '../types/Place';
 import PlaceLayerModal from './PlaceLayerModal';
 import PlaceLayerUtils from '../utils/PlaceLayers';
 import PlaceNameModal from './PlaceNameModal';
+import { BearingInput, MapStyleSwitcher } from './ECDSExtras';
+import { mapStyle, satelliteStyle } from '../constants/MapStyles';
 import styles from './PlaceForm.module.css';
 
 type Props = EditContainerProps & {
@@ -45,10 +47,15 @@ const PlaceForm = (props: Props) => {
   const { t } = useTranslation();
 
   /**
+   * Tracks selected map style.
+   */
+  const [baseStyle, setBaseStyle] = useState<mapStyle | satelliteStyle>(mapStyle);
+
+  /**
    * Tracks whether the user has enabled polygon data entry for MapView.
    */
   const [geocoding, setGeocoding] = useState(MapSessionUtils.restoreSession('mapView', localStorage).geocoding);
-
+  
   /**
    * Tracks map geometry data independently of props.item
    */
@@ -56,11 +63,11 @@ const PlaceForm = (props: Props) => {
 
   /**
    * Updates localStorage to persist geocoding setting across pages.
-   */
-  useEffect(() => {
-    MapSessionUtils.setSession('mapView', localStorage, { geocoding });
+  */
+ useEffect(() => {
+   MapSessionUtils.setSession('mapView', localStorage, { geocoding });
   }, [geocoding]);
-
+  
   /**
    * Memo-izes the names of the passed place layers.
    */
@@ -237,7 +244,7 @@ const PlaceForm = (props: Props) => {
         apiKey={import.meta.env.VITE_MAP_TILER_KEY}
         data={props.item.place_geometry?.geometry_json}
         geocoding={geocoding}
-        mapStyle='https://api.maptiler.com/maps/dataviz/style.json'
+        mapStyle={baseStyle}
         maxPitch={0}
         onChange={onMapChange}
         preserveDrawingBuffer
@@ -245,6 +252,7 @@ const PlaceForm = (props: Props) => {
           boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
           WebkitBoxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px'
         }}
+        on
       >
         <MapControl
           position='bottom-left'
@@ -281,6 +289,15 @@ const PlaceForm = (props: Props) => {
             )}
             onSelection={onUpload}
           />
+        </MapControl>
+        <MapControl position='top-right'>
+          <MapStyleSwitcher
+            baseStyle={baseStyle}
+            setBaseStyle={setBaseStyle}
+          />
+        </MapControl>
+        <MapControl position="bottom-right">
+          <BearingInput />
         </MapControl>
         <LayerMenu
           names={layerNames}

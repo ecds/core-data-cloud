@@ -1,0 +1,2 @@
+ # This should be on the host, not in the container.
+ */15 * * * * /home/ec2-user/update_index.sh >> /home/ec2-user/cron.log 2>&1

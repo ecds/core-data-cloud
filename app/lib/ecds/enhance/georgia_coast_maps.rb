@@ -36,7 +36,7 @@ module Ecds
           download_url: medium_record.resource_description.content_iiif_url
         )
 
-        image.migrate
+        # image.migrate
         image.versions[:thumbnail_url]
       end
 

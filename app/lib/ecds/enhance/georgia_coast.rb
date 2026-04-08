@@ -94,7 +94,7 @@ module Ecds
           image = Ecds::Image.new(
             download_url: photo_record.resource_description.content_iiif_url
           )
-          image.migrate
+          # image.migrate
           publisher = CoreDataConnector::Relationship.find_by(
             project_model_relationship_id: 24,
             primary_record: photo_record

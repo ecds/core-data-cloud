@@ -71,6 +71,8 @@ group :development do
 end
 
 # ECDS STUFF
+# gem 'core_data_connector_open_geographies', path: '/Users/jay/data/core-data-connector-open-geographies'
+gem 'core_data_connector_open_geographies', git: 'https://github.com/ecds/core-data-connector-open-geographies.git', branch: 'develop'
 # Elasticserch
 gem 'elasticsearch', '~> 7.0'
 gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
@@ -81,3 +83,4 @@ gem 'rgeo-geojson', '~>  2.2'
 gem 'roo', '~> 2.10.0'
 gem 'aws-sdk'
 gem 'concurrent-ruby', '1.3.4'
+gem 'google_maps_service_ruby'

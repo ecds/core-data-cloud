@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   namespace :ecds do
     get 'media/index'
   end
+
+  get "health" => "rails/health#show", as: :rails_health_check
 end

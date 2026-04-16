@@ -34,8 +34,9 @@ Rails.application.configure do
   config.active_storage.service = :amazon
 
   config.hosts << 'coredata.ecds.io'
-  config.hosts << /localhost:.*/
-  config.hosts << /10\..*/
+  config.hosts << /localhost(:\d+)?/
+  config.hosts << /10\.\d+\.\d+\.\d+/
+  config.hosts << '127.0.0.1'
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil

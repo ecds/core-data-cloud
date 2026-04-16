@@ -24,7 +24,7 @@ docker build \
        --build-arg AWS_REGION=$AWS_REGION \
        --build-arg CD_AWS_ACCESS_KEY_ID=$CD_AWS_ACCESS_KEY_ID \
        --build-arg CD_AWS_SECRET_ACCESS_KEY=$CD_AWS_SECRET_ACCESS_KEY \
-       --build-arg RAILS_ENV=production \
+       --build-arg RAILS_ENV=development \
        --build-arg AWS_BUCKET_NAME=ecds-cantaloupe \
        -t core-data-cloud \
        .

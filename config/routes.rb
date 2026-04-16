@@ -26,7 +26,5 @@ Rails.application.routes.draw do
   get "health" => "rails/health#show", as: :rails_health_check
   
   # Default route for static front-end
-  get '*path', to: "application#fallback_index_html", constraints: -> (request) do
-    !request.xhr? && request.format.html?
-  end
+  get '*path', to: "application#fallback_index_html"
 end

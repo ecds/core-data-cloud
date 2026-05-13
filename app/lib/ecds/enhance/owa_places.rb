@@ -22,7 +22,7 @@ module Ecds
       end
 
       def link
-        response = HTTParty.get("https://owarebrand.ecdsdev.org/wp-json/wp/v2/posts/#{@document[:wordpress_id]}", format: 'plain')
+        response = HTTParty.get("https://openworldatlanta.org/wp-json/wp/v2/posts/#{@document[:wordpress_id]}", format: 'plain')
         puts response.code
         return unless response.code == 200
 

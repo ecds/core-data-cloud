@@ -76,6 +76,9 @@ gem 'core_data_connector_open_geographies', git: 'https://github.com/ecds/core-d
 # Elasticserch
 gem 'elasticsearch', '~> 7.0'
 gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
+gem 'namae'
+gem 'nameable'
+
 
 # Geospatial libraries
 gem 'rgeo', '~> 3.0'

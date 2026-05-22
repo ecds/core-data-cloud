@@ -72,7 +72,7 @@ end
 
 # ECDS STUFF
 # gem 'core_data_connector_open_geographies', path: '/Users/jay/data/core-data-connector-open-geographies'
-gem 'core_data_connector_open_geographies', git: 'https://github.com/ecds/core-data-connector-open-geographies.git', ref: '967701c'
+gem 'core_data_connector_open_geographies', git: 'https://github.com/ecds/core-data-connector-open-geographies.git', ref: '88d3060'
 # Elasticserch
 gem 'elasticsearch', '~> 7.0'
 gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.

@@ -8,13 +8,15 @@ import { useNavigate, useParams } from 'react-router';
 import { Icon } from 'semantic-ui-react';
 import ListViewMenu from '../components/ListViewMenu';
 import MergeButton from '../components/MergeButton';
-import PermissionsService from '../services/Permissions';
+import usePermissions from '../hooks/Permissions';
 import ProjectContext from '../context/Project';
 import TaxonomiesService from '../services/Taxonomies';
 import useSelectable from '../hooks/Selectable';
 import { useTranslation } from 'react-i18next';
 import Views from '../constants/ListViews';
 import WindowUtils from '../utils/Window';
+import { getEditButton } from '../utils/Tables';
+import useRelatedFields from '../hooks/useRelatedFields';
 
 const TaxonomyItems = () => {
   const [view, setView] = useState(Views.all);
@@ -24,9 +26,12 @@ const TaxonomyItems = () => {
 
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { canDeleteRecord } = usePermissions();
 
   const { isSelected, onRowSelect, selectedItems } = useSelectable();
   const { loading, userDefinedColumns } = useUserDefinedColumns(projectModelId, 'CoreDataConnector::ProjectModel');
+
+  const { joinColumns, relatedFields, reload } = useRelatedFields();
 
   /**
    * Memo-izes the taxonomy items columns.
@@ -40,7 +45,7 @@ const TaxonomyItems = () => {
     label: t('Common.columns.uuid'),
     sortable: true,
     hidden: true
-  }, ...userDefinedColumns], [userDefinedColumns]);
+  }, ...userDefinedColumns, ...relatedFields], [userDefinedColumns, relatedFields]);
 
   if (loading) {
     return null;
@@ -67,10 +72,9 @@ const TaxonomyItems = () => {
       <ListTable
         actions={[{
           name: 'edit',
-          icon: 'pencil',
-          onClick: (taxonomy) => navigate(`${taxonomy.id}`)
+          render: getEditButton
         }, {
-          accept: (taxonomy) => PermissionsService.canDeleteRecord(projectModel, taxonomy),
+          accept: (taxonomy) => canDeleteRecord(projectModel, taxonomy),
           icon: 'times',
           name: 'delete'
         }]}
@@ -114,11 +118,17 @@ const TaxonomyItems = () => {
         onDelete={(taxonomy) => TaxonomiesService.delete(taxonomy)}
         onLoad={(params) => (
           TaxonomiesService
-            .fetchAll({ ...params, project_model_id: projectModelId, view })
+            .fetchAll({
+              ...params,
+              project_model_id: projectModelId,
+              join_columns: joinColumns,
+              view
+            })
             .finally(() => WindowUtils.scrollToTop())
         )}
         onRowSelect={onRowSelect}
         perPageOptions={[10, 25, 50, 100]}
+        reload={reload}
         searchable
         selectable
         session={{

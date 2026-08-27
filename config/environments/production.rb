@@ -32,6 +32,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :amazon
+  config.active_storage.variant_processor = :disabled
 
   config.hosts << 'coredata.ecds.io'
   config.hosts << /localhost(:\d+)?/

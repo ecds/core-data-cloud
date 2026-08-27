@@ -5,21 +5,23 @@ import ProjectSettingsMenu from '../components/ProjectSettingsMenu';
 import { ListTable } from '@performant-software/semantic-components';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import PermissionsService from '../services/Permissions';
+import usePermissions from '../hooks/Permissions';
 import UnauthorizedRedirect from '../components/UnauthorizedRedirect';
 import useParams from '../hooks/ParsedParams';
 import WebAuthoritiesService from '../services/WebAuthorities';
 import WebAuthorityUtils from '../utils/WebAuthorities';
+import { getEditButton } from '../utils/Tables';
 
 const WebAuthorities = () => {
   const { projectId } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { canEditProjectSettings } = usePermissions();
 
   /**
    * Return to the projects list if the user does not have permissions to edit this project.
    */
-  if (!PermissionsService.canEditProjectSettings(projectId)) {
+  if (!canEditProjectSettings(projectId)) {
     return <UnauthorizedRedirect />;
   }
 
@@ -29,8 +31,7 @@ const WebAuthorities = () => {
       <ListTable
         actions={[{
           name: 'edit',
-          icon: 'pencil',
-          onClick: (authority) => navigate(`${authority.id}`)
+          render: getEditButton
         }, {
           name: 'delete',
           icon: 'times'

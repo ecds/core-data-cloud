@@ -15,13 +15,15 @@ import { useNavigate } from 'react-router';
 import { Icon } from 'semantic-ui-react';
 import EventsService from '../services/Events';
 import ListViewMenu from '../components/ListViewMenu';
-import PermissionsService from '../services/Permissions';
+import usePermissions from '../hooks/Permissions';
 import ProjectContext from '../context/Project';
 import useParams from '../hooks/ParsedParams';
 import Views from '../constants/ListViews';
 import WindowUtils from '../utils/Window';
 import MergeButton from '../components/MergeButton';
 import useSelectable from '../hooks/Selectable';
+import { getEditButton } from '../utils/Tables';
+import useRelatedFields from '../hooks/useRelatedFields';
 
 const Events: AbstractComponent<any> = () => {
   const [view, setView] = useState(Views.all);
@@ -30,9 +32,12 @@ const Events: AbstractComponent<any> = () => {
   const navigate = useNavigate();
   const { projectModelId } = useParams();
   const { t } = useTranslation();
+  const { canDeleteRecord } = usePermissions();
 
   const { isSelected, onRowSelect, selectedItems } = useSelectable();
   const { loading, userDefinedColumns } = useUserDefinedColumns(projectModelId, 'CoreDataConnector::ProjectModel');
+
+  const { joinColumns, relatedFields, reload } = useRelatedFields();
 
   /**
    * Memo-izes the events columns.
@@ -56,7 +61,7 @@ const Events: AbstractComponent<any> = () => {
     label: t('Common.columns.uuid'),
     sortable: true,
     hidden: true
-  }, ...userDefinedColumns], [userDefinedColumns]);
+  }, ...userDefinedColumns, ...relatedFields], [userDefinedColumns, relatedFields]);
 
   if (loading) {
     return null;
@@ -83,10 +88,9 @@ const Events: AbstractComponent<any> = () => {
       <ListTable
         actions={[{
           name: 'edit',
-          icon: 'pencil',
-          onClick: (event) => navigate(`${event.id}`)
+          render: getEditButton
         }, {
-          accept: (event) => PermissionsService.canDeleteRecord(projectModel, event),
+          accept: (event) => canDeleteRecord(projectModel, event),
           icon: 'times',
           name: 'delete'
         }]}
@@ -146,12 +150,14 @@ const Events: AbstractComponent<any> = () => {
               project_model_id: projectModelId,
               defineable_id: projectModelId,
               defineable_type: 'CoreDataConnector::ProjectModel',
+              join_columns: joinColumns,
               view
             })
             .finally(() => WindowUtils.scrollToTop())
         )}
         onRowSelect={onRowSelect}
         perPageOptions={[10, 25, 50, 100]}
+        reload={reload}
         searchable
         selectable
         session={{

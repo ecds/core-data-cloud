@@ -14,7 +14,7 @@ import { ListTable } from '@performant-software/semantic-components';
 import ListViewMenu from '../components/ListViewMenu';
 import { MdChatBubble } from 'react-icons/md';
 import MergeButton from '../components/MergeButton';
-import PermissionsService from '../services/Permissions';
+import usePermissions from '../hooks/Permissions';
 import ProjectContext from '../context/Project';
 import { useNavigate } from 'react-router';
 import useParams from '../hooks/ParsedParams';
@@ -22,6 +22,8 @@ import useSelectable from '../hooks/Selectable';
 import { useTranslation } from 'react-i18next';
 import Views from '../constants/ListViews';
 import WindowUtils from '../utils/Window';
+import { getEditButton } from '../utils/Tables';
+import useRelatedFields from '../hooks/useRelatedFields';
 
 const Instances: AbstractComponent<any> = () => {
   const [view, setView] = useState(Views.all);
@@ -31,9 +33,12 @@ const Instances: AbstractComponent<any> = () => {
   const { projectModel } = useContext(ProjectContext);
   const navigate = useNavigate();
   const { projectModelId } = useParams();
+  const { canDeleteRecord } = usePermissions();
 
   const { isSelected, onRowSelect, selectedItems } = useSelectable();
   const { loading, userDefinedColumns } = useUserDefinedColumns(projectModelId, 'CoreDataConnector::ProjectModel');
+
+  const { joinColumns, relatedFields, reload } = useRelatedFields();
 
   /**
    * Memo-izes the instances columns.
@@ -47,7 +52,7 @@ const Instances: AbstractComponent<any> = () => {
     label: t('Common.columns.uuid'),
     sortable: true,
     hidden: true
-  }, ...userDefinedColumns], [userDefinedColumns]);
+  }, ...userDefinedColumns, ...relatedFields], [userDefinedColumns, relatedFields ]);
 
   if (loading) {
     return null;
@@ -74,10 +79,9 @@ const Instances: AbstractComponent<any> = () => {
       <ListTable
         actions={[{
           name: 'edit',
-          icon: 'pencil',
-          onClick: (instance) => navigate(`${instance.id}`)
+          render: getEditButton
         }, {
-          accept: (instance) => PermissionsService.canDeleteRecord(projectModel, instance),
+          accept: (instance) => canDeleteRecord(projectModel, instance),
           icon: 'times',
           name: 'delete'
         }]}
@@ -129,12 +133,14 @@ const Instances: AbstractComponent<any> = () => {
               project_model_id: projectModelId,
               defineable_id: projectModelId,
               defineable_type: 'CoreDataConnector::ProjectModel',
+              join_columns: joinColumns,
               view
             })
             .finally(() => WindowUtils.scrollToTop())
         )}
         onRowSelect={onRowSelect}
         perPageOptions={[10, 25, 50, 100]}
+        reload={reload}
         searchable
         selectable
         session={{

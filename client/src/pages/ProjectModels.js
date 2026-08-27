@@ -4,21 +4,24 @@ import { ListTable } from '@performant-software/semantic-components';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
-import PermissionsService from '../services/Permissions';
+import usePermissions from '../hooks/Permissions';
 import ProjectModelsService from '../services/ProjectModels';
 import ProjectSettingsMenu from '../components/ProjectSettingsMenu';
 import UnauthorizedRedirect from '../components/UnauthorizedRedirect';
 import useParams from '../hooks/ParsedParams';
+import { getEditButton } from '../utils/Tables';
+import ConfirmDeleteChallenge from '../components/ConfirmDeleteChallenge';
 
 const ProjectModels = () => {
   const navigate = useNavigate();
   const { projectId } = useParams();
   const { t } = useTranslation();
+  const { canEditProjectSettings } = usePermissions();
 
   /**
    * Return to the projects list if the user does not have permissions to edit this project.
    */
-  if (!PermissionsService.canEditProjectSettings(projectId)) {
+  if (!canEditProjectSettings(projectId)) {
     return <UnauthorizedRedirect />;
   }
 
@@ -28,8 +31,7 @@ const ProjectModels = () => {
       <ListTable
         actions={[{
           name: 'edit',
-          icon: 'pencil',
-          onClick: (projectModel) => navigate(`${projectModel.id}`)
+          render: getEditButton
         }, {
           name: 'delete',
           icon: 'times'
@@ -61,6 +63,13 @@ const ProjectModels = () => {
         }]}
         onDelete={(projectModel) => ProjectModelsService.delete(projectModel)}
         onLoad={(params) => ProjectModelsService.fetchAll({ ...params, project_id: projectId })}
+        renderDeleteModal={({ selectedItem, onConfirm, onCancel }) => (
+          <ConfirmDeleteChallenge
+            name={selectedItem.name}
+            onClose={onCancel}
+            onConfirm={onConfirm}
+          />)
+        }
         searchable
         session={{
           key: `project_models_${projectId}`,

@@ -10,6 +10,7 @@ import type { ProjectModelRelationship as ProjectModelRelationshipType } from '.
 import ProjectModelsService from '../services/ProjectModels';
 import ProjectModelTransform from '../transforms/ProjectModel';
 import useParams from '../hooks/ParsedParams';
+import ConfirmDeleteChallenge from './ConfirmDeleteChallenge';
 
 type Props = EditContainerProps & {
   item: ProjectModelRelationshipType
@@ -24,8 +25,8 @@ const RelationshipForm = (props: Props) => {
    *
    * @type {function(*): Promise<AxiosResponse<T>>}
    */
-  const onSearch = useCallback((search) => (
-    ProjectModelsService.fetchAll({ search, project_id: projectId })
+  const onSearch = useCallback((search, page) => (
+    ProjectModelsService.fetchAll({ search, page, project_id: projectId })
   ), [projectId]);
 
   return (
@@ -105,7 +106,7 @@ const InverseForm = (props: Props) => {
       >
         <AssociatedDropdown
           collectionName='project_models'
-          onSearch={(search) => ProjectModelsService.fetchAll({ search, project_id: projectId })}
+          onSearch={(search, page) => ProjectModelsService.fetchAll({ search, page, project_id: projectId })}
           onSelection={props.onAssociationInputChange.bind(this, 'primary_model_id', 'primary_model')}
           renderOption={ProjectModelTransform.toDropdown.bind(this)}
           searchQuery={props.item.primary_model?.name}
@@ -198,6 +199,13 @@ const ProjectModelRelationshipModal = (props: Props) => {
           items={props.item.user_defined_fields}
           onDelete={props.onDeleteChildAssociation.bind(this, 'user_defined_fields')}
           onSave={props.onSaveChildAssociation.bind(this, 'user_defined_fields')}
+          renderDeleteModal={({ selectedItem, onConfirm, onCancel }) => (
+            <ConfirmDeleteChallenge
+              name={selectedItem.column_name}
+              onClose={onCancel}
+              onConfirm={onConfirm}
+            />)
+          }
         />
       </TabbedModal.Tab>
       { props.children }

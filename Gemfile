@@ -6,25 +6,29 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby file: '.ruby-version'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 8.0.2'
+gem 'rails', '~> 8.1.3'
 
 # Use Postgres as the database for Active Record
-gem 'pg', '~> 1.5.9'
+gem 'pg', '~> 1.6.3'
+
+# Geospatial column types and GeoJSON serialization
+gem 'activerecord-postgis-adapter', '~> 11.1'
+gem 'rgeo-geojson', '~> 2.2'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '~> 6.6.0'
+gem 'puma', '~> 8.0.2'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
 # Use Json Web Token (JWT) for token based authentication
-gem 'jwt', '~> 3.1.2'
+gem 'jwt', '~> 3.2'
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.20'
+gem 'bcrypt', '~> 3.1.22'
 
 # Transactional emails
 gem 'postmark-rails', '~> 0.22.1'
@@ -32,17 +36,28 @@ gem 'postmark-rails', '~> 0.22.1'
 # CSV processing
 gem 'csv', '~> 3.3.5'
 
+# Zip archive processing for imports and exports.
+# Note: the gem is named `rubyzip` but ships `lib/zip.rb`, so the require path must be given.
+gem 'rubyzip', '~> 2.3.2', require: 'zip'
+
 # Resource API
-gem 'resource_api', git: 'https://github.com/performant-software/resource-api.git', tag: 'v0.5.15'
+gem 'resource_api', git: 'https://github.com/performant-software/resource-api.git', tag: 'v0.5.17'
 
 # Authentication
-gem 'jwt_auth', git: 'https://github.com/performant-software/jwt-auth.git', tag: 'v0.1.3'
+gem 'jwt_auth', git: 'https://github.com/performant-software/jwt-auth.git', tag: 'v1.0.0'
 
-# Core data
-gem 'core_data_connector', git: 'https://github.com/performant-software/core-data-connector.git', tag: 'v0.1.114'
+# Record versioning / audit log
+gem 'paper_trail', '>= 16.0'
+
+# CORS for the public and reconciliation APIs
+gem 'rack-cors', '~> 3.0.0', require: 'rack/cors'
+
+# Typesense search and reconciliation
+gem 'typesense', '~> 5.0'
+gem 'typhoeus', '~> 1.6'
 
 # IIIF
-gem 'triple_eye_effable', git: 'https://github.com/performant-software/triple-eye-effable.git', tag: 'v0.2.7'
+gem 'triple_eye_effable', git: 'https://github.com/performant-software/triple-eye-effable.git', tag: 'v0.2.9'
 
 # User defined fields
 gem 'user_defined_fields', git: 'https://github.com/performant-software/user-defined-fields.git', tag: 'v0.1.15'
@@ -54,37 +69,15 @@ gem 'fuzzy_dates', git: 'https://github.com/performant-software/fuzzy-dates.git'
 gem 'mail_safe', '~> 0.3.4', group: %i[development staging]
 
 # Active storage service
-gem 'aws-sdk-s3', '~> 1.193', group: %i[production staging]
+gem 'aws-sdk-s3', '~> 1.193', group: [:production, :staging]
 
 # Background jobs
-gem 'sidekiq', '~> 8.0.6', group: %i[production staging]
+gem 'sidekiq', '~> 8.0.6', group: [:production, :staging]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', '~> 1.11.0', platforms: %i[mri mingw x64_mingw]
+  gem 'debug', '~> 1.11.0', platforms: %i[ mri mingw x64_mingw ]
 
   # Environment variable management
-  gem 'dotenv-rails', '~> 3.1.8'
+  gem 'dotenv-rails', '~> 3.2.0'
 end
-
-group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
-end
-
-# ECDS STUFF
-# gem 'core_data_connector_open_geographies', path: '/Users/jay/data/core-data-connector-open-geographies'
-gem 'core_data_connector_open_geographies', git: 'https://github.com/ecds/core-data-connector-open-geographies.git', ref: '3c30fde'
-# Elasticserch
-gem 'elasticsearch', '~> 8.0'
-gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
-gem 'namae'
-gem 'nameable'
-
-# Geospatial libraries
-gem 'aws-sdk'
-gem 'concurrent-ruby', '1.3.4'
-gem 'google_maps_service_ruby'
-gem 'rgeo', '~> 3.0'
-gem 'rgeo-geojson', '~>  2.2'
-gem 'roo', '~> 2.10.0'

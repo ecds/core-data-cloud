@@ -17,12 +17,14 @@ import { Icon } from 'semantic-ui-react';
 import ListViewMenu from '../components/ListViewMenu';
 import MergeButton from '../components/MergeButton';
 import PlacesService from '../services/Places';
-import PermissionsService from '../services/Permissions';
+import usePermissions from '../hooks/Permissions';
 import ProjectContext from '../context/Project';
 import useParams from '../hooks/ParsedParams';
 import useSelectable from '../hooks/Selectable';
 import Views from '../constants/ListViews';
 import WindowUtils from '../utils/Window';
+import { getEditButton } from '../utils/Tables';
+import useRelatedFields from '../hooks/useRelatedFields';
 
 const Places: AbstractComponent<any> = () => {
   const [view, setView] = useState(Views.all);
@@ -31,9 +33,12 @@ const Places: AbstractComponent<any> = () => {
   const navigate = useNavigate();
   const { projectModelId } = useParams();
   const { t } = useTranslation();
+  const { canDeleteRecord } = usePermissions();
 
   const { isSelected, onRowSelect, selectedItems } = useSelectable();
   const { loading, userDefinedColumns } = useUserDefinedColumns(projectModelId, 'CoreDataConnector::ProjectModel');
+
+  const { joinColumns, relatedFields, reload } = useRelatedFields();
 
   /**
    * Memo-izes the places columns.
@@ -47,7 +52,7 @@ const Places: AbstractComponent<any> = () => {
     label: t('Common.columns.uuid'),
     sortable: true,
     hidden: true
-  }, ...userDefinedColumns], [userDefinedColumns]);
+  }, ...userDefinedColumns, ...relatedFields], [userDefinedColumns]);
 
   /**
    * Renders a string representation of the place geometry for the passed place.
@@ -85,10 +90,9 @@ const Places: AbstractComponent<any> = () => {
       <ListTable
         actions={[{
           name: 'edit',
-          icon: 'pencil',
-          onClick: (place) => navigate(`${place.id}`)
+          render: getEditButton
         }, {
-          accept: (place) => PermissionsService.canDeleteRecord(projectModel, place),
+          accept: (place) => canDeleteRecord(projectModel, place),
           icon: 'times',
           name: 'delete'
         }]}
@@ -149,12 +153,14 @@ const Places: AbstractComponent<any> = () => {
               project_model_id: projectModelId,
               defineable_id: projectModelId,
               defineable_type: 'CoreDataConnector::ProjectModel',
+              join_columns: joinColumns,
               view
             })
             .finally(() => WindowUtils.scrollToTop())
         )}
         onRowSelect={onRowSelect}
         perPageOptions={[10, 25, 50, 100]}
+        reload={reload}
         searchable
         selectable
         session={{

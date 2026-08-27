@@ -50,5 +50,6 @@ jobs:
           CD_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
         run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
           chmod +x build.sh
           ./build.sh

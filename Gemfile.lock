@@ -44,6 +44,14 @@ GIT
       rails (>= 6.0.3.2, < 9)
       resource_api
 
+PATH
+  remote: /Users/jay/data/core-data-connector-open-geographies
+  specs:
+    core_data_connector_open_geographies (0.1.0)
+      elasticsearch (~> 8)
+      rails (>= 8.0.2)
+      searchkick (~> 5.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -149,7 +157,7 @@ GEM
     bootsnap (1.25.0)
       msgpack (~> 1.5)
     builder (3.3.0)
-    concurrent-ruby (1.3.8)
+    concurrent-ruby (1.3.4)
     connection_pool (3.0.2)
     crass (1.0.7)
     csv (3.3.6)
@@ -162,6 +170,15 @@ GEM
       dotenv (= 3.2.0)
       railties (>= 6.1)
     drb (2.2.3)
+    elastic-transport (8.5.3)
+      faraday (< 3)
+      multi_json
+    elasticsearch (8.19.3)
+      elastic-transport (~> 8.3)
+      elasticsearch-api (= 8.19.3)
+      ostruct
+    elasticsearch-api (8.19.3)
+      multi_json
     erb (6.0.7)
     erubi (1.13.1)
     ethon (0.18.0)
@@ -173,6 +190,9 @@ GEM
       logger
     faraday-net_http (3.4.4)
       net-http (~> 0.5)
+    faraday-typhoeus (1.1.0)
+      faraday (~> 2.0)
+      typhoeus (~> 1.4)
     ffi (1.17.4-aarch64-linux-gnu)
     ffi (1.17.4-aarch64-linux-musl)
     ffi (1.17.4-arm-linux-gnu)
@@ -183,6 +203,12 @@ GEM
     ffi (1.17.4-x86_64-linux-musl)
     globalid (1.4.0)
       activesupport (>= 6.1)
+    google_maps_service_ruby (0.7.0)
+      base64
+      multi_json (~> 1.15)
+      retriable (~> 3.1)
+    hashie (5.1.0)
+      logger
     httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -223,6 +249,9 @@ GEM
     multi_json (1.21.1)
     multi_xml (0.9.1)
       bigdecimal (>= 3.1, < 5)
+    namae (1.2.0)
+      racc (~> 1.7)
+    nameable (1.1.4)
     net-http (0.9.1)
       uri (>= 0.11.1)
     net-imap (0.6.6)
@@ -251,6 +280,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-musl)
       racc (~> 1.4)
+    ostruct (0.6.3)
     pagy (5.10.1)
       activesupport
     paper_trail (17.0.0)
@@ -334,6 +364,7 @@ GEM
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
+    retriable (3.8.0)
     rgeo (3.1.0)
     rgeo-activerecord (8.1.0)
       activerecord (>= 8.1, < 8.2)
@@ -341,7 +372,13 @@ GEM
     rgeo-geojson (2.2.0)
       multi_json (~> 1.15)
       rgeo (>= 1.0.0)
+    roo (2.10.1)
+      nokogiri (~> 1)
+      rubyzip (>= 1.3.0, < 3.0.0)
     rubyzip (2.3.2)
+    searchkick (5.4.0)
+      activemodel (>= 6.1)
+      hashie
     securerandom (0.4.1)
     sidekiq (8.0.10)
       connection_pool (>= 2.5.0)
@@ -385,13 +422,20 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1.193)
   bcrypt (~> 3.1.22)
   bootsnap
+  concurrent-ruby (= 1.3.4)
+  core_data_connector_open_geographies!
   csv (~> 3.3.5)
   debug (~> 1.11.0)
   dotenv-rails (~> 3.2.0)
+  elasticsearch (~> 8.0)
+  faraday-typhoeus (~> 1.0)
   fuzzy_dates!
+  google_maps_service_ruby
   jwt (~> 3.2)
   jwt_auth!
   mail_safe (~> 0.3.4)
+  namae
+  nameable
   paper_trail (>= 16.0)
   pg (~> 1.6.3)
   postmark-rails (~> 0.22.1)
@@ -399,7 +443,9 @@ DEPENDENCIES
   rack-cors (~> 3.0.0)
   rails (~> 8.1.3)
   resource_api!
+  rgeo (~> 3.0)
   rgeo-geojson (~> 2.2)
+  roo (~> 2.10.0)
   rubyzip (~> 2.3.2)
   sidekiq (~> 8.0.6)
   triple_eye_effable!
@@ -433,8 +479,9 @@ CHECKSUMS
   bigdecimal (4.1.2) sha256=53d217666027eab4280346fba98e7d5b66baaae1b9c3c1c0ffe89d48188a3fbd
   bootsnap (1.25.0) sha256=41059e7d0f9cb4023a33465d095f64b913fc9d1b808d6524c307da945fbcffcf
   builder (3.3.0) sha256=497918d2f9dca528fdca4b88d84e4ef4387256d984b8154e9d5d3fe5a9c8835f
-  concurrent-ruby (1.3.8) sha256=b2f1be836e968ccc78ccfce277ea79c72a88633f22306782c16ff23fb415d1e1
+  concurrent-ruby (1.3.4) sha256=d4aa926339b0a86b5b5054a0a8c580163e6f5dcbdfd0f4bb916b1a2570731c32
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
+  core_data_connector_open_geographies (0.1.0)
   crass (1.0.7) sha256=94868719948664c89ddcaf0a37c65048413dfcb1c869470a5f7a7ceb5390b295
   csv (3.3.6) sha256=aba61e7e507a66f03d45cb1f3c4b6359861c3504038b422962875dce099e4456
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
@@ -442,11 +489,15 @@ CHECKSUMS
   dotenv (3.2.0) sha256=e375b83121ea7ca4ce20f214740076129ab8514cd81378161f11c03853fe619d
   dotenv-rails (3.2.0) sha256=657e25554ba622ffc95d8c4f1670286510f47f2edda9f68293c3f661b303beab
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
+  elastic-transport (8.5.3) sha256=3bf036afb10728a58591593bc48fd736ea9fe2bf7b1252810e774340dcfe58c4
+  elasticsearch (8.19.3) sha256=3fe0275073a93730778bce33ceb76dd098d2feea499d3ecf7984790c474deb98
+  elasticsearch-api (8.19.3) sha256=dc8029b596cc82f9a3a8c9dcc8a1286b4485288c8e62f5ed540eb0540ce474f2
   erb (6.0.7) sha256=c5ca6dc25b0ef974a44dc8f59fe847577122483b1968a38dec305c60bf91ee92
   erubi (1.13.1) sha256=a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9
   ethon (0.18.0) sha256=b598afc9f30448cb068b850714b7d6948e941476095d04f90a4ac65b8d6efcb2
   faraday (2.14.3) sha256=1882247e6766615c8220b4392bf1d27f6ebb63d8e28267587cef1fb0bf37f278
   faraday-net_http (3.4.4) sha256=0e78af151747ed1b00f33e25973b4bc220d7f16c00c39676817c8b12331eb588
+  faraday-typhoeus (1.1.0) sha256=24c6147c213818dde3ebc50ae47ab92f9a7e554903aa362707126f749c6890e7
   ffi (1.17.4-aarch64-linux-gnu) sha256=b208f06f91ffd8f5e1193da3cae3d2ccfc27fc36fba577baf698d26d91c080df
   ffi (1.17.4-aarch64-linux-musl) sha256=9286b7a615f2676245283aef0a0a3b475ae3aae2bb5448baace630bb77b91f39
   ffi (1.17.4-arm-linux-gnu) sha256=d6dbddf7cb77bf955411af5f187a65b8cd378cb003c15c05697f5feee1cb1564
@@ -457,6 +508,8 @@ CHECKSUMS
   ffi (1.17.4-x86_64-linux-musl) sha256=3fdf9888483de005f8ef8d1cf2d3b20d86626af206cbf780f6a6a12439a9c49e
   fuzzy_dates (0.1.0)
   globalid (1.4.0) sha256=037f12fbf1d9d7a014d501c2d5c77356fd4ddd96d7a7991d6700bba96706f427
+  google_maps_service_ruby (0.7.0) sha256=05a627eeaf2f716686308229fb1ed72b558d70516ae6e9220605291e651224c7
+  hashie (5.1.0) sha256=c266471896f323c446ea8207f8ffac985d2718df0a0ba98651a3057096ca3870
   httparty (0.20.0) sha256=490d2a028a5accc611f1685d479d80ef80b129140d24a93c53c119f578614867
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   io-console (0.9.2) sha256=efa74f891dd03c0939a931dfc6e74c2813d904763d456ea9762b0525e748db08
@@ -477,6 +530,8 @@ CHECKSUMS
   msgpack (1.8.4) sha256=4411c22d350dd1c20250f7eada3cca2695438c2f769cf0782f0cd065d90a3e7b
   multi_json (1.21.1) sha256=e6126a31808e3b4d19f483c775ceac34df190dffa62adfb63a165ee14ba68080
   multi_xml (0.9.1) sha256=7ce766b59c17241ed62976caeae1fae9b2431b263398c35396239a68c4a64e57
+  namae (1.2.0) sha256=3541ce4b086fd4981d2376630c03e284402bfe1cdbab4e50e2222a72aeb9d59d
+  nameable (1.1.4) sha256=3cfeeb3c3a42680f532e175195ea89c16eaba84a2bb434aef26165c0fdaa8a87
   net-http (0.9.1) sha256=25ba0b67c63e89df626ed8fac771d0ad24ad151a858af2cc8e6a716ca4336996
   net-imap (0.6.6) sha256=96aa4ee50df3060203e649efc341f53480b791d49e150f2fdebf68beb141a8df
   net-pop (0.1.2) sha256=848b4e982013c15b2f0382792268763b748cce91c9e91e36b0f27ed26420dff3
@@ -491,6 +546,7 @@ CHECKSUMS
   nokogiri (1.19.4-x86_64-darwin) sha256=7fd17057d3e1f00e9954a74b3cd76595d3d4a5ef233b7ed9599047c204f70551
   nokogiri (1.19.4-x86_64-linux-gnu) sha256=379fae440b28915e3f19d752ce2dcf8465ed2b2fbefd2a7ca0dd497bc981a06a
   nokogiri (1.19.4-x86_64-linux-musl) sha256=17dfb7c1fa194ae02fbf7c51a7afc8d278045ab3fdacfd86f91d02d7b274470b
+  ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   pagy (5.10.1) sha256=352c3f9a2bbb12dfc34e0e3b613b191328bf0559fd7bf8d45530aa3cfc2629c6
   paper_trail (17.0.0) sha256=1c2842061d3874ca7015908e821e2aa14f9b982af2acb2a7974713bf79021c85
   pg (1.6.3) sha256=1388d0563e13d2758c1089e35e973a3249e955c659592d10e5b77c468f628a99
@@ -524,10 +580,13 @@ CHECKSUMS
   reline (0.7.0) sha256=5b012d8e55dbf9d450f12bde2cf7d15ff546ae80b3f8f3b30e570d431815583d
   request_store (1.7.0) sha256=e1b75d5346a315f452242a68c937ef8e48b215b9453a77a6c0acdca2934c88cb
   resource_api (0.1.0)
+  retriable (3.8.0) sha256=9f2f1b0207594c7817f17f671587b8ec7587387ac6cebda6c941a802bb98a8e5
   rgeo (3.1.0) sha256=89c1804894b35acf65891e1f24e15bbf2fbd972d4183e63c444bb97c1ccaf5d5
   rgeo-activerecord (8.1.0) sha256=2a7aeab7eae2f2c41e8a8af7d008e8a23d8e6b2e5854e9ed701cf37b993f59a1
   rgeo-geojson (2.2.0) sha256=ceed2ce1bd4c43efe9fcc494c6fec8708ec1438073425e5805d2c27fb671b210
+  roo (2.10.1) sha256=cbb43bc955f9c110e74b721c835fb9bd3515b63af88ec709ac87fbf30f8be70e
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
+  searchkick (5.4.0) sha256=75d7256d3ec2af2dc11c2ba8160c86d80451f3f86447aae2ace1f79553de0bf3
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   sidekiq (8.0.10) sha256=37ccd8da8d46f6779b8655cb30c1bfcb0decd57e890ff56d8b8252a5d9a84cd6
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73

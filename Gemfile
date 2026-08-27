@@ -81,3 +81,18 @@ group :development, :test do
   # Environment variable management
   gem 'dotenv-rails', '~> 3.2.0'
 end
+
+# ECDS STUFF
+gem 'core_data_connector_open_geographies', path: '/Users/jay/data/core-data-connector-open-geographies'
+# gem 'core_data_connector_open_geographies', git: 'https://github.com/ecds/core-data-connector-open-geographies.git', ref: '3c30fde'
+# Elasticserch
+gem 'elasticsearch', '~> 8.0'
+gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
+gem 'namae'
+gem 'nameable'
+
+# Geospatial libraries
+gem 'concurrent-ruby', '1.3.4'
+gem 'google_maps_service_ruby'
+gem 'rgeo', '~> 3.0'
+gem 'roo', '~> 2.10.0'

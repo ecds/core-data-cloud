@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/ecds/core-data-connector-open-geographies.git
-  revision: 3c30fde787a0c59119edea36a3940b68397b725d
-  ref: 3c30fde
+  revision: 8ce4e48ac19bf989be6291b2d4ba1420866794c0
+  ref: 8ce4e48
   specs:
     core_data_connector_open_geographies (0.1.0)
       elasticsearch (~> 8)

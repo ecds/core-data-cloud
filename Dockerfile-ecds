@@ -1,5 +1,5 @@
-# Use the Ruby 3.4.4 image from Docker Hub as the base image (https://hub.docker.com/_/ruby)
-FROM ruby:3.4.4
+# Use the Ruby 4.0.5 image from Docker Hub as the base image (https://hub.docker.com/_/ruby)
+FROM ruby:4.0.5
 
 RUN ls /etc
 RUN apt update -qq && apt install -y postgresql-client git libvips curl cron vim libgeos-dev

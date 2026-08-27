@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -13,7 +15,7 @@ gem 'pg', '~> 1.5.9'
 gem 'puma', '~> 6.6.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -49,17 +51,17 @@ gem 'user_defined_fields', git: 'https://github.com/performant-software/user-def
 gem 'fuzzy_dates', git: 'https://github.com/performant-software/fuzzy-dates.git', tag: 'v0.1.2'
 
 # Email filtering
-gem 'mail_safe', '~> 0.3.4', group: [:development, :staging]
+gem 'mail_safe', '~> 0.3.4', group: %i[development staging]
 
 # Active storage service
-gem 'aws-sdk-s3', '~> 1.193', group: [:production, :staging]
+gem 'aws-sdk-s3', '~> 1.193', group: %i[production staging]
 
 # Background jobs
-gem 'sidekiq', '~> 8.0.6', group: [:production, :staging]
+gem 'sidekiq', '~> 8.0.6', group: %i[production staging]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', '~> 1.11.0', platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', '~> 1.11.0', platforms: %i[mri mingw x64_mingw]
 
   # Environment variable management
   gem 'dotenv-rails', '~> 3.1.8'
@@ -72,18 +74,17 @@ end
 
 # ECDS STUFF
 # gem 'core_data_connector_open_geographies', path: '/Users/jay/data/core-data-connector-open-geographies'
-gem 'core_data_connector_open_geographies', git: 'https://github.com/ecds/core-data-connector-open-geographies.git', ref: '91b0660'
+gem 'core_data_connector_open_geographies', git: 'https://github.com/ecds/core-data-connector-open-geographies.git', ref: '3c30fde'
 # Elasticserch
 gem 'elasticsearch', '~> 8.0'
 gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
 gem 'namae'
 gem 'nameable'
 
-
 # Geospatial libraries
-gem 'rgeo', '~> 3.0'
-gem 'rgeo-geojson', '~>  2.2'
-gem 'roo', '~> 2.10.0'
 gem 'aws-sdk'
 gem 'concurrent-ruby', '1.3.4'
 gem 'google_maps_service_ruby'
+gem 'rgeo', '~> 3.0'
+gem 'rgeo-geojson', '~>  2.2'
+gem 'roo', '~> 2.10.0'

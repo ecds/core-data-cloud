@@ -136,6 +136,346 @@ GEM
       uri (>= 0.13.1)
     aws-eventstream (1.4.0)
     aws-partitions (1.1282.0)
+    aws-sdk (3.3.0)
+      aws-sdk-resources (~> 3)
+    aws-sdk-accessanalyzer (1.94.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-account (1.62.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-accountaccess (1.1.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-acm (1.109.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-acmpca (1.113.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-agentregistry (1.0.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-agentregistrycontrol (1.0.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-aiops (1.19.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-amplify (1.106.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-amplifybackend (1.66.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-amplifyuibuilder (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-apigateway (1.137.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-apigatewaymanagementapi (1.77.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-apigatewayv2 (1.96.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-appconfig (1.85.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-appconfigdata (1.54.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-appfabric (1.44.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-appflow (1.93.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-appintegrationsservice (1.71.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-applicationautoscaling (1.125.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-applicationcostprofiler (1.57.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-applicationdiscoveryservice (1.104.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-applicationinsights (1.83.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-applicationsignals (1.46.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-appmesh (1.95.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-appregistry (1.66.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-apprunner (1.75.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-appstream (1.140.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-appsync (1.125.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-arcregionswitch (1.22.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-arczonalshift (1.51.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-artifact (1.41.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-athena (1.123.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-auditmanager (1.85.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-augmentedairuntime (1.71.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-autoscaling (1.166.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-autoscalingplans (1.89.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-b2bi (1.50.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-backup (1.117.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-backupgateway (1.56.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-backupsearch (1.24.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-batch (1.151.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bcmdashboards (1.15.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bcmdataexports (1.41.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bcmpricingcalculator (1.32.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bcmrecommendedactions (1.16.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bedrock (1.91.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bedrockagent (1.80.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bedrockagentcore (1.50.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bedrockagentcorecontrol (1.67.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bedrockagentruntime (1.80.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bedrockdataautomation (1.34.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bedrockdataautomationruntime (1.28.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-bedrockruntime (1.83.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-billing (1.30.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-billingconductor (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-braket (1.74.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-budgets (1.111.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-chatbot (1.42.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-chime (1.120.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-chimesdkidentity (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-chimesdkmediapipelines (1.57.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-chimesdkmeetings (1.68.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-chimesdkmessaging (1.67.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-chimesdkvoice (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cleanrooms (1.79.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cleanroomsml (1.50.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloud9 (1.105.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudcontrolapi (1.56.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-clouddirectory (1.93.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudformation (1.157.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudfront (1.152.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudfrontkeyvaluestore (1.39.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-cloudhsm (1.88.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudhsmv2 (1.94.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudsearch (1.91.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudsearchdomain (1.74.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudtrail (1.125.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudtraildata (1.46.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-cloudwatch (1.146.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudwatchevents (1.108.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudwatchlogs (1.161.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cloudwatchrum (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codeartifact (1.78.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codebuild (1.177.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codecatalyst (1.52.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+    aws-sdk-codecommit (1.103.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codeconnections (1.38.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codedeploy (1.102.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codeguruprofiler (1.71.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-codegurureviewer (1.82.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codegurusecurity (1.47.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codepipeline (1.118.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codestarconnections (1.77.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-codestarnotifications (1.69.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cognitoidentity (1.91.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cognitoidentityprovider (1.149.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-cognitosync (1.85.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-comprehend (1.117.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-comprehendmedical (1.85.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-computeoptimizer (1.100.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-computeoptimizerautomation (1.11.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-configservice (1.156.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-connect (1.273.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-connectcampaignservice (1.51.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-connectcampaignsv2 (1.31.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-connectcases (1.71.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-connectcontactlens (1.61.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-connecthealth (1.9.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-connectparticipant (1.82.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-connectwisdomservice (1.65.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-controlcatalog (1.45.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-controltower (1.62.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
     aws-sdk-core (3.254.1)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
@@ -144,13 +484,1386 @@ GEM
       bigdecimal
       jmespath (~> 1, >= 1.6.1)
       logger
+    aws-sdk-costandusagereportservice (1.91.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-costexplorer (1.154.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-costoptimizationhub (1.47.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-customerprofiles (1.92.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-databasemigrationservice (1.149.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-dataexchange (1.87.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-datapipeline (1.85.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-datasync (1.127.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-datazone (1.87.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-dax (1.89.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-deadline (1.59.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-detective (1.85.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-devicefarm (1.110.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-devopsagent (1.13.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-devopsguru (1.77.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-directconnect (1.115.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-directoryservice (1.106.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-directoryservicedata (1.27.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-dlm (1.105.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-docdb (1.107.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-docdbelastic (1.48.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-drs (1.69.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-dsql (1.33.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-dynamodb (1.172.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-dynamodbstreams (1.94.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ebs (1.76.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ec2 (1.640.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ec2instanceconnect (1.74.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ecr (1.132.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ecrpublic (1.68.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ecs (1.243.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-efs (1.113.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-eks (1.175.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-eksauth (1.37.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-elasticache (1.148.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-elasticbeanstalk (1.106.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-elasticloadbalancing (1.92.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-elasticloadbalancingv2 (1.156.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-elasticsearchservice (1.124.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-elementalinference (1.10.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-emr (1.135.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-emrcontainers (1.76.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-emrserverless (1.70.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-entityresolution (1.53.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-eventbridge (1.102.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-evs (1.24.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-finspace (1.70.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-finspacedata (1.69.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-firehose (1.112.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-fis (1.68.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-fms (1.109.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-forecastqueryservice (1.71.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-forecastservice (1.89.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-frauddetector (1.88.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-freetier (1.39.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-fsx (1.137.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-gamelift (1.134.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-gameliftstreams (1.34.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-geomaps (1.29.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-geoplaces (1.27.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-georoutes (1.28.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-glacier (1.96.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-globalaccelerator (1.94.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-glue (1.270.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-gluedatabrew (1.72.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-greengrass (1.98.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-greengrassv2 (1.74.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-groundstation (1.88.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-guardduty (1.158.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-health (1.102.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-healthlake (1.69.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iam (1.152.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iamtoolbox (1.0.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-identitystore (1.72.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-imagebuilder (1.109.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-importexport (1.74.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv2 (~> 1.0)
+    aws-sdk-inspector (1.93.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-inspector2 (1.81.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-inspectorscan (1.39.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-interconnect (1.4.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-internetmonitor (1.55.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-invoicing (1.28.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iot (1.173.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iotdataplane (1.93.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iotdeviceadvisor (1.67.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iotfleetwise (1.66.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iotjobsdataplane (1.83.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iotmanagedintegrations (1.25.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iotsecuretunneling (1.70.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iotsitewise (1.107.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iotthingsgraph (1.73.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-iottwinmaker (1.58.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-iotwireless (1.90.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ivs (1.91.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ivschat (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ivsrealtime (1.66.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kafka (1.119.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kafkaconnect (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kendra (1.117.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kendraranking (1.48.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-keyspaces (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-keyspacesstreams (1.19.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kinesis (1.104.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kinesisanalytics (1.89.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kinesisanalyticsv2 (1.95.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kinesisvideo (1.97.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kinesisvideoarchivedmedia (1.92.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kinesisvideomedia (1.85.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kinesisvideosignalingchannels (1.67.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-kinesisvideowebrtcstorage (1.48.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
     aws-sdk-kms (1.130.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lakeformation (1.93.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lambda (1.193.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lambdacore (1.1.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lambdamicrovms (1.1.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-launchwizard (1.41.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lex (1.96.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lexmodelbuildingservice (1.108.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lexmodelsv2 (1.95.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lexruntimev2 (1.71.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-licensemanager (1.94.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-licensemanagerlinuxsubscriptions (1.47.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-licensemanagerusersubscriptions (1.54.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lightsail (1.134.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-locationservice (1.90.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-lookoutequipment (1.67.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-machinelearning (1.89.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-macie2 (1.105.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mailmanager (1.47.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mainframemodernization (1.54.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-managedblockchain (1.88.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-managedblockchainquery (1.46.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-managedgrafana (1.66.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-marketplaceagreement (1.43.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-marketplacecatalog (1.84.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-marketplacecommerceanalytics (1.91.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-marketplacedeployment (1.37.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-marketplacediscovery (1.6.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-marketplaceentitlementservice (1.89.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-marketplacemetering (1.103.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-marketplacereporting (1.24.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mediaconnect (1.105.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mediaconvert (1.191.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-medialive (1.194.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mediapackage (1.106.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mediapackagev2 (1.70.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mediapackagevod (1.88.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mediastore (1.90.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mediastoredata (1.86.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mediatailor (1.126.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-medicalimaging (1.50.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-memorydb (1.65.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mgn (1.73.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-migrationhub (1.90.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-migrationhubconfig (1.68.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-migrationhuborchestrator (1.48.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-migrationhubrefactorspaces (1.57.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-migrationhubstrategyrecommendations (1.56.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-mpa (1.19.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mq (1.100.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mturk (1.89.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mwaa (1.78.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-mwaaserverless (1.10.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-neptune (1.108.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-neptunedata (1.46.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-neptunegraph (1.53.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-networkfirewall (1.97.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-networkflowmonitor (1.28.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-networkmanager (1.82.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-networkmonitor (1.38.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-notifications (1.24.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-notificationscontacts (1.22.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-novaact (1.9.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-oam (1.52.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-observabilityadmin (1.37.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-odb (1.27.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-omics (1.76.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-opensearchserverless (1.62.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-opensearchservice (1.107.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-organizations (1.147.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-osis (1.53.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-outposts (1.109.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-partnercentralaccount (1.13.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-partnercentralbenefits (1.9.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-partnercentralchannel (1.11.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-partnercentralrevenuemeasurement (1.1.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-partnercentralselling (1.39.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-paymentcryptography (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-paymentcryptographydata (1.56.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pcaconnectorad (1.41.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pcaconnectorscep (1.33.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pcs (1.52.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-personalize (1.101.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-personalizeevents (1.79.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-personalizeruntime (1.86.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pi (1.98.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pinpoint (1.125.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pinpointemail (1.84.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pinpointsmsvoice (1.80.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pinpointsmsvoicev2 (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pipes (1.56.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-polly (1.127.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pricing (1.95.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-pricingplanmanager (1.1.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-prometheusservice (1.77.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-proton (1.72.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-qapps (1.34.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-qbusiness (1.61.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-qconnect (1.59.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-quicksight (1.195.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ram (1.91.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-rds (1.320.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-rdsdataservice (1.90.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-recyclebin (1.57.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-redshift (1.166.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-redshiftdataapiservice (1.78.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-redshiftserverless (1.73.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-rekognition (1.134.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-repostspace (1.39.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-resiliencehub (1.68.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-resiliencehubv2 (1.3.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-resourceexplorer2 (1.54.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-resourcegroups (1.100.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-resourcegroupstaggingapi (1.99.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-resources (3.271.0)
+      aws-sdk-accessanalyzer (~> 1)
+      aws-sdk-account (~> 1)
+      aws-sdk-accountaccess (~> 1)
+      aws-sdk-acm (~> 1)
+      aws-sdk-acmpca (~> 1)
+      aws-sdk-agentregistry (~> 1)
+      aws-sdk-agentregistrycontrol (~> 1)
+      aws-sdk-aiops (~> 1)
+      aws-sdk-amplify (~> 1)
+      aws-sdk-amplifybackend (~> 1)
+      aws-sdk-amplifyuibuilder (~> 1)
+      aws-sdk-apigateway (~> 1)
+      aws-sdk-apigatewaymanagementapi (~> 1)
+      aws-sdk-apigatewayv2 (~> 1)
+      aws-sdk-appconfig (~> 1)
+      aws-sdk-appconfigdata (~> 1)
+      aws-sdk-appfabric (~> 1)
+      aws-sdk-appflow (~> 1)
+      aws-sdk-appintegrationsservice (~> 1)
+      aws-sdk-applicationautoscaling (~> 1)
+      aws-sdk-applicationcostprofiler (~> 1)
+      aws-sdk-applicationdiscoveryservice (~> 1)
+      aws-sdk-applicationinsights (~> 1)
+      aws-sdk-applicationsignals (~> 1)
+      aws-sdk-appmesh (~> 1)
+      aws-sdk-appregistry (~> 1)
+      aws-sdk-apprunner (~> 1)
+      aws-sdk-appstream (~> 1)
+      aws-sdk-appsync (~> 1)
+      aws-sdk-arcregionswitch (~> 1)
+      aws-sdk-arczonalshift (~> 1)
+      aws-sdk-artifact (~> 1)
+      aws-sdk-athena (~> 1)
+      aws-sdk-auditmanager (~> 1)
+      aws-sdk-augmentedairuntime (~> 1)
+      aws-sdk-autoscaling (~> 1)
+      aws-sdk-autoscalingplans (~> 1)
+      aws-sdk-b2bi (~> 1)
+      aws-sdk-backup (~> 1)
+      aws-sdk-backupgateway (~> 1)
+      aws-sdk-backupsearch (~> 1)
+      aws-sdk-batch (~> 1)
+      aws-sdk-bcmdashboards (~> 1)
+      aws-sdk-bcmdataexports (~> 1)
+      aws-sdk-bcmpricingcalculator (~> 1)
+      aws-sdk-bcmrecommendedactions (~> 1)
+      aws-sdk-bedrock (~> 1)
+      aws-sdk-bedrockagent (~> 1)
+      aws-sdk-bedrockagentcore (~> 1)
+      aws-sdk-bedrockagentcorecontrol (~> 1)
+      aws-sdk-bedrockagentruntime (~> 1)
+      aws-sdk-bedrockdataautomation (~> 1)
+      aws-sdk-bedrockdataautomationruntime (~> 1)
+      aws-sdk-bedrockruntime (~> 1)
+      aws-sdk-billing (~> 1)
+      aws-sdk-billingconductor (~> 1)
+      aws-sdk-braket (~> 1)
+      aws-sdk-budgets (~> 1)
+      aws-sdk-chatbot (~> 1)
+      aws-sdk-chime (~> 1)
+      aws-sdk-chimesdkidentity (~> 1)
+      aws-sdk-chimesdkmediapipelines (~> 1)
+      aws-sdk-chimesdkmeetings (~> 1)
+      aws-sdk-chimesdkmessaging (~> 1)
+      aws-sdk-chimesdkvoice (~> 1)
+      aws-sdk-cleanrooms (~> 1)
+      aws-sdk-cleanroomsml (~> 1)
+      aws-sdk-cloud9 (~> 1)
+      aws-sdk-cloudcontrolapi (~> 1)
+      aws-sdk-clouddirectory (~> 1)
+      aws-sdk-cloudformation (~> 1)
+      aws-sdk-cloudfront (~> 1)
+      aws-sdk-cloudfrontkeyvaluestore (~> 1)
+      aws-sdk-cloudhsm (~> 1)
+      aws-sdk-cloudhsmv2 (~> 1)
+      aws-sdk-cloudsearch (~> 1)
+      aws-sdk-cloudsearchdomain (~> 1)
+      aws-sdk-cloudtrail (~> 1)
+      aws-sdk-cloudtraildata (~> 1)
+      aws-sdk-cloudwatch (~> 1)
+      aws-sdk-cloudwatchevents (~> 1)
+      aws-sdk-cloudwatchlogs (~> 1)
+      aws-sdk-cloudwatchrum (~> 1)
+      aws-sdk-codeartifact (~> 1)
+      aws-sdk-codebuild (~> 1)
+      aws-sdk-codecatalyst (~> 1)
+      aws-sdk-codecommit (~> 1)
+      aws-sdk-codeconnections (~> 1)
+      aws-sdk-codedeploy (~> 1)
+      aws-sdk-codeguruprofiler (~> 1)
+      aws-sdk-codegurureviewer (~> 1)
+      aws-sdk-codegurusecurity (~> 1)
+      aws-sdk-codepipeline (~> 1)
+      aws-sdk-codestarconnections (~> 1)
+      aws-sdk-codestarnotifications (~> 1)
+      aws-sdk-cognitoidentity (~> 1)
+      aws-sdk-cognitoidentityprovider (~> 1)
+      aws-sdk-cognitosync (~> 1)
+      aws-sdk-comprehend (~> 1)
+      aws-sdk-comprehendmedical (~> 1)
+      aws-sdk-computeoptimizer (~> 1)
+      aws-sdk-computeoptimizerautomation (~> 1)
+      aws-sdk-configservice (~> 1)
+      aws-sdk-connect (~> 1)
+      aws-sdk-connectcampaignservice (~> 1)
+      aws-sdk-connectcampaignsv2 (~> 1)
+      aws-sdk-connectcases (~> 1)
+      aws-sdk-connectcontactlens (~> 1)
+      aws-sdk-connecthealth (~> 1)
+      aws-sdk-connectparticipant (~> 1)
+      aws-sdk-connectwisdomservice (~> 1)
+      aws-sdk-controlcatalog (~> 1)
+      aws-sdk-controltower (~> 1)
+      aws-sdk-costandusagereportservice (~> 1)
+      aws-sdk-costexplorer (~> 1)
+      aws-sdk-costoptimizationhub (~> 1)
+      aws-sdk-customerprofiles (~> 1)
+      aws-sdk-databasemigrationservice (~> 1)
+      aws-sdk-dataexchange (~> 1)
+      aws-sdk-datapipeline (~> 1)
+      aws-sdk-datasync (~> 1)
+      aws-sdk-datazone (~> 1)
+      aws-sdk-dax (~> 1)
+      aws-sdk-deadline (~> 1)
+      aws-sdk-detective (~> 1)
+      aws-sdk-devicefarm (~> 1)
+      aws-sdk-devopsagent (~> 1)
+      aws-sdk-devopsguru (~> 1)
+      aws-sdk-directconnect (~> 1)
+      aws-sdk-directoryservice (~> 1)
+      aws-sdk-directoryservicedata (~> 1)
+      aws-sdk-dlm (~> 1)
+      aws-sdk-docdb (~> 1)
+      aws-sdk-docdbelastic (~> 1)
+      aws-sdk-drs (~> 1)
+      aws-sdk-dsql (~> 1)
+      aws-sdk-dynamodb (~> 1)
+      aws-sdk-dynamodbstreams (~> 1)
+      aws-sdk-ebs (~> 1)
+      aws-sdk-ec2 (~> 1)
+      aws-sdk-ec2instanceconnect (~> 1)
+      aws-sdk-ecr (~> 1)
+      aws-sdk-ecrpublic (~> 1)
+      aws-sdk-ecs (~> 1)
+      aws-sdk-efs (~> 1)
+      aws-sdk-eks (~> 1)
+      aws-sdk-eksauth (~> 1)
+      aws-sdk-elasticache (~> 1)
+      aws-sdk-elasticbeanstalk (~> 1)
+      aws-sdk-elasticloadbalancing (~> 1)
+      aws-sdk-elasticloadbalancingv2 (~> 1)
+      aws-sdk-elasticsearchservice (~> 1)
+      aws-sdk-elementalinference (~> 1)
+      aws-sdk-emr (~> 1)
+      aws-sdk-emrcontainers (~> 1)
+      aws-sdk-emrserverless (~> 1)
+      aws-sdk-entityresolution (~> 1)
+      aws-sdk-eventbridge (~> 1)
+      aws-sdk-evs (~> 1)
+      aws-sdk-finspace (~> 1)
+      aws-sdk-finspacedata (~> 1)
+      aws-sdk-firehose (~> 1)
+      aws-sdk-fis (~> 1)
+      aws-sdk-fms (~> 1)
+      aws-sdk-forecastqueryservice (~> 1)
+      aws-sdk-forecastservice (~> 1)
+      aws-sdk-frauddetector (~> 1)
+      aws-sdk-freetier (~> 1)
+      aws-sdk-fsx (~> 1)
+      aws-sdk-gamelift (~> 1)
+      aws-sdk-gameliftstreams (~> 1)
+      aws-sdk-geomaps (~> 1)
+      aws-sdk-geoplaces (~> 1)
+      aws-sdk-georoutes (~> 1)
+      aws-sdk-glacier (~> 1)
+      aws-sdk-globalaccelerator (~> 1)
+      aws-sdk-glue (~> 1)
+      aws-sdk-gluedatabrew (~> 1)
+      aws-sdk-greengrass (~> 1)
+      aws-sdk-greengrassv2 (~> 1)
+      aws-sdk-groundstation (~> 1)
+      aws-sdk-guardduty (~> 1)
+      aws-sdk-health (~> 1)
+      aws-sdk-healthlake (~> 1)
+      aws-sdk-iam (~> 1)
+      aws-sdk-iamtoolbox (~> 1)
+      aws-sdk-identitystore (~> 1)
+      aws-sdk-imagebuilder (~> 1)
+      aws-sdk-importexport (~> 1)
+      aws-sdk-inspector (~> 1)
+      aws-sdk-inspector2 (~> 1)
+      aws-sdk-inspectorscan (~> 1)
+      aws-sdk-interconnect (~> 1)
+      aws-sdk-internetmonitor (~> 1)
+      aws-sdk-invoicing (~> 1)
+      aws-sdk-iot (~> 1)
+      aws-sdk-iotdataplane (~> 1)
+      aws-sdk-iotdeviceadvisor (~> 1)
+      aws-sdk-iotfleetwise (~> 1)
+      aws-sdk-iotjobsdataplane (~> 1)
+      aws-sdk-iotmanagedintegrations (~> 1)
+      aws-sdk-iotsecuretunneling (~> 1)
+      aws-sdk-iotsitewise (~> 1)
+      aws-sdk-iotthingsgraph (~> 1)
+      aws-sdk-iottwinmaker (~> 1)
+      aws-sdk-iotwireless (~> 1)
+      aws-sdk-ivs (~> 1)
+      aws-sdk-ivschat (~> 1)
+      aws-sdk-ivsrealtime (~> 1)
+      aws-sdk-kafka (~> 1)
+      aws-sdk-kafkaconnect (~> 1)
+      aws-sdk-kendra (~> 1)
+      aws-sdk-kendraranking (~> 1)
+      aws-sdk-keyspaces (~> 1)
+      aws-sdk-keyspacesstreams (~> 1)
+      aws-sdk-kinesis (~> 1)
+      aws-sdk-kinesisanalytics (~> 1)
+      aws-sdk-kinesisanalyticsv2 (~> 1)
+      aws-sdk-kinesisvideo (~> 1)
+      aws-sdk-kinesisvideoarchivedmedia (~> 1)
+      aws-sdk-kinesisvideomedia (~> 1)
+      aws-sdk-kinesisvideosignalingchannels (~> 1)
+      aws-sdk-kinesisvideowebrtcstorage (~> 1)
+      aws-sdk-kms (~> 1)
+      aws-sdk-lakeformation (~> 1)
+      aws-sdk-lambda (~> 1)
+      aws-sdk-lambdacore (~> 1)
+      aws-sdk-lambdamicrovms (~> 1)
+      aws-sdk-launchwizard (~> 1)
+      aws-sdk-lex (~> 1)
+      aws-sdk-lexmodelbuildingservice (~> 1)
+      aws-sdk-lexmodelsv2 (~> 1)
+      aws-sdk-lexruntimev2 (~> 1)
+      aws-sdk-licensemanager (~> 1)
+      aws-sdk-licensemanagerlinuxsubscriptions (~> 1)
+      aws-sdk-licensemanagerusersubscriptions (~> 1)
+      aws-sdk-lightsail (~> 1)
+      aws-sdk-locationservice (~> 1)
+      aws-sdk-lookoutequipment (~> 1)
+      aws-sdk-machinelearning (~> 1)
+      aws-sdk-macie2 (~> 1)
+      aws-sdk-mailmanager (~> 1)
+      aws-sdk-mainframemodernization (~> 1)
+      aws-sdk-managedblockchain (~> 1)
+      aws-sdk-managedblockchainquery (~> 1)
+      aws-sdk-managedgrafana (~> 1)
+      aws-sdk-marketplaceagreement (~> 1)
+      aws-sdk-marketplacecatalog (~> 1)
+      aws-sdk-marketplacecommerceanalytics (~> 1)
+      aws-sdk-marketplacedeployment (~> 1)
+      aws-sdk-marketplacediscovery (~> 1)
+      aws-sdk-marketplaceentitlementservice (~> 1)
+      aws-sdk-marketplacemetering (~> 1)
+      aws-sdk-marketplacereporting (~> 1)
+      aws-sdk-mediaconnect (~> 1)
+      aws-sdk-mediaconvert (~> 1)
+      aws-sdk-medialive (~> 1)
+      aws-sdk-mediapackage (~> 1)
+      aws-sdk-mediapackagev2 (~> 1)
+      aws-sdk-mediapackagevod (~> 1)
+      aws-sdk-mediastore (~> 1)
+      aws-sdk-mediastoredata (~> 1)
+      aws-sdk-mediatailor (~> 1)
+      aws-sdk-medicalimaging (~> 1)
+      aws-sdk-memorydb (~> 1)
+      aws-sdk-mgn (~> 1)
+      aws-sdk-migrationhub (~> 1)
+      aws-sdk-migrationhubconfig (~> 1)
+      aws-sdk-migrationhuborchestrator (~> 1)
+      aws-sdk-migrationhubrefactorspaces (~> 1)
+      aws-sdk-migrationhubstrategyrecommendations (~> 1)
+      aws-sdk-mpa (~> 1)
+      aws-sdk-mq (~> 1)
+      aws-sdk-mturk (~> 1)
+      aws-sdk-mwaa (~> 1)
+      aws-sdk-mwaaserverless (~> 1)
+      aws-sdk-neptune (~> 1)
+      aws-sdk-neptunedata (~> 1)
+      aws-sdk-neptunegraph (~> 1)
+      aws-sdk-networkfirewall (~> 1)
+      aws-sdk-networkflowmonitor (~> 1)
+      aws-sdk-networkmanager (~> 1)
+      aws-sdk-networkmonitor (~> 1)
+      aws-sdk-notifications (~> 1)
+      aws-sdk-notificationscontacts (~> 1)
+      aws-sdk-novaact (~> 1)
+      aws-sdk-oam (~> 1)
+      aws-sdk-observabilityadmin (~> 1)
+      aws-sdk-odb (~> 1)
+      aws-sdk-omics (~> 1)
+      aws-sdk-opensearchserverless (~> 1)
+      aws-sdk-opensearchservice (~> 1)
+      aws-sdk-organizations (~> 1)
+      aws-sdk-osis (~> 1)
+      aws-sdk-outposts (~> 1)
+      aws-sdk-partnercentralaccount (~> 1)
+      aws-sdk-partnercentralbenefits (~> 1)
+      aws-sdk-partnercentralchannel (~> 1)
+      aws-sdk-partnercentralrevenuemeasurement (~> 1)
+      aws-sdk-partnercentralselling (~> 1)
+      aws-sdk-paymentcryptography (~> 1)
+      aws-sdk-paymentcryptographydata (~> 1)
+      aws-sdk-pcaconnectorad (~> 1)
+      aws-sdk-pcaconnectorscep (~> 1)
+      aws-sdk-pcs (~> 1)
+      aws-sdk-personalize (~> 1)
+      aws-sdk-personalizeevents (~> 1)
+      aws-sdk-personalizeruntime (~> 1)
+      aws-sdk-pi (~> 1)
+      aws-sdk-pinpoint (~> 1)
+      aws-sdk-pinpointemail (~> 1)
+      aws-sdk-pinpointsmsvoice (~> 1)
+      aws-sdk-pinpointsmsvoicev2 (~> 1)
+      aws-sdk-pipes (~> 1)
+      aws-sdk-polly (~> 1)
+      aws-sdk-pricing (~> 1)
+      aws-sdk-pricingplanmanager (~> 1)
+      aws-sdk-prometheusservice (~> 1)
+      aws-sdk-proton (~> 1)
+      aws-sdk-qapps (~> 1)
+      aws-sdk-qbusiness (~> 1)
+      aws-sdk-qconnect (~> 1)
+      aws-sdk-quicksight (~> 1)
+      aws-sdk-ram (~> 1)
+      aws-sdk-rds (~> 1)
+      aws-sdk-rdsdataservice (~> 1)
+      aws-sdk-recyclebin (~> 1)
+      aws-sdk-redshift (~> 1)
+      aws-sdk-redshiftdataapiservice (~> 1)
+      aws-sdk-redshiftserverless (~> 1)
+      aws-sdk-rekognition (~> 1)
+      aws-sdk-repostspace (~> 1)
+      aws-sdk-resiliencehub (~> 1)
+      aws-sdk-resiliencehubv2 (~> 1)
+      aws-sdk-resourceexplorer2 (~> 1)
+      aws-sdk-resourcegroups (~> 1)
+      aws-sdk-resourcegroupstaggingapi (~> 1)
+      aws-sdk-rolesanywhere (~> 1)
+      aws-sdk-route53 (~> 1)
+      aws-sdk-route53domains (~> 1)
+      aws-sdk-route53globalresolver (~> 1)
+      aws-sdk-route53profiles (~> 1)
+      aws-sdk-route53recoverycluster (~> 1)
+      aws-sdk-route53recoverycontrolconfig (~> 1)
+      aws-sdk-route53recoveryreadiness (~> 1)
+      aws-sdk-route53resolver (~> 1)
+      aws-sdk-rtbfabric (~> 1)
+      aws-sdk-s3 (~> 1)
+      aws-sdk-s3control (~> 1)
+      aws-sdk-s3files (~> 1)
+      aws-sdk-s3outposts (~> 1)
+      aws-sdk-s3tables (~> 1)
+      aws-sdk-s3vectors (~> 1)
+      aws-sdk-sagemaker (~> 1)
+      aws-sdk-sagemakeredgemanager (~> 1)
+      aws-sdk-sagemakerfeaturestoreruntime (~> 1)
+      aws-sdk-sagemakergeospatial (~> 1)
+      aws-sdk-sagemakerjobruntime (~> 1)
+      aws-sdk-sagemakermetrics (~> 1)
+      aws-sdk-sagemakerruntime (~> 1)
+      aws-sdk-sagemakerruntimehttp2 (~> 1)
+      aws-sdk-savingsplans (~> 1)
+      aws-sdk-scheduler (~> 1)
+      aws-sdk-schemas (~> 1)
+      aws-sdk-secretsmanager (~> 1)
+      aws-sdk-securityagent (~> 1)
+      aws-sdk-securityhub (~> 1)
+      aws-sdk-securityir (~> 1)
+      aws-sdk-securitylake (~> 1)
+      aws-sdk-serverlessapplicationrepository (~> 1)
+      aws-sdk-servicecatalog (~> 1)
+      aws-sdk-servicediscovery (~> 1)
+      aws-sdk-servicequotas (~> 1)
+      aws-sdk-ses (~> 1)
+      aws-sdk-sesv2 (~> 1)
+      aws-sdk-shield (~> 1)
+      aws-sdk-signer (~> 1)
+      aws-sdk-signerdata (~> 1)
+      aws-sdk-simpledb (~> 1)
+      aws-sdk-simpledbv2 (~> 1)
+      aws-sdk-snowball (~> 1)
+      aws-sdk-snowdevicemanagement (~> 1)
+      aws-sdk-sns (~> 1)
+      aws-sdk-socialmessaging (~> 1)
+      aws-sdk-sqs (~> 1)
+      aws-sdk-ssm (~> 1)
+      aws-sdk-ssmcontacts (~> 1)
+      aws-sdk-ssmguiconnect (~> 1)
+      aws-sdk-ssmincidents (~> 1)
+      aws-sdk-ssmquicksetup (~> 1)
+      aws-sdk-ssmsap (~> 1)
+      aws-sdk-ssoadmin (~> 1)
+      aws-sdk-states (~> 1)
+      aws-sdk-storagegateway (~> 1)
+      aws-sdk-supplychain (~> 1)
+      aws-sdk-support (~> 1)
+      aws-sdk-supportapp (~> 1)
+      aws-sdk-supportauthz (~> 1)
+      aws-sdk-sustainability (~> 1)
+      aws-sdk-swf (~> 1)
+      aws-sdk-synthetics (~> 1)
+      aws-sdk-taxsettings (~> 1)
+      aws-sdk-textract (~> 1)
+      aws-sdk-timestreaminfluxdb (~> 1)
+      aws-sdk-timestreamquery (~> 1)
+      aws-sdk-timestreamwrite (~> 1)
+      aws-sdk-tnb (~> 1)
+      aws-sdk-transcribeservice (~> 1)
+      aws-sdk-transcribestreamingservice (~> 1)
+      aws-sdk-transfer (~> 1)
+      aws-sdk-translate (~> 1)
+      aws-sdk-trustedadvisor (~> 1)
+      aws-sdk-uxc (~> 1)
+      aws-sdk-verifiedpermissions (~> 1)
+      aws-sdk-voiceid (~> 1)
+      aws-sdk-vpclattice (~> 1)
+      aws-sdk-waf (~> 1)
+      aws-sdk-wafregional (~> 1)
+      aws-sdk-wafv2 (~> 1)
+      aws-sdk-wellarchitected (~> 1)
+      aws-sdk-wickr (~> 1)
+      aws-sdk-workdocs (~> 1)
+      aws-sdk-workmail (~> 1)
+      aws-sdk-workmailmessageflow (~> 1)
+      aws-sdk-workspaces (~> 1)
+      aws-sdk-workspacesinstances (~> 1)
+      aws-sdk-workspacesthinclient (~> 1)
+      aws-sdk-workspacesweb (~> 1)
+      aws-sdk-xray (~> 1)
+    aws-sdk-rolesanywhere (1.55.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-route53 (1.137.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-route53domains (1.98.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-route53globalresolver (1.12.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-route53profiles (1.37.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-route53recoverycluster (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-route53recoverycontrolconfig (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-route53recoveryreadiness (1.58.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-route53resolver (1.102.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-rtbfabric (1.16.0)
       aws-sdk-core (~> 3, >= 3.254.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-s3 (1.229.0)
       aws-sdk-core (~> 3, >= 3.254.1)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.5)
+    aws-sdk-s3control (1.134.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-s3files (1.5.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-s3outposts (1.64.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-s3tables (1.33.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-s3vectors (1.20.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sagemaker (1.387.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sagemakeredgemanager (1.61.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sagemakerfeaturestoreruntime (1.67.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sagemakergeospatial (1.48.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-sagemakerjobruntime (1.1.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sagemakermetrics (1.49.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sagemakerruntime (1.102.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sagemakerruntimehttp2 (1.8.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-savingsplans (1.80.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-scheduler (1.49.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-schemas (1.70.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-secretsmanager (1.134.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-securityagent (1.13.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-securityhub (1.163.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-securityir (1.26.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-securitylake (1.57.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-serverlessapplicationrepository (1.93.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-servicecatalog (1.132.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-servicediscovery (1.104.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-servicequotas (1.75.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ses (1.102.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sesv2 (1.106.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-shield (1.99.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-signer (1.87.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-signerdata (1.5.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-simpledb (1.79.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv2 (~> 1.0)
+    aws-sdk-simpledbv2 (1.5.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-snowball (1.105.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-snowdevicemanagement (1.54.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-sns (1.118.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-socialmessaging (1.29.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sqs (1.117.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ssm (1.220.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ssmcontacts (1.64.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ssmguiconnect (1.20.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ssmincidents (1.69.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-ssmquicksetup (1.32.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ssmsap (1.56.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-ssoadmin (1.77.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-states (1.110.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-storagegateway (1.129.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-supplychain (1.43.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-support (1.94.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-supportapp (1.49.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-supportauthz (1.1.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-sustainability (1.5.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-swf (1.89.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-synthetics (1.87.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-taxsettings (1.43.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-textract (1.95.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-timestreaminfluxdb (1.47.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-timestreamquery (1.71.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-timestreamwrite (1.66.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-tnb (1.46.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-transcribeservice (1.142.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-transcribestreamingservice (1.105.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-transfer (1.142.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-translate (1.99.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-trustedadvisor (1.42.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-uxc (1.4.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-verifiedpermissions (1.68.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-voiceid (1.60.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-vpclattice (1.53.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-waf (1.96.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-wafregional (1.97.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-wafv2 (1.137.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-wellarchitected (1.72.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-wickr (1.11.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-workdocs (1.92.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-workmail (1.101.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-workmailmessageflow (1.69.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-workspaces (1.164.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-workspacesinstances (1.19.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-workspacesthinclient (1.47.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-workspacesweb (1.66.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-xray (1.102.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
+      aws-sigv4 (~> 1.5)
+    aws-sigv2 (1.3.1)
     aws-sigv4 (1.12.1)
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
@@ -421,6 +2134,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter (~> 11.1)
+  aws-sdk
   aws-sdk-s3 (~> 1.193)
   bcrypt (~> 3.1.22)
   bootsnap
@@ -472,9 +2186,439 @@ CHECKSUMS
   activesupport (8.1.3.1) sha256=85458765f25ea48b9019c46b6bb3fa5683197bf4280d9f06710a6e8d7a831376
   aws-eventstream (1.4.0) sha256=116bf85c436200d1060811e6f5d2d40c88f65448f2125bc77ffce5121e6e183b
   aws-partitions (1.1282.0) sha256=d6c7c4ad2e4f8cd4ca56445bfbb3958fec0deecd959c1e2bcd3a83c9aa308c18
+  aws-sdk (3.3.0) sha256=f8c1222706957a6427fe293bafacf8f58bbde3f0a24fa2bf897fa3a220a4ccbc
+  aws-sdk-accessanalyzer (1.94.0) sha256=a261fdd74b4ba867f65fc49821b8e055c14d0fffc4be12928c1f68096c4a5e5e
+  aws-sdk-account (1.62.0) sha256=19520a24c2e4aaf22d94cf1cf9e959d62f50f41a5bd3e0ea5a70714aab852613
+  aws-sdk-accountaccess (1.1.0) sha256=a3c6d6be2fa7679d4beb9fb6be3934bb10392ef8b517e80295801e71871f7540
+  aws-sdk-acm (1.109.0) sha256=00c63b8f4aee8cafce12cf74ad1204f5fce1fb4acf41d8115b8d4f21aca137b0
+  aws-sdk-acmpca (1.113.0) sha256=a9852ea7bc5e78bd760c8d0fbc88a3101cc1be1bcb1106703d72c36d7df74252
+  aws-sdk-agentregistry (1.0.0) sha256=7206b60356cd2d6def527c7460af00c543bbd0497260867fdb4b1dde8baa8b25
+  aws-sdk-agentregistrycontrol (1.0.0) sha256=1228a52ff021f9f548ebc5425837486f5898afb332dc0d8e333645993df1390a
+  aws-sdk-aiops (1.19.0) sha256=ace0f11a4ac10a70cb849c9790bbefc6c19ca00bf6f8e268cf2b20c76d2fb783
+  aws-sdk-amplify (1.106.0) sha256=e246f6c262917dcdece5304bebc7c7e7aace93529ede391bf377abd9762966d9
+  aws-sdk-amplifybackend (1.66.0) sha256=0a9d4077169f6c96e2c9c9e52f65a69a0864e2413612470d5a54e3dce6cf5ac9
+  aws-sdk-amplifyuibuilder (1.60.0) sha256=46e72445689720dfb1b52b21af5c22ce83cf8550abdd12c25db493721384bb01
+  aws-sdk-apigateway (1.137.0) sha256=a4e83565c2a418118dc4d321c3e31bdedb43695baa4c8f52be6faebd36a51255
+  aws-sdk-apigatewaymanagementapi (1.77.0) sha256=489d5feb760d9e768ba9b46561ae6404b21ad5cedccad2792efc7572cf1e195c
+  aws-sdk-apigatewayv2 (1.96.0) sha256=168d484bfd2595ad3682ae42242c66119c4f9a01718d9f3315155a965274cc5a
+  aws-sdk-appconfig (1.85.0) sha256=95e7764200205be6b92d3ded2afd53f95307a3c0d15622fcd901d4568459e267
+  aws-sdk-appconfigdata (1.54.0) sha256=4977968b499e02507a152ac5c316ae76fb349ba36d83147425d62be11ea15cdd
+  aws-sdk-appfabric (1.44.0) sha256=8d643a8214a84b7e67c97224ce8839f3293d719cce2045dfd55074fa1d9815fd
+  aws-sdk-appflow (1.93.0) sha256=001558e0548e51b472d27346a7c3a724284945b4d102ee83a881dd1c1668865c
+  aws-sdk-appintegrationsservice (1.71.0) sha256=54cf9d137a4cd105e163283a284d35a6a62252419d524059cd993ce2b93782c7
+  aws-sdk-applicationautoscaling (1.125.0) sha256=3925bf0a65c64cd0971194abca3195832b04065252ee5a35f664eea8fa80e799
+  aws-sdk-applicationcostprofiler (1.57.0) sha256=8d099c16a20f6ceffe1e2182ee91b2dc27b4ede792434c6e56dfda112b2621c9
+  aws-sdk-applicationdiscoveryservice (1.104.0) sha256=032b55a65d2aec62714d18e9b71b073d4a62c2d8a1247c7711237f10b81c8eda
+  aws-sdk-applicationinsights (1.83.0) sha256=95be18b583db326c33d5b2a711b32141c0903704744f5a545f29c43d8c537d44
+  aws-sdk-applicationsignals (1.46.0) sha256=48e1a1690072c560375f03425ecf59a7a798f2fb150eff2de877af3e1e4a561e
+  aws-sdk-appmesh (1.95.0) sha256=eb304299e309866fab43a38e1adff01edda155c2c1efcdc3dec2757ce0542db0
+  aws-sdk-appregistry (1.66.0) sha256=affa2fbb2cc960b0468e32f256e6f72c5333221d0d2dd39bc71a3a684a60bd47
+  aws-sdk-apprunner (1.75.0) sha256=e7100b53252b782e6ff0e6ad4c058bfd8b03c3ff477b7acc1b29772719d2bcbd
+  aws-sdk-appstream (1.140.0) sha256=56dadb008ceab0b3b5056a9abe95f0c63487284a05778c6b07dad612a1e117c7
+  aws-sdk-appsync (1.125.0) sha256=c193259a4f1bf44a9006ad17bade3a2a98013a9595cbc0f9a75b027a88616063
+  aws-sdk-arcregionswitch (1.22.0) sha256=fca4b31dec8fa74b3352b852e9512dce9e5a09a9162f2539891056781196b582
+  aws-sdk-arczonalshift (1.51.0) sha256=b2ef965d1ad647e4e7b784fe2a01a155e5f94228f60459f80958bcbfc6790a1f
+  aws-sdk-artifact (1.41.0) sha256=c9323ed12cfa0b9ac7a4d2f2c0b017a8a45dce6e4f628670f84221b9fe1cb66d
+  aws-sdk-athena (1.123.0) sha256=64288a0f207b40f55fa7d130209671ebba99433c499025e9bc14afa53ef77984
+  aws-sdk-auditmanager (1.85.0) sha256=4b3c454ddc2e9bb35d392031686b2d0aa8d28ecdd43742d2049f45222da6f177
+  aws-sdk-augmentedairuntime (1.71.0) sha256=02ff6325e04495f95cbb78c6a89177f2e2108e3ee03dd47c09a537cf8114c46c
+  aws-sdk-autoscaling (1.166.0) sha256=abefc916eb023f4968d54429f1b0209b6c9df36dbc7d7514f89a874662333b21
+  aws-sdk-autoscalingplans (1.89.0) sha256=eb79d6e0a1a20017bd166dcb1d9eafb369e3fb6cb9f4f2036ce7708dbd4e3fac
+  aws-sdk-b2bi (1.50.0) sha256=c5a82a1acefea6bff43d85859e1991b2fbdd1981efb435b693a1472f49ef7bc1
+  aws-sdk-backup (1.117.0) sha256=95745b3bafb13d96b27b8e4552717ffb2f2d329e92c4b4178f66761195684d6b
+  aws-sdk-backupgateway (1.56.0) sha256=7331f63611b808d1b012aeb3d3b27034047aeb03f9b2e9727906f030e5bc2eb1
+  aws-sdk-backupsearch (1.24.0) sha256=431ec7321a41395f79006a67682aace8e649463b21713c3ef4d6620b399d60c5
+  aws-sdk-batch (1.151.0) sha256=056dae503b378e5a0b0ea6904ace49b9925e68b3d20e1750ada35dede0e44d59
+  aws-sdk-bcmdashboards (1.15.0) sha256=d05ac3890dffc0b667ec6242b562d4a7ffe2201678637ee7bad482c0d0138e74
+  aws-sdk-bcmdataexports (1.41.0) sha256=a09dc2524b2de0fc13a5ffcb6e436b17fdf1574751c836a7e72871057b70248c
+  aws-sdk-bcmpricingcalculator (1.32.0) sha256=b22dac4e46aeb7b696ef0eb31519369e2adb64da2e4463773e79c6cda2029a18
+  aws-sdk-bcmrecommendedactions (1.16.0) sha256=6c182cc43e3ace881dac652784e9447ae11b27c885de26672dfe9f7be723ebb9
+  aws-sdk-bedrock (1.91.0) sha256=3c13a47dfa1f847c1812f8d7fa553fc080ea4f550f1f16ce01971030b4daddc9
+  aws-sdk-bedrockagent (1.80.0) sha256=3bd57c689b1334191a21828157de9243b76342caf4082fe1a69316843a0e78a6
+  aws-sdk-bedrockagentcore (1.50.0) sha256=c8be06be7fd98087e899914429d24792d6da219a44dace63fe547af696209de0
+  aws-sdk-bedrockagentcorecontrol (1.67.0) sha256=b65ada9228abb7c67035a5ffc9fd84780f0f134155c4efa83002abb4cc2ba9a2
+  aws-sdk-bedrockagentruntime (1.80.0) sha256=d5d16510989e7022f36c0b5fe3c5c9806e8acddbe0430213f76b55db8a6c49e6
+  aws-sdk-bedrockdataautomation (1.34.0) sha256=5701f598ae634883a44823294fa884abcacb03d7ba7d53abb50760f16f4e7eee
+  aws-sdk-bedrockdataautomationruntime (1.28.0) sha256=5a51d6c2dbea0d1db71d2ce83c629be3e39bbbdfe4935e4f69b3248c9f97795d
+  aws-sdk-bedrockruntime (1.83.0) sha256=6e47a53f890fadd8e572335b933d13cd09530f8e63fc6c99fbb608c048936cb9
+  aws-sdk-billing (1.30.0) sha256=5651ce69b0ee7af4615c298c44785557e5863beea07a9495dfe2cc4d7740fbdb
+  aws-sdk-billingconductor (1.60.0) sha256=123bd6dc3013f886b0653f926892b15c65be655300830a800edf3e65e7058310
+  aws-sdk-braket (1.74.0) sha256=15c2dc93e12cd69cd13d237c6e6a2ba4ebd762b775453274c19210c2e928b5c2
+  aws-sdk-budgets (1.111.0) sha256=f10ada2915927879774b2e0a1ee839c82ae35f8fbfba4c3511b0126296503fb0
+  aws-sdk-chatbot (1.42.0) sha256=715c1b728917a983d410460bce34f6eb79487867ea9fef417ae003fe1127a9fd
+  aws-sdk-chime (1.120.0) sha256=eaefede0d13d911786aa8fa13d79cdc44b6e2baf3ffba005efa1f6f18b03e4ed
+  aws-sdk-chimesdkidentity (1.60.0) sha256=5d81a4c80f14688889db35c77a496104f9e97aeac72ba3e447d51fc43824037a
+  aws-sdk-chimesdkmediapipelines (1.57.0) sha256=a545b4853938981ef8e8038dbbee427dc05a7ddf2a49a6ce2ca380bae32eee62
+  aws-sdk-chimesdkmeetings (1.68.0) sha256=bb1e01ebce3ef075ac2eaf0ebd70d8121f86285472f9dfe8ebaff73aea02bf7c
+  aws-sdk-chimesdkmessaging (1.67.0) sha256=bb09588a385d30c352bf3a773e7759cad4f7f44a3facda916f02722e15ce8056
+  aws-sdk-chimesdkvoice (1.60.0) sha256=5cfe10dff26da726621c5ec47da0d66eef58bec2b92fecbb6529a0a57733b8ae
+  aws-sdk-cleanrooms (1.79.0) sha256=9fad062ba2b9cc93438c6abf1ac2140ff3be188942e17bd90a34ebdae9b3f5cd
+  aws-sdk-cleanroomsml (1.50.0) sha256=2f701117ebe1750d2c2db7ae6e32a0a92a94fe96fb7485f1e005a56a6f5f969c
+  aws-sdk-cloud9 (1.105.0) sha256=471f8c7f160010e86c299471c9747014742e5d67d217a50be8363eb88593d406
+  aws-sdk-cloudcontrolapi (1.56.0) sha256=a61358c40cab288d1ce54b6e1512e441862a3962407b23614e5003895dfce850
+  aws-sdk-clouddirectory (1.93.0) sha256=98375ec4eeb3042c105027ce28d69ffe9af1457081f3fe931e8bd68c32cc3586
+  aws-sdk-cloudformation (1.157.0) sha256=6855e258cbe5e4044267e0365bac587d8c640b79374d2f7beba7755392ee7767
+  aws-sdk-cloudfront (1.152.0) sha256=c1f3be14e00ba147a4e8b43085ff51baff8a48a5d26f052d2e11f9e6aec5ca98
+  aws-sdk-cloudfrontkeyvaluestore (1.39.0) sha256=7b45c0869be83bc1cb740f32e8997d8621256ac7b4be8c3dbc214bf9a583abbc
+  aws-sdk-cloudhsm (1.88.0) sha256=6ef0d6897734b1d3d64e64eaedc780f42377d8d0268829e532779652fb4a4008
+  aws-sdk-cloudhsmv2 (1.94.0) sha256=0eaa46b457342ad54a2cf880ef0a11d4780e5555f0af6e44d691da5007b2c50a
+  aws-sdk-cloudsearch (1.91.0) sha256=cfa3ea62833ccdd4d22e8fac36e8f155382f70b0958a52c0ef0bc2ec2593fadf
+  aws-sdk-cloudsearchdomain (1.74.0) sha256=055b99da7aa0702c11a869a0c7b154bf2726f360cb5264328ebdb3b40b45ab5b
+  aws-sdk-cloudtrail (1.125.0) sha256=92845f6bf762b9f9f8473d033d916683a48a2dc7c133bcf9226d8e4a1fb4a87b
+  aws-sdk-cloudtraildata (1.46.0) sha256=b59eebd46d80c43cb59902e5b2c72a4931dc13ee0409b0e6c8967214c4739d3f
+  aws-sdk-cloudwatch (1.146.0) sha256=eff9acdd71fefbf8da495373cf2378e9daf3f4411438aed6d9abe67df4b04738
+  aws-sdk-cloudwatchevents (1.108.0) sha256=5fba0d7baa39987eeb70b096f20be81a329148ec23076dcae50d44a5f4bc718b
+  aws-sdk-cloudwatchlogs (1.161.0) sha256=34b454d656da4df65d073a3480126fbc93ea34571a1c6c18a99d6e40fc587f6e
+  aws-sdk-cloudwatchrum (1.60.0) sha256=9cf357f14cd6239ac815660304bff246761e4466af8f513b52687b108c0f4064
+  aws-sdk-codeartifact (1.78.0) sha256=a12c3bee4c076621eb610c5ae873f2a2fbccfbb9a121cb2f6c38ce870ef3a177
+  aws-sdk-codebuild (1.177.0) sha256=25d382ec1f97739ea0e212392f0031f53bfb5ba8895b474a690aeefbf0cc3bea
+  aws-sdk-codecatalyst (1.52.0) sha256=8e4908c9db3c45542a3bf52e2b471b1e5868878e5cfacf293ad95de250f35478
+  aws-sdk-codecommit (1.103.0) sha256=126c92be8d646d730cfb870c8e7ba3d34c9adef2bb99baec62317f71dc797ef6
+  aws-sdk-codeconnections (1.38.0) sha256=db1d151125ba1f145a54a62da0b9e8d083f03d0877917821efc50b1c65088b65
+  aws-sdk-codedeploy (1.102.0) sha256=a3e8c2bfb82b2347b93640350687990af40e2b8130d1199ab4b1655b7797df43
+  aws-sdk-codeguruprofiler (1.71.0) sha256=f4b6222c8adee22e5942098b944998f0685ec130fd60bd26ca3b1181b5c59bbc
+  aws-sdk-codegurureviewer (1.82.0) sha256=186a979be8b7c06ae515b1cd7cb77b346f1c24df8036856b0367ed04f9b9f17a
+  aws-sdk-codegurusecurity (1.47.0) sha256=a46702ca98d3527698a6bc963d029b89c588c1b7ef8123e327befe9b75a7262d
+  aws-sdk-codepipeline (1.118.0) sha256=197a97d1b532484f38d87b7c3ceccf50afed2db27ed1807a2e9cad7b8962f14e
+  aws-sdk-codestarconnections (1.77.0) sha256=21647e8bc092fe0b7e3877879b8a73c9077930e47baaf32bd09bed1ae0c63200
+  aws-sdk-codestarnotifications (1.69.0) sha256=5f4a13bd7b794b791dda4d416196eb1b8f78e1ba6721d2e9d623891b88167b3f
+  aws-sdk-cognitoidentity (1.91.0) sha256=ad0e1fd331b362a37624e33c6679761effb5359eb1702b30ce7b31befdfd90f4
+  aws-sdk-cognitoidentityprovider (1.149.0) sha256=4d2365f4ca65f8922b928adb3c9bead44754847a3055e8eca120c343aa41b9ad
+  aws-sdk-cognitosync (1.85.0) sha256=bde5764df86e3a7137155d3af8fff1be1944679a114b253b39ee228c0cc2fcc9
+  aws-sdk-comprehend (1.117.0) sha256=5bda833cd17f8aab4fc6f36b6996253fa5cf083e10721951b10311f53923f60c
+  aws-sdk-comprehendmedical (1.85.0) sha256=e5861caa73e21d31def188f16efa998e38520167e75b7cef79d57ed66f74535c
+  aws-sdk-computeoptimizer (1.100.0) sha256=8f445d90de805065e8bc9275b510fe547a0bad050e1b1301ad5b44b8d9b12343
+  aws-sdk-computeoptimizerautomation (1.11.0) sha256=99710954503c714b67877304f4b271988621f8800a1ee3565c7aacd4ca962994
+  aws-sdk-configservice (1.156.0) sha256=dbf85264f9e4a7fd5a9f65cd56fb41855ca36200d45e9ccb3600f2a0ddf79b69
+  aws-sdk-connect (1.273.0) sha256=95443a1ffceb4348421243a7b79fd076f0eb90a628f6a943e3d3129e45bbd4f6
+  aws-sdk-connectcampaignservice (1.51.0) sha256=862828f4e3a03f9dd4608a9c7be9f417eb4f9e64323f906213108ad06fa65689
+  aws-sdk-connectcampaignsv2 (1.31.0) sha256=0f155b1fdb8d57a30aef3998c3b4fc25638e74794a88294f997568aec75b87d7
+  aws-sdk-connectcases (1.71.0) sha256=45937ed7cf2271e0426b574353d0cd1c3d009f47091d3e593e107eeef61c1204
+  aws-sdk-connectcontactlens (1.61.0) sha256=2e4fa4ea8e3333bfbd2f320f23fb4cba00ef92dee23549006cdaa932607756de
+  aws-sdk-connecthealth (1.9.0) sha256=53eccc355dad5b9eaba097cbfb1db7beeb5bb18677afcdf87b57a6b7532d40f2
+  aws-sdk-connectparticipant (1.82.0) sha256=8ea39ff6827fd07d6c470732a5af36f69231d28e3cb4e9992c2dd82105311c18
+  aws-sdk-connectwisdomservice (1.65.0) sha256=da5b85e056c41353ee0e8e79c648cda4ed5630b5a50d893fde94e1d232b23976
+  aws-sdk-controlcatalog (1.45.0) sha256=db05fb182a50924a4dccfe95c86828d57e06d9c1096e9f71914b0733c8083444
+  aws-sdk-controltower (1.62.0) sha256=c2ea9a3cbf78d45d7d506fed3798be6fd3a041fde1c27b3685675bf9c6884df8
   aws-sdk-core (3.254.1) sha256=518089e32134c3478cd4ec63d07fb966546a45e9e4cbf5f80d2cf16d5699d29b
+  aws-sdk-costandusagereportservice (1.91.0) sha256=f659f3cfe2c5599d9899f415e412472fa05f7007a56ab62f1148c6db04ad98a9
+  aws-sdk-costexplorer (1.154.0) sha256=d6cd60872a3d3c2bf4fe9dc8bcb8280a25a1daaee5e1563d031eb8280915b29a
+  aws-sdk-costoptimizationhub (1.47.0) sha256=64c089a3d00184d8ec33c0db2ec7dbf6f6dc4636d367b376647fc3c2569e2dbd
+  aws-sdk-customerprofiles (1.92.0) sha256=5533bf8cc2bf90715e5db451b102abd3e054f764c162b1e7674d844861bd9d3b
+  aws-sdk-databasemigrationservice (1.149.0) sha256=9166994c0975a7885464e7b139261fea2e0ae2a6dc473800485db063270b6687
+  aws-sdk-dataexchange (1.87.0) sha256=f2cae05ef0af5845244e73ada9bcb97dc692e0b9a358235206fa60caba827988
+  aws-sdk-datapipeline (1.85.0) sha256=1f9f1965d8c0ba694d6af09fa14c25d63c7b49787b2537609d4a8316c7b51f0b
+  aws-sdk-datasync (1.127.0) sha256=7c6a22c3007295ae77b69a42c4da9c930e074c79f7b469a7d6c3d57758d911aa
+  aws-sdk-datazone (1.87.0) sha256=8fae4292dce3fabdace08d42f3cedfc91e27a9ffc164c90094ab845189110181
+  aws-sdk-dax (1.89.0) sha256=fef07238b6af74ee11d4d3e181d0fb8cf38e7f4d930ad069623de1fc3f021029
+  aws-sdk-deadline (1.59.0) sha256=dae69a204e6e0cd69de20c2b2789fec502828ff2e68eb3786a05e369edad5997
+  aws-sdk-detective (1.85.0) sha256=234125683252a0f6d946d49280c29fb01b7e804a821a1e8410747ec005d5bef2
+  aws-sdk-devicefarm (1.110.0) sha256=1b9d5cac9f05b9842daab879f168dd26963b09d9c9d5f1f1a215bbde6778957c
+  aws-sdk-devopsagent (1.13.0) sha256=9fa6b6201b9291207c2f35f9559d2c7d5243aa77d0ce49420927265f75c81720
+  aws-sdk-devopsguru (1.77.0) sha256=2fcd093690f569e5d68e5609c4eadba67bf39aa80ea9bb80483ba236547d8628
+  aws-sdk-directconnect (1.115.0) sha256=48f0b9a75d8d8d42e000ddeeaa54b5f3339b4853603c88310a837fc0155d4ccf
+  aws-sdk-directoryservice (1.106.0) sha256=1fb3f56ae24a5066bce581162884434a3b7375372ca2ee3217077b73817d6b66
+  aws-sdk-directoryservicedata (1.27.0) sha256=e34fa71d36350a755117cfcbccfb093f8662e23193b49268a8a19cbd05c0c6e9
+  aws-sdk-dlm (1.105.0) sha256=d2d1eb886ae550960e06ad48f35cb69d0da9bde0ea587e47bace6a0383f1ea4f
+  aws-sdk-docdb (1.107.0) sha256=6d01a1d47772a3efed208feaa4c0d4a9f88ed92d37cdbd1643a675a0971e3367
+  aws-sdk-docdbelastic (1.48.0) sha256=e018d541e2da95c27f560393c75e3b36c8fbec05931a436e452170c230181681
+  aws-sdk-drs (1.69.0) sha256=177407c864f42b95d81aedd8ecd42782c5f6859f3d120e7b67dc939478fd801f
+  aws-sdk-dsql (1.33.0) sha256=00dc290c0a23d3976829160b04c17c319eb1d9f7e49fde070ce4bc07b5e29b09
+  aws-sdk-dynamodb (1.172.0) sha256=a9fb3e2b2f53289d51fc4e26274cb3f675b91dcccfcbf7c3541558003d737610
+  aws-sdk-dynamodbstreams (1.94.0) sha256=c06f036a5b6696ed473214a138b1d9e9b37267b1c885aec5561708d27f047b0a
+  aws-sdk-ebs (1.76.0) sha256=608166e914039b41383575e9df129493f519f3b09113e2eda85db7fdfbc14feb
+  aws-sdk-ec2 (1.640.0) sha256=3a766a4717f62ebea47624114ec6829b076a04937ca9df13289c029186264686
+  aws-sdk-ec2instanceconnect (1.74.0) sha256=0d27f8b7f0e86b825e2d9446bd6922190a8f7119c572d1efac8222ffe35d7365
+  aws-sdk-ecr (1.132.0) sha256=06fd08ab57b94f08373820ef35e84d3845d920af27ffc587c71dcbd944b2255e
+  aws-sdk-ecrpublic (1.68.0) sha256=22f7c8b93488b35e463a9becb2b10f6d8a84fc1554804ce08178b8b62c63194b
+  aws-sdk-ecs (1.243.0) sha256=6bf8574eb357ba7ddfcb5f2ce3887bd8575848131a286369b0864a85a78cb828
+  aws-sdk-efs (1.113.0) sha256=cfaa076c8e2d389d01e646c438a002498f4f1ff7f61616b883084ece7a7fedce
+  aws-sdk-eks (1.175.0) sha256=7bcc4a18c1227091269585223d6ce14f263ed3af748f1a9731a6306019077f35
+  aws-sdk-eksauth (1.37.0) sha256=d27957dc612aac5a9a2969a21e1e7132370e88130b0f44a6b50c7a7497700ab3
+  aws-sdk-elasticache (1.148.0) sha256=7f1a1acc521d52f4e29aa37b20829b8b963a3b9158daa031e7e0c5922a903c1a
+  aws-sdk-elasticbeanstalk (1.106.0) sha256=436859cd62ba2ea4239ea1f804cd985dca65ba93d753ba6d195f7e5709becbc9
+  aws-sdk-elasticloadbalancing (1.92.0) sha256=c99e226d39c75698b61de88a5c56010d24524ede5b48e51455fe489d276d0305
+  aws-sdk-elasticloadbalancingv2 (1.156.0) sha256=2c72ddafa4636da7fe8de5fb8bc571280bbc0bb4a7bc1da475bec0095a36ede7
+  aws-sdk-elasticsearchservice (1.124.0) sha256=1cc2c450ed3a35d74000a52b574246fe89f685ec57736cecc2ddad8e367f7995
+  aws-sdk-elementalinference (1.10.0) sha256=100b6637dba055df999341ec2e56b5109a6fb91c442539877c96880a6c752567
+  aws-sdk-emr (1.135.0) sha256=c129c11deb4a3be932a7fbbd1c8202f72ce18770666a5434166e098ffde5c1be
+  aws-sdk-emrcontainers (1.76.0) sha256=44a875ff1addfbc0577f9ddd1b647f7fc17133c2901f10e3d8b0f888425e10d0
+  aws-sdk-emrserverless (1.70.0) sha256=b1e3653c50abfce294ac7d7958113f5b12d27dcbcbddfb1b4a73bc68d512fa73
+  aws-sdk-entityresolution (1.53.0) sha256=0e12d3e2538eb110562a1b0fb1f802300023771158efc7bf69e60daaff024377
+  aws-sdk-eventbridge (1.102.0) sha256=bf8c2c9894176faa0ab497669c5ee78efcca2f95777576a7ae6d0d3cafdbbd7a
+  aws-sdk-evs (1.24.0) sha256=a603ff9d171e8d30c894ec4d5cd6b9e7b09cf23109c17d86ed953af6f50abd4a
+  aws-sdk-finspace (1.70.0) sha256=fddc1e6eab69e98670cdccaeb45e10d3224e612b6e7284743f9f7a9d84b745ce
+  aws-sdk-finspacedata (1.69.0) sha256=1d9766c75294d1ba31e7582719568db45cda38513c32d5410283d4ea6c313374
+  aws-sdk-firehose (1.112.0) sha256=0f8081df2a06fbde57f73a5dc65bbf0747eb46d636aa742a01bcbb549101b96b
+  aws-sdk-fis (1.68.0) sha256=4a03035805e89846e42689596af015479ba939bc438c34f5d139414811153b9b
+  aws-sdk-fms (1.109.0) sha256=fc74cd8801dcf46351e9b70ece1fcea1dbf390c8e0726c661ae46cb5a408ccb6
+  aws-sdk-forecastqueryservice (1.71.0) sha256=b42a2db0bff4cfb635d1dbd4334a76540f8a02c10cfa34ba545bfc68565771d5
+  aws-sdk-forecastservice (1.89.0) sha256=b4b4f4d39c3a2720026cefbb0d04fefa681da5d8435ea9e4c83b1bc4be140480
+  aws-sdk-frauddetector (1.88.0) sha256=f44f4bd50be791d7d757b979e09cd01857b0437bc92162c88c97489a7fe5ba08
+  aws-sdk-freetier (1.39.0) sha256=c264abac6849ca8a06f6cd10fceb699aa8d068b0cd58cd32fc43c8f7715d422d
+  aws-sdk-fsx (1.137.0) sha256=d90e35f69099de8b88d894108ead69db1c03fafd2d686be2b25c8e58ddb3977c
+  aws-sdk-gamelift (1.134.0) sha256=d8420199131b99deac39552d9683ce21d226f1611b901f04d1395c74a3272ac1
+  aws-sdk-gameliftstreams (1.34.0) sha256=4b4b1b72b808f320166942f88376b97a27ff3406bbf1188aa272ea6b588c4297
+  aws-sdk-geomaps (1.29.0) sha256=f70d3e45a5451f05330da3c71c37af128f658a771fef6769c75167aa86d469e5
+  aws-sdk-geoplaces (1.27.0) sha256=d67020ee246486cb01b73530be07601faaaf92be6bbe3d2bdc928ec4250a75bd
+  aws-sdk-georoutes (1.28.0) sha256=a2b5a36f1956c3f47b68328706bbb28788e26123df4b2ecf8e2c262066ff32f0
+  aws-sdk-glacier (1.96.0) sha256=76b9b12b48c7d7f9e6e2a9e0a9b91dcf81a28f622566d9746d6bca42b423c1ff
+  aws-sdk-globalaccelerator (1.94.0) sha256=906ad517e72204dbaf51990f263055c5114091fa29032fe0c1962f74117f6b69
+  aws-sdk-glue (1.270.0) sha256=75bfe0d17daffd91d47254a4f8f6696fdae44e0cbabc2c2de8bd94da74f3a3d0
+  aws-sdk-gluedatabrew (1.72.0) sha256=a342a4a05d8363d9ecdbfb15740eda032dab6359f6b333c958b6989197e256d1
+  aws-sdk-greengrass (1.98.0) sha256=29df6e99580fcc046965c6a5f7ee0de8bae104bbd7955d153e895775fe100bf9
+  aws-sdk-greengrassv2 (1.74.0) sha256=a8d9845b4939b80b31dad359adb11e9dfa905f15e406042d54e794f3fb51a54a
+  aws-sdk-groundstation (1.88.0) sha256=09c40e2e0abeaeef206c8f4a876fffa04895305294fc7553fd1a011b6ef27e59
+  aws-sdk-guardduty (1.158.0) sha256=e201b3c34e0a7ac6e8d68727c5c509b87124c806aecf57920533bcf0f88d859b
+  aws-sdk-health (1.102.0) sha256=3f9785d59f9ceaf00438b810fc5d971846cc574c7a0880362d10423988fabbef
+  aws-sdk-healthlake (1.69.0) sha256=afa67bdbaa28ae2846e9d000a749aa2e899036d14d32bb9761897b752c06e72a
+  aws-sdk-iam (1.152.0) sha256=095b82645f45829d1798e6cf4d9172e3cc349e49a444a5fec4db247fff60aa58
+  aws-sdk-iamtoolbox (1.0.0) sha256=c2c752f7441002c13995dd36fe1a140afe52494e872c2946142feb9a34a4ff16
+  aws-sdk-identitystore (1.72.0) sha256=0a8fef40eb5b4328e008cee2cb5af742a33c0c8f1bef4f5fc176b7a1baa819e1
+  aws-sdk-imagebuilder (1.109.0) sha256=4b4652617230e486dbcd66955cb44c2dd5bc0d19b333ff9f706b188b4b676d24
+  aws-sdk-importexport (1.74.0) sha256=aad2968a1a8b1c765f8c4fbadcebba8bc348b80f5f114907ad5a00420c3de6f2
+  aws-sdk-inspector (1.93.0) sha256=284355301c687ee7aba653fa499ba10df1a8d22d3e821ce52a82d5fa1d0ab155
+  aws-sdk-inspector2 (1.81.0) sha256=e654e1a2d8335a2c4c6a971adfb1caa1387c7943182d1780fb643cf25e5d7bed
+  aws-sdk-inspectorscan (1.39.0) sha256=f9bdc13f8dd8515eac7137ff4d368b042cdf1e45642a321965c2675c0afb0041
+  aws-sdk-interconnect (1.4.0) sha256=57c6749814123e0b798ad1599394f39402aadb014bc1768567507785f48b7592
+  aws-sdk-internetmonitor (1.55.0) sha256=51c8983c892852392ed8e2ee32091a36030b5aade57bd14417cb14076b4f9ba2
+  aws-sdk-invoicing (1.28.0) sha256=74af8437cea913d3b13d7e6c15057ba54ddee7fe7c9bb3629b5f1f2a5ff7b230
+  aws-sdk-iot (1.173.0) sha256=b526ee7f8636f14a8dabbb2a3277b9fcee5c6464e345b3a1a1cfae715b08756c
+  aws-sdk-iotdataplane (1.93.0) sha256=068cc8944467a0b825393044d9d379c9d27f523da858b19259a07114f78d3a06
+  aws-sdk-iotdeviceadvisor (1.67.0) sha256=24427b63fc93ec626abe78b9ec60ba5f5ac52e51e0289d63ccb31c928a0a2e71
+  aws-sdk-iotfleetwise (1.66.0) sha256=b1a3c4fe574a8330560a03fdef67aec64b98e7cc2cbf76f2d065c852c838e2db
+  aws-sdk-iotjobsdataplane (1.83.0) sha256=255b1c4d2d1ba2cfd7d5aefa70f212893a9349c92db59dafa7cfaeec880c5047
+  aws-sdk-iotmanagedintegrations (1.25.0) sha256=bfc6d898d7764f842e64de3abc6ebc63d4a0d81b26af15fe7ca32b948932089e
+  aws-sdk-iotsecuretunneling (1.70.0) sha256=2649bb9bef0ec56492b61a3bb9fec782415ffb9e991f8bf3fbf89fffcc0b5e13
+  aws-sdk-iotsitewise (1.107.0) sha256=949976c8433303ec5462f94ece1da4a99b0d8aa777af31aa7b87b33dc6333dea
+  aws-sdk-iotthingsgraph (1.73.0) sha256=1ff6948096ecaa811ea2e5b5d91ea98aece7abef0873dce9854438e4f6ee7750
+  aws-sdk-iottwinmaker (1.58.0) sha256=3eb6ef5cc5dd2b0a8846ed37d228f4fc436d95ef00762d2d87ac19b1e5653f48
+  aws-sdk-iotwireless (1.90.0) sha256=f30f47d3ea68e0abaa8ad71ffb8312bef0f42ea40d694e4a848b181703bd569f
+  aws-sdk-ivs (1.91.0) sha256=0aa2e6ce9651e773403274a02cfd19d6345a3a60631199f1d3e49c6c02ac0ac3
+  aws-sdk-ivschat (1.60.0) sha256=580a3f6a04d0ccf72e19143a4878b920a3d01aa5f09e701d47074d7a026437c9
+  aws-sdk-ivsrealtime (1.66.0) sha256=c7e78ef31c8d840111db1daa0ee498fd6ff67d82cfc83e20f337d49cdb9e8c74
+  aws-sdk-kafka (1.119.0) sha256=fe7d6bb1f58e6bd279f2b41fdb3cce4e7e874a977a284b3d80147a714398bc98
+  aws-sdk-kafkaconnect (1.60.0) sha256=21701e59dbdf8234122dbfd11d9865df27034c0a8261f832bb39e5183d7ce9b6
+  aws-sdk-kendra (1.117.0) sha256=e46104dedb0276baa7921596f75b28dcd218551559cc088ecad64195c6680b5f
+  aws-sdk-kendraranking (1.48.0) sha256=eb6f1823e6a1f23784a5442724dd9cab1e0b0c4001fe820b575b895351a87758
+  aws-sdk-keyspaces (1.60.0) sha256=eab7217b990eefb50903a852c43f093f054fba8305c73ce2034dd6f5cdc98d03
+  aws-sdk-keyspacesstreams (1.19.0) sha256=e886554c1d65f477098fe704178152bb4ace3171672f63fc459330a53235e885
+  aws-sdk-kinesis (1.104.0) sha256=f93633fc0c4c272fae8425387ec58dcbe0e95d4fac38f0a047fd7494a60ed8e5
+  aws-sdk-kinesisanalytics (1.89.0) sha256=fb7a3375069162dfdea44b84bc7cd041144c7e56e83e353076e8a4cfeef6142d
+  aws-sdk-kinesisanalyticsv2 (1.95.0) sha256=8804067511427d26d74623dd93e85194e96dc1c6ffe76ae8d1b15b2dc0bb70f9
+  aws-sdk-kinesisvideo (1.97.0) sha256=1bae5661c3429d1d99dca4110d7a8ccc8cd4331bc5f73e3bb3706e8ea22a6fcf
+  aws-sdk-kinesisvideoarchivedmedia (1.92.0) sha256=04ac18b057b4cb3cd1dbf027114cf5e11705d469dc9a2220d2fa8b92b7bc09fa
+  aws-sdk-kinesisvideomedia (1.85.0) sha256=7fdcb6bd634571ccf03b12b84c5e1f402b35c9124a2b5a830310dc81c96b9b66
+  aws-sdk-kinesisvideosignalingchannels (1.67.0) sha256=3245ee484bc5f8e310b2ab6df306a1f352f13416fe633dcfb29c095f74f63080
+  aws-sdk-kinesisvideowebrtcstorage (1.48.0) sha256=aab607d0fdb73946157a4754799e4a751668e1be49baab87fd65b075e0d01ccd
   aws-sdk-kms (1.130.0) sha256=a2e83662ca31b77a2a19c9aa2f40a98165a67270c18c718fe1c70d0cbd7cd749
+  aws-sdk-lakeformation (1.93.0) sha256=42355e7fff7737125c78c84e104b0165a9a91d22459c4f401c415fee56cecdfc
+  aws-sdk-lambda (1.193.0) sha256=ab7e4f0cf41447eac9ae380cec40d8077e9d5ac8eec4006f8fbc3382240100af
+  aws-sdk-lambdacore (1.1.0) sha256=f7da1fe097144961fc7e8c21e2ecff449f23a82a03bbce2bc323c6d5e0705ed6
+  aws-sdk-lambdamicrovms (1.1.0) sha256=f7633ee8ceb4f8914a394f272e57072e1bde23c8251af97de7c8b8c5a5b5c1cb
+  aws-sdk-launchwizard (1.41.0) sha256=dd1d891058a16199a9b260bf29b4a5182e0dc9031895a2f2a402db1f1a313699
+  aws-sdk-lex (1.96.0) sha256=cbb77de8420dc96a021b3df921aba9ebc67fe339fb272bc7edfed83194d3ced4
+  aws-sdk-lexmodelbuildingservice (1.108.0) sha256=7a12e425a96d925e71802ac8b8e5691b7368227f31e300b5538feb36ea419bcb
+  aws-sdk-lexmodelsv2 (1.95.0) sha256=b7a949631824e4d3713b7fb60dde8fa0a603bc1cdeac19a301b070ae37b6338b
+  aws-sdk-lexruntimev2 (1.71.0) sha256=6e006babf9615b03069a7dfb081faf136dd510b91d972a88fbe6801911c2ce6c
+  aws-sdk-licensemanager (1.94.0) sha256=1b7d99484babc06933c08a0fe70b3eeb245267179639f203115e1f199e451cfa
+  aws-sdk-licensemanagerlinuxsubscriptions (1.47.0) sha256=825beefb9d579c58d5eeddd7a5dafa64f5ecbe656e3fab3e1f1ffe0d42b7a46a
+  aws-sdk-licensemanagerusersubscriptions (1.54.0) sha256=bea0a0effc1b6923ed1e05a0699cdb06ae11ef55b884ca076a2ae18465f30c8b
+  aws-sdk-lightsail (1.134.0) sha256=9b54d285d5187f3919591ed64f44eb8b86b058b89bbc4299d3b6d79799b01669
+  aws-sdk-locationservice (1.90.0) sha256=b838904b8de0e197f03e4a37a17d495438e5d5b3b226a2cfab661dac0adf1b45
+  aws-sdk-lookoutequipment (1.67.0) sha256=d32ff0a3e803c2de3a1d133bc95e01ca5bcc45a6abac2d758553468000be680b
+  aws-sdk-machinelearning (1.89.0) sha256=bb903d20fcfdfb4b088d1db82cb10a886bdfbc2eeba22520dc3b3f253405b3d6
+  aws-sdk-macie2 (1.105.0) sha256=8b6c4d19aa93b593d9ff8d131a65b7e6d40c81fd381c5cd674329539f724cb27
+  aws-sdk-mailmanager (1.47.0) sha256=2fc2da1cbed55b757dcab1d632b6ad92ef0effc8c9ffd73a723a29da14db1d82
+  aws-sdk-mainframemodernization (1.54.0) sha256=ac436f38087ee076644bec0504a2e2967e79b14721179157f55d2244d51c782c
+  aws-sdk-managedblockchain (1.88.0) sha256=db250f111416c4ecc36c45a12f23d7453c5cf133b3976b73b8f6f5fbd8247030
+  aws-sdk-managedblockchainquery (1.46.0) sha256=2663e9244127adc43216c5e1d9dfde68e11678f8d3f7554e9f0cd7322cfa5044
+  aws-sdk-managedgrafana (1.66.0) sha256=55a196b5db81b576812decb7d95e5647daf1e6ff2e8a60f08cfda60734509a87
+  aws-sdk-marketplaceagreement (1.43.0) sha256=e6a0f427fe20c15f8f488b1dfae090c01e4db5e14d768f4cc5fc7dba722421b3
+  aws-sdk-marketplacecatalog (1.84.0) sha256=5b784ecd58712bee3385ef717736d91a48702ba1aaae97462a742eeb7cf4faef
+  aws-sdk-marketplacecommerceanalytics (1.91.0) sha256=33d223f67f55aac6c8330d8106aa5f4d27b68344305fd59715f05adf65ba0703
+  aws-sdk-marketplacedeployment (1.37.0) sha256=b0935b5ee0542fded649e15bc69e9deaed4e33e281e27c111d129204f039fcb7
+  aws-sdk-marketplacediscovery (1.6.0) sha256=2e97831d0c2af14902c13931778784f1da1898719aacc95d73b9d13ef9ec61d0
+  aws-sdk-marketplaceentitlementservice (1.89.0) sha256=a8cc9483a6bdb007a73f155fd270746df339afa26a6759d32b38613f0309106c
+  aws-sdk-marketplacemetering (1.103.0) sha256=dd0d7e32262267e918088a275a9e8126d0a977371238db90666842fc39ebe57a
+  aws-sdk-marketplacereporting (1.24.0) sha256=a9d2d758cd9dd501c90e586ec46e9eb1fd1663f729cb375d7361cf9300e70cbb
+  aws-sdk-mediaconnect (1.105.0) sha256=73448497ff30eb6f5b3015eb4ea0239d157945374a0e244403a123e15cc2deb5
+  aws-sdk-mediaconvert (1.191.0) sha256=7f629e45e9adf248c8ad7369d07a36aadcbf7eec120ade900ba0d2880847316a
+  aws-sdk-medialive (1.194.0) sha256=80d897d90fb6950655f3117c917a939e89b20b6ef526a038c6840d6399154a64
+  aws-sdk-mediapackage (1.106.0) sha256=4db623be9abd5b37e4b76ce383de67548efc0324c8faf7fcc3bcea0fa12f8f39
+  aws-sdk-mediapackagev2 (1.70.0) sha256=362a995ef24a16fec861917c8a73a01ab96d0be7ab2f50490cd1956d98145603
+  aws-sdk-mediapackagevod (1.88.0) sha256=36c96cc71d4b9e532b96644039e21a0bce9d606eefb8d248b926e707a945e868
+  aws-sdk-mediastore (1.90.0) sha256=317276c0db181cb8e6f2cc2c65f8dfbe016101879d64c253443cd565bef1e84c
+  aws-sdk-mediastoredata (1.86.0) sha256=cc34629d0ac909f164687a17aeb1aa047feb909d5d897b4e0f6d4a3152777847
+  aws-sdk-mediatailor (1.126.0) sha256=e351baa43035dcc5481471a58184ca88611b7f8609406f96757394f7462e8f7f
+  aws-sdk-medicalimaging (1.50.0) sha256=afe7a81e9e40dc65e39337f01b750a20656240492d6d1777ef0060da358e5d1c
+  aws-sdk-memorydb (1.65.0) sha256=b7bb0888d5732e3cfd2f5071df44f1a8a45bb83583b55d5b2da2d8c5770d0e60
+  aws-sdk-mgn (1.73.0) sha256=67ca6016daf5b854510e93294a8f6e3d12715c3f1868ef10a349417355243801
+  aws-sdk-migrationhub (1.90.0) sha256=45bfbc3c907d7548d5f168eda791f60c58fcf09596b02666d5c85a4825f218b5
+  aws-sdk-migrationhubconfig (1.68.0) sha256=44ec30c83c52da15be2383970160d466be3d0cd6256e6935fb4ab51266902d56
+  aws-sdk-migrationhuborchestrator (1.48.0) sha256=ee6904af18db0a066747ba042e717d5dfd446dbd3cdec781d056ec3a2005c00b
+  aws-sdk-migrationhubrefactorspaces (1.57.0) sha256=f259507c90ae11f88bbd8e57732def67f3a1aa9c16ed1e1899ca2be482c877d1
+  aws-sdk-migrationhubstrategyrecommendations (1.56.0) sha256=29335e72a148e00cacc46d9fb7fde9f7a6b66f1d99db09af49f8b91a73302fb7
+  aws-sdk-mpa (1.19.0) sha256=ce7ff5239a3538fa3d67085b4f4b0b8278db3025e3db87f80e7319dbfd8df3ad
+  aws-sdk-mq (1.100.0) sha256=227a49ed080cee4a567c5bb6e0aaba511a2446bd7fe6b1458b4bbb59b2a16c5b
+  aws-sdk-mturk (1.89.0) sha256=ecea7e64abd67f89f2da64711689a4ade7e426b9a18c1faa4f2bc5a1b1984936
+  aws-sdk-mwaa (1.78.0) sha256=f9cbb162ac37cd5e4e34bffb833039733979ee95277aacc9b10690aeaa5c82a2
+  aws-sdk-mwaaserverless (1.10.0) sha256=b32e27690b316ac3b8bc81b124ef611f9adf97c8dec0ab2655ae4cd48c29f112
+  aws-sdk-neptune (1.108.0) sha256=cd2133d0247504aa93aae6251af5795e61d0eb53e3f3e954a976bea1bd6fa605
+  aws-sdk-neptunedata (1.46.0) sha256=4a40e052bb3a85932ae4ff53b4b3767245315fd664a53068436bef9019b8a224
+  aws-sdk-neptunegraph (1.53.0) sha256=67d155aea2f725e4a695e744d48a1c628c6e5f25604691a251f3822892c2344c
+  aws-sdk-networkfirewall (1.97.0) sha256=00b97fcba16712b09c0940c0a0bbfb807ff8ad2b954e9530245dd2697ea9a768
+  aws-sdk-networkflowmonitor (1.28.0) sha256=11d966a23b414bb6d9823c734fc95ba960c1b61e10649536d90aa41f9259a43c
+  aws-sdk-networkmanager (1.82.0) sha256=2b712eef7a64d2528c65bda5c1c1b76a629d3f405faadd49d38a961620d4db3a
+  aws-sdk-networkmonitor (1.38.0) sha256=a6e476039ad9ed2a0188bea03b4fdac7b7de75d9d563efef2a7194acfe7d183c
+  aws-sdk-notifications (1.24.0) sha256=90a900cc6e3c2d47f6c8fa9d81f5167182e42aa0d7665e8cfacc770c379bf342
+  aws-sdk-notificationscontacts (1.22.0) sha256=cb3a25e58c762cf810aa11c56dd19c4db4185c893029ddcce4b444d53007c389
+  aws-sdk-novaact (1.9.0) sha256=a88250296c9a856d0bb493f46001fae021fe9211449a8c167cbebdbe1f6fa028
+  aws-sdk-oam (1.52.0) sha256=d82e8eed5c516b1d05dc5c8a9e9a02d3da756456e5ec2b893ad72ec78ed46a2e
+  aws-sdk-observabilityadmin (1.37.0) sha256=30a429173b5cac9630323636d5a6bbd4062799571d650da8ba28a8ab377b782e
+  aws-sdk-odb (1.27.0) sha256=ea84a5c5ab8d3d6ea9c0d6aef940e0bcf020a66b18fcb15e8f99459cb4f5df35
+  aws-sdk-omics (1.76.0) sha256=069fe4b427e8812b5a16a1dddf47e048d9bdfbf662369cf2484c52c08119d7dd
+  aws-sdk-opensearchserverless (1.62.0) sha256=5ead58a9c65d42b10e8b6d5126cdf2f367077bdc3a454bac3732f20b912ef2f8
+  aws-sdk-opensearchservice (1.107.0) sha256=d4e0bc8b0c68baaaaf622b684f636ec6b9ee560b618a92ef3990e1b96c14f0ce
+  aws-sdk-organizations (1.147.0) sha256=7ffc073c4ef7ddc3f62f66d54a46dd012c0dd8f937024e68bf6c5407c1d07ac6
+  aws-sdk-osis (1.53.0) sha256=63703f7489bc1543cf6f3b19c272f4d75c2861a19d9b987a1fb6f2f411b3829a
+  aws-sdk-outposts (1.109.0) sha256=b2bbe05d828189d18879f584f2fed7fa2c64fae7f5f167041ca0341dc9e0ab04
+  aws-sdk-partnercentralaccount (1.13.0) sha256=b3cda3238f33b5a51637931c06747e2322e9077645184b9ba291f77e1a7ece80
+  aws-sdk-partnercentralbenefits (1.9.0) sha256=8dcfdd84ca92c5178fb3b500d49b9ab02e748508ef1cfae7d7c994c1050442c0
+  aws-sdk-partnercentralchannel (1.11.0) sha256=37d6d9fa35e7c7bf5c28bf4ba851e6102a300c4cc0ed9e3019ae184d7d29351f
+  aws-sdk-partnercentralrevenuemeasurement (1.1.0) sha256=721d22822990b8cf0aab727a434c7d220d73939796511dbca10d96d010ae58a8
+  aws-sdk-partnercentralselling (1.39.0) sha256=40b42723b7ea173f4ab44d2834159c2f30c15cb0d473b19d42f976ae8ccf8634
+  aws-sdk-paymentcryptography (1.60.0) sha256=1c4f959c45586a56b8916fdf9b70c0834323f96528a7efc781309a6777ec7183
+  aws-sdk-paymentcryptographydata (1.56.0) sha256=608fee16272c84371e06ffd29cad6590a5776f8ff6d3e9d45003400a38200ad2
+  aws-sdk-pcaconnectorad (1.41.0) sha256=e09e524ade5353baf67ee036f8a71d9827c34103e58e06fd11218d05782dd62f
+  aws-sdk-pcaconnectorscep (1.33.0) sha256=8ece29f86511e969fdfea4d18e041539311bb91c8b90c4226b3626dc1f2cd7f4
+  aws-sdk-pcs (1.52.0) sha256=71fab19826c19581d06037bdcbc001eaa895f4301e56800fa5a7f658d3efec3f
+  aws-sdk-personalize (1.101.0) sha256=c9bb860c6f929c412437aa8a90a19e8bd4c809001dcc5f3c437587a0751d0ce1
+  aws-sdk-personalizeevents (1.79.0) sha256=3514a5e0912279b1b8c76c7b8909d4f2b189c84722217ea682d071e30278cc27
+  aws-sdk-personalizeruntime (1.86.0) sha256=fbcb51ee0d56f6cc44ea829de7fc377a68349673d703084e9653a67f6393ebe9
+  aws-sdk-pi (1.98.0) sha256=05f2420c9de7f66fd454770e279c089abd6ad6926ef92b464f44b7d23eb07960
+  aws-sdk-pinpoint (1.125.0) sha256=bc7a8a9664ba23ee5654f5a1d06f89582a81a8791cc35cd61834cce8a98aa58f
+  aws-sdk-pinpointemail (1.84.0) sha256=507413d0e77ae60a25534f1bb6e636e7b3172621b8aca86571808e7ff0954055
+  aws-sdk-pinpointsmsvoice (1.80.0) sha256=b52b480d0e738593ffeee5c650fc0d810cb33e5d66fc4959da51ce8b49716362
+  aws-sdk-pinpointsmsvoicev2 (1.60.0) sha256=5365bdad6add7c4ea0a6217c7e1d9ac1ad7b5db98571bae0d8a96539f61a8c82
+  aws-sdk-pipes (1.56.0) sha256=b963889f5c48bdf36cef356d0be74cefcd607adafc330f9754433021e9bbc967
+  aws-sdk-polly (1.127.0) sha256=4fb3637603ad77944a4b2a2d86281ab54d2864c1c066e5bedc17f165b8a71fa8
+  aws-sdk-pricing (1.95.0) sha256=e39fb1c3678c8b7b4e35df872280b765939222a000c693de37e55bbe9460a3ce
+  aws-sdk-pricingplanmanager (1.1.0) sha256=070f8168720102c26a1e1083b80e7fd5f03202c7232c243f906cce7666d3c42c
+  aws-sdk-prometheusservice (1.77.0) sha256=0695c60d62cf40b572e6a28c54897b9c3a744a039e5d5ab01cd8b26629bf57fa
+  aws-sdk-proton (1.72.0) sha256=539e979e042034d3dcfd53d24e9d65b180cb148aa0250737cb0db9fb37a8a6e1
+  aws-sdk-qapps (1.34.0) sha256=ac7c9fae49ab56254bf6031a133980ee060d013255be3a4d4d1030203e6f1c2f
+  aws-sdk-qbusiness (1.61.0) sha256=87aa622ad3034665bde5d3a2123951c6e20f8634cca37312b21fd52e8c40ae96
+  aws-sdk-qconnect (1.59.0) sha256=4f6ca9a7637093cd8bee24defae7c87090be3b7e4d4537be786ae9449d8d2694
+  aws-sdk-quicksight (1.195.0) sha256=85d62ab4d62f6ccf88c62ccbe9d65e09e31e8e39161dd89485a32cf5e829fa10
+  aws-sdk-ram (1.91.0) sha256=c53de1cd5f544851ea08ca576a6268a86167228bbf5f09ec7890dfd8e5450fbe
+  aws-sdk-rds (1.320.0) sha256=3003f95840f9ef902d8d5eb3a9bfe61fc385b1bbc82aef151dc95753cf8cf987
+  aws-sdk-rdsdataservice (1.90.0) sha256=54f54f65e55fb1b0c9d9c4130267271b79f4458d17f3f5adc74c27df6250246e
+  aws-sdk-recyclebin (1.57.0) sha256=ff66ab89ac09e6cdbbb39d5be2886e0b75d66408eab98bd69fa8b4fcdf85a668
+  aws-sdk-redshift (1.166.0) sha256=c953d8d1de42c2ec72d8935a37345f898e1a996ca2ac99d6854008229ce71ce4
+  aws-sdk-redshiftdataapiservice (1.78.0) sha256=3fb07445ed778e7b60d747f16adba48a8d29b18c9322b9e521c23bc1319e6fdc
+  aws-sdk-redshiftserverless (1.73.0) sha256=d691cfb29f219f157a0186da93bb1ad79dbe676fd99bc6f631dc6e8e66414460
+  aws-sdk-rekognition (1.134.0) sha256=85c0fe3b0cda1f45b14054c15dff915d0900b7cafa99fd974efbe74a3fca70a5
+  aws-sdk-repostspace (1.39.0) sha256=29e49620716e28fd6ab2c54040e57743f95395bc79dc86e38627f75a766c9856
+  aws-sdk-resiliencehub (1.68.0) sha256=922602577543fa6a47237420d16a248f1b6add7fd3fdece6d9e87cfffd99d772
+  aws-sdk-resiliencehubv2 (1.3.0) sha256=9e3827a0f21a4d03f0cbd58bb8bcf30c53b42c9f1ede9d6fa28944cde753adc1
+  aws-sdk-resourceexplorer2 (1.54.0) sha256=053edbc5fdbf10398db8b68027c5bf79e165bb19d99107fad8fca69d1566ebb2
+  aws-sdk-resourcegroups (1.100.0) sha256=fcfbfd5cdb791849861e32efd870e56c5140e512b152782fdda544fdbc73c90f
+  aws-sdk-resourcegroupstaggingapi (1.99.0) sha256=e515809412e1ad2eea8b7c33b3bee0a07673b31e0c5abc1410bc38b03ab4d197
+  aws-sdk-resources (3.271.0) sha256=98c8644aaeac3e0ca01b3b9f2faa46d5b5416315759037d81274437ec7c9120a
+  aws-sdk-rolesanywhere (1.55.0) sha256=469e75b840afe5ac2a769bac3e6c3998372559abde7a6ee659d4a5d626c4df90
+  aws-sdk-route53 (1.137.0) sha256=068617b386cfea774ce73121dcca03bc292aa5a2a0da94a4c5801cda675a32a1
+  aws-sdk-route53domains (1.98.0) sha256=40ff47c32fe36fde7ffacd26c7ba6f967e07103ed4410ca1a4a4f2b848b0f2d4
+  aws-sdk-route53globalresolver (1.12.0) sha256=7798a317ea500423c0a57f3c912e368917e4fb87d7e5f32a94a41e29c9371ff8
+  aws-sdk-route53profiles (1.37.0) sha256=1bf629dfb21c6c111a471f955c5546fbf393e68d0a9cee7c7ec557e87db3deb5
+  aws-sdk-route53recoverycluster (1.60.0) sha256=2baa35b0470e4648e75166dbf4d76d745b19b6aa1cd70e9028b39dff662e5635
+  aws-sdk-route53recoverycontrolconfig (1.60.0) sha256=443e1315ae61dc37cef8c701b775667f1fab5177be2b251809f50b56c0e9a7a3
+  aws-sdk-route53recoveryreadiness (1.58.0) sha256=bb9ac6ad6b359f5925f7252676e1e0576a1dcbe2021a5733833c2bafa20ec576
+  aws-sdk-route53resolver (1.102.0) sha256=860ab08ed535a91a59840d607872509f4bd67e4181f54051a1877785d5cfa841
+  aws-sdk-rtbfabric (1.16.0) sha256=f7bab5cd59e22ecc32d0c97c7a4bd2a7c2a77a0f59b54ba8b18448f3935047e2
   aws-sdk-s3 (1.229.0) sha256=7dd11a111875b3505d2ec0a0a383a6aab6c1badb3d4e94e7fbb958a24451f596
+  aws-sdk-s3control (1.134.0) sha256=0d429763b2671a2e16680b5cd563594d8e3d79316cc829f9eb79ac3282f56fe3
+  aws-sdk-s3files (1.5.0) sha256=94997c8f68fd26ecd342499e8a52edd175c0ce5b2e96c679401156fe576a3230
+  aws-sdk-s3outposts (1.64.0) sha256=13e892d9c691db7513559c39d4fe179e69d4902ec509d66037b540bff98675e0
+  aws-sdk-s3tables (1.33.0) sha256=0822dd4cfb03746125aa55f2b7456b995243f8710b6b3d9ff191badc3d6069e3
+  aws-sdk-s3vectors (1.20.0) sha256=e77c4843e17f9449dd00d48d0fcc3d67963cb973ec75cdf4131cf47e252d8f0d
+  aws-sdk-sagemaker (1.387.0) sha256=a2d9dd52f2918b5665538e34c8ace2af8fed893e00ed51769008a6905e2ceed7
+  aws-sdk-sagemakeredgemanager (1.61.0) sha256=e7c2550798b0fdfb06a5064b6f6b05c2bd87aca9aa320692eeaed16344790db8
+  aws-sdk-sagemakerfeaturestoreruntime (1.67.0) sha256=8d7985fceaa71cc11d61288eaa45a80c1cbbf18169d23c2a2510771ae249eb79
+  aws-sdk-sagemakergeospatial (1.48.0) sha256=7aa5e59416b103e5bbcc0877b907362fbb7fc43e4320db89e32b49c997c34e7e
+  aws-sdk-sagemakerjobruntime (1.1.0) sha256=ea06f1125628383db2d3e8c79147caf9ca18acc0ce5e5efbf042865efcc4f08e
+  aws-sdk-sagemakermetrics (1.49.0) sha256=e6379dda95819f2d39fd1de955db3dbf1c889a43f142765d94d4f4b11f8a6d7a
+  aws-sdk-sagemakerruntime (1.102.0) sha256=0eb9d3e24362a07cba71ce4deb103e52dddd1c5e6bfd789461f54d9b27600da5
+  aws-sdk-sagemakerruntimehttp2 (1.8.0) sha256=f99f72d3e0f7515fb219007e8797d9d714dfdb73f83f83781483e3429756663c
+  aws-sdk-savingsplans (1.80.0) sha256=2251930b047fedbf51abb84b684e36287fb8f8be7fe11baa878598407e028436
+  aws-sdk-scheduler (1.49.0) sha256=bb3e702720ead5cf8e762256a9bee310351b06287520efc3bf747b6410bc9d2e
+  aws-sdk-schemas (1.70.0) sha256=9b43b57f86bf4c69408f4e18a1284a52689803975b6e5e2ccc7750dea4fd87eb
+  aws-sdk-secretsmanager (1.134.0) sha256=4a76555706775a87fb70176cc93b1c351500bcdf8c058cc2082a76fdbb6c40b5
+  aws-sdk-securityagent (1.13.0) sha256=04e85dd1f4c24355a9c89cd9a318ee15c79899054345cd6aba165fb8323ac3bc
+  aws-sdk-securityhub (1.163.0) sha256=e025cfa8826f414b889bee2885b922e841bbb49106fee2d3e497fdb87417ff2b
+  aws-sdk-securityir (1.26.0) sha256=999819dcf558fd903660b692e0aa3c3f070b1096a7fdea17398792b6909039a0
+  aws-sdk-securitylake (1.57.0) sha256=fc0d0f61c99bfc3bb20409d356095ee8fc92372ca429266cffbe0565bede4dbc
+  aws-sdk-serverlessapplicationrepository (1.93.0) sha256=d39be9582573b950e788dc9579ad1983e736cbc2f0e92b9de60e54471bdcc482
+  aws-sdk-servicecatalog (1.132.0) sha256=dec34cac6010d67116fb9e66e9d8b20e3c4f1bb9e1a4d452e94c28b6ed5d3ae1
+  aws-sdk-servicediscovery (1.104.0) sha256=e6f76ba4613fc3ad02aba1ddc070326d8d28c397391c82cc9c5e63204fe2409a
+  aws-sdk-servicequotas (1.75.0) sha256=a4068cc0d25bb04af69d114da63ae53e911bd9c615a0ab16b2f62be311d290c3
+  aws-sdk-ses (1.102.0) sha256=02bca66d12b856c37fce614f0f2ed68198af1ae938f41e08c53afac3bda2618f
+  aws-sdk-sesv2 (1.106.0) sha256=f0a3d18d1e6bf2a621defcaa215831176fb40c42810be44d7448d95b693ee766
+  aws-sdk-shield (1.99.0) sha256=14209fd31f2cc5eeafbc4082863c7ba41c197d04bd762d5e152682cc05420ed0
+  aws-sdk-signer (1.87.0) sha256=2264da5ff84a590985523478a5624e3e1dc62ac2be27879a8cf5e7cf7b63f650
+  aws-sdk-signerdata (1.5.0) sha256=a538baf64e04218b916f60e092ea083a53fec7e29667a4afbc51bc8ea53a7ad9
+  aws-sdk-simpledb (1.79.0) sha256=b1bdfb70a6703d6f562b9ca9381ee1eb915511a9cb7bc3cc828af70ef5492195
+  aws-sdk-simpledbv2 (1.5.0) sha256=6d83ea7faa0b393d457970244b08e9abd3e20be88d8293be0b667e9ca7e2d2ee
+  aws-sdk-snowball (1.105.0) sha256=6e1807ca15d125c950dfbe0422af176aac7f5d302ced528be2eb2b29bd36e190
+  aws-sdk-snowdevicemanagement (1.54.0) sha256=03d1589ab8852be55b71360cd4ee5f2b42049acb8fc13aa5deb9a05573a727ab
+  aws-sdk-sns (1.118.0) sha256=46786eb1a27f8031163572043ed750cd292a1ca408527c5589ba5ecd43a0d2b9
+  aws-sdk-socialmessaging (1.29.0) sha256=ce9759851f090a0a141863d7d5fe4d8e36bc013c0499d2df68785eaec8dc5315
+  aws-sdk-sqs (1.117.0) sha256=cdfebf190a26f1ccb7396ad3edfa23253909d1b8961676b4b58a953d78424472
+  aws-sdk-ssm (1.220.0) sha256=af92529ce3de82d211bccb9d7726973586da62d440c6372570a07d3fe12527c2
+  aws-sdk-ssmcontacts (1.64.0) sha256=bd9199e67a156ca438e3ef4a930fcbdea707b649f3bfb1117d213a4179dadda8
+  aws-sdk-ssmguiconnect (1.20.0) sha256=c16b06fc1ad0ade9ead36183624e811efa28a46e7522459c69c356f21abe4e94
+  aws-sdk-ssmincidents (1.69.0) sha256=ae839c2f39a8a6b2b61af2250fe312fd61419ae6a36890b336dcc4522b521b22
+  aws-sdk-ssmquicksetup (1.32.0) sha256=e1bcabf75af03a2040f11966b701d602f7e6dff052049c7867203f34eef8d98f
+  aws-sdk-ssmsap (1.56.0) sha256=8dff8aec67ca46142dca3fa40dff5065f6851e944461d4522e4f7c60f9140437
+  aws-sdk-ssoadmin (1.77.0) sha256=65a0846611ac2dd57f6e9ec180134f04b56219962821488952705fffddf523ee
+  aws-sdk-states (1.110.0) sha256=2c0876e7e40d794b219d770c00856637daa4391f478a53390d5c6b8758440a25
+  aws-sdk-storagegateway (1.129.0) sha256=946ded249f6a39f4bc423a60db5338397ec41399747db56add3eb1372fbe7fcf
+  aws-sdk-supplychain (1.43.0) sha256=7d9b150c65c48753406be94bf5afb14d49ad8cafceda4abba1f85c2a13bc838e
+  aws-sdk-support (1.94.0) sha256=379f7fce0a116f7600298ca92cfb342c14e8bbc706f91f40fa1b9b149e2bd8da
+  aws-sdk-supportapp (1.49.0) sha256=8b12df2f2dc74dc1c386833d152589c0bcd864b06f13b410fb56a3cfae964e34
+  aws-sdk-supportauthz (1.1.0) sha256=e07318eaccccc41df7bc6277118f992f07338a79cb59f6b3918f79a2974ee022
+  aws-sdk-sustainability (1.5.0) sha256=835bf9a825e39e2ebc4ed10775d8c3462bec8def7101cb6915f25f749903cef9
+  aws-sdk-swf (1.89.0) sha256=14483dfd193d426ac37b899420ce33391129e5c350adb643efc0b785d03412f0
+  aws-sdk-synthetics (1.87.0) sha256=2bc94076cc84bca4b80308a04f8d9d8a498190f82d2377d0819fb62f4534c2c4
+  aws-sdk-taxsettings (1.43.0) sha256=0e92decfa46c56a8a00f9af5d138a3361473285a1c3f13ab8dc272dc50146096
+  aws-sdk-textract (1.95.0) sha256=969b2871c3728c16d2fff0291cea4ede4a4b3d136ff36008d12e826d29688fe2
+  aws-sdk-timestreaminfluxdb (1.47.0) sha256=e974c3bfb0164d38417601080cfeee0c770b0e3bac5f9552c5ca31b785875e4c
+  aws-sdk-timestreamquery (1.71.0) sha256=9f9ed5ce3ac1295fcc19fa92cd39df3df2825a3c1c01bb6d3e7322bae930d0ab
+  aws-sdk-timestreamwrite (1.66.0) sha256=d323c6175afd679d4051f98010511cd1fe01e4a30c27d69e1865f5f272aaef8e
+  aws-sdk-tnb (1.46.0) sha256=4bab36678283f26ed1cf7f0950581138d52db6e3258c2fd7b8393d9d60e3c904
+  aws-sdk-transcribeservice (1.142.0) sha256=ea266d8acd1a8ae9aadeb387944173881172e3ec3e9c82f9ce86bfb12a36e7a7
+  aws-sdk-transcribestreamingservice (1.105.0) sha256=4267a385285485c46f06458f86ff9492af8e62b02c086c1aa0ecd576e06f6fdf
+  aws-sdk-transfer (1.142.0) sha256=cec841e570134cfa6f1a3fda3ccf4f0ffb21fb69746d97f25783c0f611f164e1
+  aws-sdk-translate (1.99.0) sha256=311398027db4eae3e4b93d5ac1d6799607db8e32abfad3f3ef7d19711658a7e0
+  aws-sdk-trustedadvisor (1.42.0) sha256=e19c2ac1bbc4984b279370e1a5d7499678dc5259200a942ded360a33532d871f
+  aws-sdk-uxc (1.4.0) sha256=152e2f01db44ad53527eb5b5965614a9eec6466df0437ce65ec3988e24a3f715
+  aws-sdk-verifiedpermissions (1.68.0) sha256=98478dd70b3b594cfb5d9307d77d37487c890b6fd48203101250abd83ee2167c
+  aws-sdk-voiceid (1.60.0) sha256=cfb9590874b8d9481e9834792f9f152c4f18a6380bb414b033ec9793fe458fb4
+  aws-sdk-vpclattice (1.53.0) sha256=862fa43ef836bcbd82aa8b8452bb8bb58c8e1b9dd71f109d299a2513e4366a46
+  aws-sdk-waf (1.96.0) sha256=a064fc20dcc1748d5cccb6090190628db7c73068f1b8619c5e38fba135c37c47
+  aws-sdk-wafregional (1.97.0) sha256=21723739138826c816a3e83eb7b5098bd5800bad30664e85ec71c6654820824f
+  aws-sdk-wafv2 (1.137.0) sha256=30ba25a4dc25e0050c4c536b67952b5fe753ac3aa0d373c6fa1ba6fe69023294
+  aws-sdk-wellarchitected (1.72.0) sha256=8038cf90fe42f7b20f01dbf625def0c06ed27c519d8d08ce626d582e537b48a8
+  aws-sdk-wickr (1.11.0) sha256=c29f1d46b36e11706d8fee4666704f425933c2a80e121423f04213b15c73c490
+  aws-sdk-workdocs (1.92.0) sha256=7e4a5dfe51a0b9f08ea07de99dc618b65a75bd0527d5e233fa2a67593b10438e
+  aws-sdk-workmail (1.101.0) sha256=7b37797cbb652aa3a8d9e315ef3e7074dc7d6673d16b1b2b8cefc7bd400918cf
+  aws-sdk-workmailmessageflow (1.69.0) sha256=8c93cf8e0f9085d97fb265bbca1b47cffa56ab86e34d33e91f5f376132b13ba1
+  aws-sdk-workspaces (1.164.0) sha256=1938f3be13fd3df89210cece7e0825e0d9215d2db0c6f2782d6567ef02ed3ad6
+  aws-sdk-workspacesinstances (1.19.0) sha256=ef6cdfa043f239c26082fe755eba735b1fe4cc29ff8eafccdfd8f7b0e296d213
+  aws-sdk-workspacesthinclient (1.47.0) sha256=446923a85477866bc2b0598b81ae20c73cba34b8550de9596f86f455e4e84905
+  aws-sdk-workspacesweb (1.66.0) sha256=97869079076bfa53c94585c3126d31877e505c4744a324ba6cd2e53cb795f0ee
+  aws-sdk-xray (1.102.0) sha256=f24d5cc78518080d550f43c0bafc80808341aae09d5332d2d956c669dbcfaa8b
+  aws-sigv2 (1.3.1) sha256=dd7b72e867d611a0da310ebd8bee2071c6c9d4cc70f7e3d2526d1c1fa24c9410
   aws-sigv4 (1.12.1) sha256=6973ff95cb0fd0dc58ba26e90e9510a2219525d07620c8babeb70ef831826c00
   base64 (0.2.0) sha256=0f25e9b21a02a0cc0cea8ef92b2041035d39350946e8789c562b2d1a3da01507
   bcrypt (3.1.22) sha256=1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032

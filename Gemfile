@@ -90,6 +90,7 @@ gem 'elasticsearch', '~> 8.0'
 gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
 gem 'namae'
 gem 'nameable'
+gem 'aws-sdk'
 
 # Geospatial libraries
 gem 'concurrent-ruby', '1.3.4'

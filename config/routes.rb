@@ -41,5 +41,14 @@ Rails.application.routes.draw do
   get "health" => "rails/health#show", as: :rails_health_check
   
   # Default route for static front-end
+  #
+  # Explicit root: is required alongside the *path catch-all below, not
+  # redundant with it - with no root defined, Rails silently claims GET "/"
+  # for its own internal rails/welcome#index controller instead of ever
+  # reaching *path, which is why "/" 404s (that controller's production
+  # behavior) while every other unmatched path correctly falls through to
+  # fallback_index_html. Confirmed directly via
+  # Rails.application.routes.recognize_path("/") before this line existed.
+  root to: "application#fallback_index_html"
   get '*path', to: "application#fallback_index_html"
 end

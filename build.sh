@@ -5,27 +5,6 @@ echo "Building image"
 
 docker build \
        --file Dockerfile-ecds \
-       --build-arg AUTHENTICATION_EXPIRATION=$AUTHENTICATION_EXPIRATION \
-       --build-arg DATABASE_HOST=$DATABASE_HOST \
-       --build-arg DATABASE_NAME=$DATABASE_NAME \
-       --build-arg DATABASE_PASSWORD=$DATABASE_PASSWORD \
-       --build-arg DATABASE_PORT=5432 \
-       --build-arg DATABASE_USERNAME=$DATABASE_USERNAME \
-       --build-arg HOSTNAME=$HOSTNAME \
-       --build-arg IIIF_CLOUD_API_KEY=$IIIF_CLOUD_API_KEY \
-       --build-arg IIIF_CLOUD_PROJECT_ID=$IIIF_CLOUD_PROJECT_ID \
-       --build-arg IIIF_CLOUD_URL=$IIIF_CLOUD_URL \
-       --build-arg REACT_APP_IIIF_MANIFEST_ITEM_LIMIT=$REACT_APP_IIIF_MANIFEST_ITEM_LIMIT \
-       --build-arg REACT_APP_MAP_TILER_KEY=$REACT_APP_MAP_TILER_KEY \
-       --build-arg SECRET_KEY_BASE=$SECRET_KEY_BASE \
-       --build-arg ELASTICSEARCH_HOST=$ELASTICSEARCH_HOST \
-       --build-arg ELASTICSEARCH_API_KEY=$ELASTICSEARCH_API_KEY \
-       --build-arg GEONAMES_USER=$GEONAMES_USER \
-       --build-arg AWS_REGION=$AWS_REGION \
-       --build-arg CD_AWS_ACCESS_KEY_ID=$CD_AWS_ACCESS_KEY_ID \
-       --build-arg CD_AWS_SECRET_ACCESS_KEY=$CD_AWS_SECRET_ACCESS_KEY \
-       --build-arg RAILS_ENV=development \
-       --build-arg AWS_BUCKET_NAME=ecds-cantaloupe \
        -t core-data-cloud \
        .
 

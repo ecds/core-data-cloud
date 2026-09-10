@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Configure AWS credentials from AWS account
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: us-east-1
@@ -29,6 +29,7 @@ jobs:
           AWS_ECS_CLUSTER: ${{ secrets.AWS_ECS_CLUSTER }}
           AWS_ECS_SERVICE: ${{ secrets.AWS_ECS_SERVICE }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+          VITE_MAP_TILER_KEY: ${{ secrets.VITE_MAP_TILER_KEY }}
 
         run: |
           touch .env

@@ -1,11 +1,12 @@
 GIT
   remote: https://github.com/ecds/core-data-connector-open-geographies.git
-  revision: 7dc669082ae77659946d169184f70ee55efc0c7b
-  ref: 7dc6690
+  revision: 8fca1199a50e3cf7df6208d0479bc521993b4a1b
+  ref: 8fca119
   specs:
     core_data_connector_open_geographies (0.1.0)
       elasticsearch (~> 8)
       rails (>= 8.0.2)
+      rgeo-geojson (~> 2.2)
       searchkick (~> 5.4.0)
 
 GIT

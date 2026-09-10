@@ -5,6 +5,7 @@ echo "Building image"
 
 docker build \
        --file Dockerfile-ecds \
+       --build-arg VITE_MAP_TILER_KEY=$VITE_MAP_TILER_KEY \
        -t core-data-cloud \
        .
 

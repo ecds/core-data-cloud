@@ -83,8 +83,13 @@ group :development, :test do
 end
 
 # ECDS STUFF
-# gem 'core_data_connector_open_geographies', path: '/Users/jay/data/core-data-connector-open-geographies'
-gem 'core_data_connector_open_geographies', git: 'https://github.com/ecds/core-data-connector-open-geographies.git', ref: '8fca119'
+# gem 'open_geographies_fairdata', path: '/Users/jay/data/core-data-connector-open-geographies'
+# TODO: ref is stale - predates this session's OpenGeographies rename (both the
+# module and this gem's own package name/repo, ecds/core-data-connector-open-geographies
+# -> ecds/open-geographies-fairdata) entirely. Bump to a real commit once that work
+# is pushed - this ref won't resolve against the renamed repo's history correctly
+# until then.
+gem 'open_geographies_fairdata', git: 'https://github.com/ecds/open-geographies-fairdata.git', ref: '67d0728'
 # Elasticserch
 gem 'elasticsearch', '~> 8.0'
 gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.

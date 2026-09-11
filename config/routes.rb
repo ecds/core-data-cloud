@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web, at: '/sidekiq'
   mount TripleEyeEffable::Engine, at: '/triple_eye_effable'
   mount UserDefinedFields::Engine, at: '/user_defined_fields'
-  mount CoreDataConnector::OpenGeographies::Engine, at: '/open_geographies'
+  mount OpenGeographies::Engine, at: '/open_geographies'
   
   namespace :ecds do
     get 'media/index'

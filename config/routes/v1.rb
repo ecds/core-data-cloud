@@ -86,6 +86,20 @@ namespace :public, only: [:index, :show] do
       get :descriptors, on: :member
     end
 
+    # ECDS addition, temporary: to be removed or proposed to Performant.
+    resources :taxonomies do
+      resources :events, only: :index
+      resources :instances, only: :index
+      resources :items, only: :index
+      resources :manifests
+      resources :media_contents, only: :index
+      resources :organizations, only: :index
+      resources :people, only: :index
+      resources :places, only: :index
+      resources :taxonomies, only: :index
+      resources :works, only: :index
+    end
+
     resources :works do
       resources :events, only: :index
       resources :instances, only: :index

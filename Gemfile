@@ -18,7 +18,7 @@ gem 'rgeo-geojson', '~> 2.2'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 8.0.2'
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Windows does not include zone info files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -84,13 +84,8 @@ end
 
 # ECDS STUFF
 # gem 'open_geographies_fairdata', path: '/Users/jay/data/core-data-connector-open-geographies'
-# TODO: ref is stale - predates this session's OpenGeographies rename (both the
-# module and this gem's own package name/repo, ecds/core-data-connector-open-geographies
-# -> ecds/open-geographies-fairdata) entirely. Bump to a real commit once that work
-# is pushed - this ref won't resolve against the renamed repo's history correctly
-# until then.
-gem 'open_geographies_fairdata', git: 'https://github.com/ecds/open-geographies-fairdata.git', ref: '67d0728'
-# Elasticserch
+gem 'open_geographies_fairdata', git: 'https://github.com/ecds/open-geographies-fairdata.git', ref: 'ed8d498'
+# Elasticsearch
 gem 'elasticsearch', '~> 8.0'
 gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.
 gem 'namae'

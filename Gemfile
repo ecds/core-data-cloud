@@ -87,7 +87,7 @@ end
 gem 'open_geographies_fairdata', git: 'https://github.com/ecds/open-geographies-fairdata.git', ref: 'ed8d498'
 # Open Geographies platform engine: the atlas wizard and console, sites, dataset
 # imports and the by-slug public atlas API. Runs on top of open_geographies_fairdata.
-gem 'open_geographies_platform', git: 'https://github.com/ecds/open-geographies-engine.git', ref: '5a4b34a'
+gem 'open_geographies_platform', git: 'https://github.com/ecds/open-geographies-engine.git', ref: '0b7a73b'
 # Elasticsearch
 gem 'elasticsearch', '~> 8.0'
 gem 'faraday-typhoeus', '~> 1.0' # Needed to use Elasticsearch in rake tasks.

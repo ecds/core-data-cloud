@@ -1,14 +1,32 @@
+# Builds tippecanoe and tile-join for the PMTiles tasks. Debian trixie matches
+# the ruby:4.0.5 base, so the binaries link against the same libraries.
+FROM debian:trixie-slim AS tippecanoe
+ARG TIPPECANOE_VERSION=2.79.0
+RUN apt-get update -qq && apt-get install -y --no-install-recommends build-essential ca-certificates git libsqlite3-dev zlib1g-dev
+RUN git clone --depth 1 --branch "${TIPPECANOE_VERSION}" https://github.com/felt/tippecanoe.git /src/tippecanoe \
+  && make -C /src/tippecanoe -j"$(nproc)" \
+  && make -C /src/tippecanoe install
+
 # Use the Ruby 4.0.5 image from Docker Hub as the base image (https://hub.docker.com/_/ruby)
 FROM ruby:4.0.5
 
 RUN ls /etc
-RUN apt update -qq && apt install -y postgresql-client git libvips curl cron vim libgeos-dev
+RUN apt update -qq && apt install -y postgresql-client git libvips curl cron vim libgeos-dev sqlite3
+
+# Tile tools used by og_pmtiles:create: tippecanoe and tile-join from the stage
+# above, and the pmtiles CLI from its GitHub release.
+COPY --from=tippecanoe /usr/local/bin/tippecanoe /usr/local/bin/tile-join /usr/local/bin/
+ARG PMTILES_VERSION=1.31.2
+ARG TARGETARCH
+RUN case "${TARGETARCH}" in arm64) arch=arm64 ;; *) arch=x86_64 ;; esac \
+  && curl -fsSL "https://github.com/protomaps/go-pmtiles/releases/download/v${PMTILES_VERSION}/go-pmtiles_${PMTILES_VERSION}_Linux_${arch}.tar.gz" \
+  | tar -xz -C /usr/local/bin pmtiles \
+  && tippecanoe --version && command -v tile-join && pmtiles version && sqlite3 --version
+
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt install nodejs
 RUN npm install --global yarn
 
 WORKDIR /app
-
-ARG VITE_MAP_TILER_KEY
 
 COPY . .
 
@@ -32,7 +50,6 @@ ENV NODE_OPTIONS="--max-old-space-size=16384"
 ENV RAILS_MAX_THREADS=5
 ENV REACT_APP_IIIF_MANIFEST_ITEM_LIMIT=1000
 ENV VITE_IIIF_MANIFEST_ITEM_LIMIT=1000
-ENV VITE_MAP_TILER_KEY=$VITE_MAP_TILER_KEY
 
 # Build and deploy React front-end
 RUN yarn config set network-timeout 600000 -g

@@ -28,6 +28,7 @@ jobs:
           AWS_ECR: ${{ secrets.AWS_ECR }}
           AWS_ECS_CLUSTER: ${{ secrets.AWS_ECS_CLUSTER }}
           AWS_ECS_SERVICE: ${{ secrets.AWS_ECS_SERVICE }}
+          AWS_ECS_SIDEKIQ_SERVICE: ${{ secrets.AWS_ECS_SIDEKIQ_SERVICE }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
 
         run: |

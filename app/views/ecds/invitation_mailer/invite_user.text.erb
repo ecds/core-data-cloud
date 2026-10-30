@@ -1,0 +1,14 @@
+Hello <%= @user.name.presence || @user.email %>,
+
+<% if @project -%>
+You've been invited to the <%= @project.name %> project on FairData.
+<% else -%>
+You've been invited to FairData.
+<% end -%>
+
+Sign in at <%= @url %> with:
+
+  Email: <%= @user.email %>
+  Temporary password: <%= @password %>
+
+You'll be asked to choose a new password when you first sign in.

@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+# Log in first: the build pulls fair-data-cloud-base from ECR.
+echo "Logging in to AWS"
+aws ecr get-login-password --region us-east-1 |
+	docker login --username AWS --password-stdin "${AWS_ECR}"
+echo "Logged in successfully"
+
 echo "Building image"
 
 docker build \
@@ -10,11 +16,6 @@ docker build \
 	--file Dockerfile-ecds \
 	-t core-data-cloud \
 	.
-
-echo "Logging in to AWS"
-aws ecr get-login-password --region us-east-1 |
-	docker login --username AWS --password-stdin "${AWS_ECR}"
-echo "Logged in successfully"
 
 echo "Tagging image with latest"
 docker tag core-data-cloud "${AWS_ECR}/core-data-cloud:latest"

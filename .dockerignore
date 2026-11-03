@@ -1,4 +1,35 @@
 .git
 client/node_modules
 client/build
-.dockerignore
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-*
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
+
+
+# The front-end build fills public/ (yarn deploy), so leave out local builds,
+# including stale ones and their sourcemaps.
+/public/*
+
+# Local data, editor and dependency files the image doesn't use.
+/_data
+/.ruby-lsp
+/node_modules

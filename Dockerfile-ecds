@@ -2,8 +2,11 @@
 # etc.) come from the base image built from Dockerfile-ecds-base by
 # build-base.sh. Pass BASE_IMAGE to build on a different tag.
 ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+
+# Declared after FROM so the build stage can see it; an ARG before FROM only
+# applies to the FROM line.
 ARG VITE_MAP_TILER_KEY
-FROM 310867200447.dkr.ecr.us-east-1.amazonaws.com/fair-data-cloud-base:latest
 
 WORKDIR /app
 

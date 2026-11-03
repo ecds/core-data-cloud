@@ -5,8 +5,8 @@ echo "Building image"
 
 docker build \
 	--build-arg BASE_IMAGE="${AWS_ECR}/fair-data-cloud-base:latest" \
-	--build-arg VITE_MAP_TILER_KEY="${VITE_MAP_TILER_KEY}"
---platform linux/amd64 \
+	--build-arg VITE_MAP_TILER_KEY="${VITE_MAP_TILER_KEY}" \
+	--platform linux/amd64 \
 	--file Dockerfile-ecds \
 	-t core-data-cloud \
 	.

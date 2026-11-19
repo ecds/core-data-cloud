@@ -11,8 +11,8 @@ GIT
 
 GIT
   remote: https://github.com/ecds/open-geographies-fairdata.git
-  revision: 9a14d0586a40b08d302e82fd058e4ce54a7d022e
-  ref: 9a14d0586a40b08d302e82fd058e4ce54a7d022e
+  revision: 46a8314a9eae20f646dbeb621140cbeb4d63b0c8
+  ref: 46a8314a9eae20f646dbeb621140cbeb4d63b0c8
   specs:
     open_geographies_fairdata (0.1.0)
       aws-sdk-cloudfront (~> 1)

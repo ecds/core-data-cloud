@@ -84,7 +84,7 @@ end
 
 # ECDS STUFF
 # gem 'open_geographies_fairdata', path: '/Users/jay/data/core-data-connector-open-geographies'
-gem 'open_geographies_fairdata', git: 'https://github.com/ecds/open-geographies-fairdata.git', ref: '46a8314a9eae20f646dbeb621140cbeb4d63b0c8'
+gem 'open_geographies_fairdata', git: 'https://github.com/ecds/open-geographies-fairdata.git', ref: 'f46e76f311d4d11ca945ef2b8231a3bfdf4aa163'
 # Open Geographies platform engine: the atlas wizard and console, sites, dataset
 # imports and the by-slug public atlas API. Runs on top of open_geographies_fairdata.
 gem 'open_geographies_platform', git: 'https://github.com/ecds/open-geographies-engine.git', ref: 'd1b794e'

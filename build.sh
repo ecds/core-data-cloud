@@ -73,10 +73,10 @@ if [ "${EXIT_CODE}" != "0" ]; then
 fi
 echo "Migrations finished"
 
-# echo "Restarting web"
-# aws ecs update-service --cluster "${AWS_ECS_CLUSTER}" --service "${AWS_ECS_SERVICE}" --force-new-deployment --region "${AWS_REGION}"
+echo "Restarting web"
+aws ecs update-service --cluster "${AWS_ECS_CLUSTER}" --service "${AWS_ECS_SERVICE}" --force-new-deployment --region "${AWS_REGION}"
 
-# if [ -n "${AWS_ECS_SIDEKIQ_SERVICE}" ]; then
-# 	echo "Restarting Sidekiq"
-# 	aws ecs update-service --cluster "${AWS_ECS_CLUSTER}" --service "${AWS_ECS_SIDEKIQ_SERVICE}" --force-new-deployment --region "${AWS_REGION}"
-# fi
+if [ -n "${AWS_ECS_SIDEKIQ_SERVICE}" ]; then
+	echo "Restarting Sidekiq"
+	aws ecs update-service --cluster "${AWS_ECS_CLUSTER}" --service "${AWS_ECS_SIDEKIQ_SERVICE}" --force-new-deployment --region "${AWS_REGION}"
+fi

@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/ecds/open-geographies-engine.git
-  revision: d1b794e5784d82e20764d4d7fe84bb25d47ac752
-  ref: d1b794e
+  revision: 41b6afc45defb6b8c29802e19cb81f158635fb0f
+  ref: 41b6afc
   specs:
     open_geographies_platform (0.1.0)
       rails (>= 8.1, < 9)

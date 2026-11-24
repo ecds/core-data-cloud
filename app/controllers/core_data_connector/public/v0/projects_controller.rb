@@ -18,7 +18,7 @@ module CoreDataConnector
           descriptors = []
 
           query = ProjectModelRelationship
-                    .preload(:user_defined_fields, :primary_model, :related_model)
+                    .preload(:user_defined_fields, :primary_model)
                     .joins(:primary_model)
                     .where(primary_model: {
                       project_id: params[:id]
@@ -28,9 +28,7 @@ module CoreDataConnector
             descriptors << {
               identifier: project_model_relationship.uuid,
               label: project_model_relationship.name,
-              context: project_model_relationship.primary_model.name,
-              # ECDS addition, temporary: to be removed or proposed to Performant.
-              related_project_id: project_model_relationship.related_model.project_id
+              context: project_model_relationship.primary_model.name
             }
 
             project_model_relationship.user_defined_fields.each do |user_defined_field|
